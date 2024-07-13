@@ -1,0 +1,9 @@
+@use "../../styles/partials/variables" as *;
+
+.festivals {
+    width: 100%;
+    height: 100vh;
+    background-color: $Background-color;
+
+    text-align: center;
+}

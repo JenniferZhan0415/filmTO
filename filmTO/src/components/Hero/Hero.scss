@@ -1,0 +1,44 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/mixins" as *;
+
+.hero {
+    width: 100%;
+    height: auto;
+    background-color: $Background-color;
+    padding: 0 2rem 3rem 2rem;
+    @include flex-basic(column, center, center);
+    @include tablet {
+        @include flex-basic(row, center, space-between);
+    }
+
+    &__title {
+        text-align: center;
+    }
+
+    &__content {
+        @include tablet {
+            padding-left: 1rem;
+            @include flex-basic(column, flex-start, space-between);
+            max-width: 50%;
+        }
+    }
+
+    &__image-box {
+        padding-top: 2rem;
+        @include flex-basic(column, center, center);
+        @include tablet {
+            width: 50%;
+            padding-right: 1rem;
+        }
+    }
+    &__image {
+        width: 100%;
+        max-width: 25rem;
+        height: auto;
+        @include tablet {
+            width: 100%;
+            max-width: 35rem;
+            height: auto;
+        }
+    }
+}
