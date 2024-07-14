@@ -31,7 +31,7 @@ Why is your app needed? Background information around any pain points or other r
 Who will use your app? How will they use it? Any special considerations that your app must take into account.
 
 我的 app 给到多伦多所有的电影爱好者，
-给那些不仅仅满足于在 cineplex 看商业片的影迷，
+给那些不仅仅满足于在 Cineplex 看商业片的影迷，
 他们接受不同文化的电影，支持艺术和独立电影院。
 
 影迷只需要打开网站，就可以看到迷影地图，
@@ -98,7 +98,7 @@ Does your project include any login or user profile functionality? If so, descri
 
 ## Roadmap
 
-Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+Scope your project as a sprint. Break down the tasks that will need to be completed and map out time frames for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
 
 sprint-1: responsive page design, at least three sections/pages
 sprint-2: add clickable functions & API data
