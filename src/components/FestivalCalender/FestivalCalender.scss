@@ -14,14 +14,21 @@
 
     &__box {
         width: 100%;
-        max-width: 50rem;
-        min-width: 22rem;
+        min-width: 20rem;
+        @include tablet {
+            max-width: 50rem;
+        }
     }
     &__month {
         display: inline-block;
         width: auto;
-        margin: 0.5rem;
-        padding: 0 2rem;
+        margin: 0.25rem;
+        padding: 0 0.5rem;
+        height: 2rem;
+        @include tablet {
+            padding: 0 2rem;
+            height: 2rem;
+        }
     }
     &__month--active {
         border: 2px solid $DarkBlue;

@@ -1,4 +1,5 @@
 import './FestivalCalender.scss'
+import FestivalList from '../FestivalList/FestivalList'
 
 export default function FestivalCalender(){
     return(
@@ -11,13 +12,13 @@ export default function FestivalCalender(){
                 <div className='Calender__box'>
                     <button className='Calender__month'>Jan</button>
                     <button className='Calender__month'>Feb</button>
-                    <button className='Calender__month'>March</button>
-                    <button className='Calender__month'>April</button>
+                    <button className='Calender__month'>Mar</button>
+                    <button className='Calender__month'>Apr</button>
                     <button className='Calender__month'>May</button>
-                    <button className='Calender__month'>June</button>
+                    <button className='Calender__month'>Jun</button>
                  </div>
                  <div  className='Calender__box'>
-                    <button className='Calender__month'>July</button>
+                    <button className='Calender__month'>Jul</button>
                     <button className='Calender__month Calender__month--active'>Aug</button>
                     <button className='Calender__month'>Sep</button>
                     <button className='Calender__month'>Oct</button>
@@ -25,6 +26,7 @@ export default function FestivalCalender(){
                     <button className='Calender__month'>Dec</button>
                  </div>
             </div>
+            <FestivalList />
         </section>
        
         </>
