@@ -1,5 +1,5 @@
 import "./Hero.scss"
-import filmTOLogo from "../../assets/logo/filmTO_logo.png"
+import filmTOLogo from "@assets/logo/filmTO_logo.png"
 
 export default function Hero(){
     return(
