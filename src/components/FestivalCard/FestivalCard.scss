@@ -5,12 +5,16 @@
     position: relative;
     margin: 2rem 1rem;
     @include flex-basic(column, center, center);
+    @include tablet {
+        @include flex-basic(row, center, space-evenly);
+    }
 
     &__box {
+        margin: 1rem;
         position: relative;
         box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-        height: 28rem;
-        width: 20rem;
+        height: 22rem;
+        width: 15rem;
         overflow: hidden;
         border-radius: 10px;
     }
@@ -26,7 +30,7 @@
             cursor: pointer;
             opacity: 100%;
             // mask-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(255, 255, 255, 0.9));
-            border-width: 3px;
+            border-width: 2px;
             animation: borderColorChange 5s infinite;
             transition: border-width 0.2s;
         }
@@ -38,7 +42,11 @@
         width: 2rem;
         color: #fff;
         bottom: 1rem;
-        left: 13rem;
+        left: 8rem;
+        @include tablet {
+            bottom: -1rem;
+            left: 8rem;
+        }
     }
 }
 
