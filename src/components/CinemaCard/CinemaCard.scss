@@ -1,0 +1,30 @@
+.cinema {
+    width: 100%;
+    &__description {
+        display: flex;
+        flex-direction: column;
+    }
+    &__title {
+        text-align: center;
+    }
+    &__image-box {
+        margin: 1rem;
+        overflow: hidden;
+    }
+    &__image {
+        width: 100%;
+        border-radius: 4px;
+    }
+    &__info {
+        margin: 1rem;
+    }
+    &__details {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+    }
+    &__about {
+        margin-top: 1rem;
+    }
+}

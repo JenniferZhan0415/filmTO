@@ -10,15 +10,15 @@ export default function FestivalCard (){
         <div className="card">
             <div className="card__box">
                 <img className="card__image" src={OutdoorShowNew} alt="outdoor film festival photo" />
-                <h3  className="card__title">Toronto outdoor picture show</h3>
+                <h3  className="card__title">Toronto Outdoor Picture Show</h3>
             </div>
             <div className="card__box">
                 <img className="card__image" src={OutdoorShowNew} alt="outdoor film festival photo" />
-                <h3  className="card__title">Toronto outdoor picture show</h3>
+                <h3  className="card__title">Toronto Outdoor Picture Show</h3>
             </div>
             <div className="card__box">
                 <img className="card__image" src={OutdoorShowNew} alt="outdoor film festival photo" />
-                <h3  className="card__title">Toronto outdoor picture show</h3>
+                <h3  className="card__title">Toronto Outdoor Picture Show</h3>
             </div>
         </div>
         </>
