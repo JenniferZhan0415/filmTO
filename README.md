@@ -49,6 +49,7 @@ List the functionality that your app will include. These can be written as user 
 A Map of cinemas
 
 用户留言，分享电影节和电影院的感受
+using giscus
 leave comments function for fans to say something “If you think this filmTO is useful, please leave a message
 
 一个电影节日历
