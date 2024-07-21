@@ -5,10 +5,25 @@
     width: 100%;
     height: auto;
     background-color: $Background-color;
-    padding: 0 2rem 3rem 2rem;
+    padding: 2rem;
     @include flex-basic(column, center, center);
     @include tablet {
-        @include flex-basic(row, center, space-between);
+        @include flex-basic(row, center, center);
+    }
+
+    &__container {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        // border: 1px dashed $Mercury;
+        // border-radius: 15px;
+        // box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        transform: rotate(-2deg);
+        position: relative;
+        @include tablet {
+            flex-direction: row;
+            max-width: 60rem;
+        }
     }
 
     &__title {
@@ -16,18 +31,36 @@
     }
 
     &__content {
+        padding: 1rem;
+        border: 1px dashed $Mercury;
+        border-radius: 15px;
+        box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
         @include tablet {
+            width: 70%;
             padding-left: 1rem;
-            @include flex-basic(column, flex-start, space-between);
-            max-width: 50%;
+            // @include flex-basic(column, flex-start, space-between);
+            // max-width: 50%;
+            border-top: 1px dashed $Mercury;
+            border-bottom: 1px dashed $Mercury;
+            border-right: 1px dashed $Mercury;
+            border-radius: 15px;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
         }
     }
 
     &__image-box {
-        padding-top: 2rem;
+        padding: 1rem;
+        border-top: 1px dashed $Mercury;
+        border-left: 1px dashed $Mercury;
+        border-right: 1px dashed $Mercury;
+        box-shadow: 5px -5px 10px rgba(0, 0, 0, 0.2);
+        border-radius: 15px;
         @include flex-basic(column, center, center);
         @include tablet {
-            width: 50%;
+            width: 30%;
+            border: 1px dashed $Mercury;
+            box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
             padding-right: 1rem;
         }
     }
