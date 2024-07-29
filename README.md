@@ -60,6 +60,8 @@ Add event/movie show time into calendar
 
 往年电影节获奖影片推荐
 电影 API 引入
+推荐 Youtube 电影影碟频道
+使用 Youtube API
 
 ## Implementation
 
