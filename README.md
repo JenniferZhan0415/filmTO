@@ -1,6 +1,6 @@
 # Project Title:
 
-🎥 filmTO 🎞️
+## 🎥 filmTO 🎞️
 
 ## Overview
 
@@ -34,9 +34,7 @@ Who will use your app? How will they use it? Any special considerations that you
 
 List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
 
-- As a user, I want to be able to find the closest art house cinema near my current location.
-
-- As a user, I want to be able to find the closest art house cinema near any given location.
+- As a user, I want to be able to find the closest art house cinema near my current or any given location.
 
 - As a user, I want to know which film festivals are currently happening.
 
@@ -44,17 +42,15 @@ List the functionality that your app will include. These can be written as user 
 
 - As a user, I want to add interesting film festival events to my calendar.
 
-- As a user, I want to be able to create an account to save and manage my favorite film festivals and cinemas.
+- As a user, I want to see the lated news about the cinemas and film festivals.
 
-- As a user, I want to be able to log in to my account to save and manage my favorite film festivals and cinemas.
+- As a user, I want to be able to create an account and log in to manage my liked film festivals, cinemas and articles.
 
-- As a logged-in user, I want to be able to rate a visited cinema or film festival out of 5 stars.
+- As a logged-in user, I want to be able to like(save) or unlike a visited cinemas, film festivals or articles.
 
-- As a logged-in user, I want to be able to update my rating of a visited cinema or film festival out of 5 stars.
+- As a logged-in user, I want to be able to comment on a visited cinemas, film festivals or articles.
 
-- As a logged-in user, I want to be able to comment on a visited cinema or film festival.
-
-- As a logged-in user, I want to be able to update my comment on a visited cinema or film festival.
+- As a logged-in user, I want to be able to update or delete my comment on a visited cinemas, film festivals or articles.
 
 - As a logged-in user, I want to search for popular films and related video content from YouTube channels.
 
@@ -81,23 +77,28 @@ List technologies that will be used in your app, including any libraries to save
 
 List any external sources of data that will be used in your app.
 
-Google API
-OMDb API
-Youtube API
+- Google Maps API for the cinema map
+- Google Calendar API for add film events to user's calendar
+- OMDb API for display movies
+- Youtube API for search movie related contents
+- OpenAI API for search the popular films
 
 ### Sitemap
 
 List the pages of your app with brief descriptions. You can show this visually, or write it out.
 
 - Home page
-- Cinema Map
-  - View + comment a Festival
-- Film Festival Calendar
-  - View + comment a Festival
-- Film Recommendations
-- Register
-- Login
-- Account
+- Cinema map
+  - View + comment a Cinema + rating + save
+- Film festival calendar
+  - View + comment a Festival + rating + save + add to calendar
+- Film recommendations
+  - search with key words( favorite books or movies)
+- Film related content from Youtube channels
+  - search with key words( favorite books or movies)
+- Register page
+- Login page
+- Account dashboard
 
 ### Mockups
 
@@ -109,15 +110,15 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 
 #### Film Festival Calendar
 
-#### Film Festival Reports and comments
+#### Film Search and Recommendations
 
-#### Film Recommendations
+#### Film Related Contents Search and Recommendations
 
 #### Register Page
 
 #### Login Page
 
-#### Account Page
+#### Account Dashboard Page
 
 ### Data
 
@@ -131,14 +132,21 @@ Describe your data and the relationships between them. You can show this visuall
   - website (varchar)
   - longitude (decimal)
   - latitude (decimal)
+  - likes (int)
+  - comments
+    - user_id (int)
+    - comment(varchar)
+    - likes (int)
+    - date（date）
 
 - festival
 
   - id (int)
   - name (varchar)
   - date (varchar)
-  - address (varchar)
+  - location (varchar)
   - website (varchar)
+  - likes (int)
   - comments
     - user_id (int)
     - comment(varchar)
@@ -149,10 +157,19 @@ Describe your data and the relationships between them. You can show this visuall
     - content (varchar)
     - images (varchar)
     - date（date）
+    - likes (int)
+    - comments
+      - user_id (int)
+      - date（date）
+      - likes (int)
 
 - user
   - id (int)
   - name (varchar)
+  - saved cinemas
+  - saved film festivals
+  - commented cinemas
+  - commented film festivals
 
 ### Endpoints
 
@@ -483,3 +500,7 @@ If so, describe how authentication/authorization will be implemented.
 - add likes, delete for users comments
 - add content reviews
 - Unit and Integration Tests
+  film articles and reviews
+  make comment on cinema film festival and articles
+
+aritcle views
