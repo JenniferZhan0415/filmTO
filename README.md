@@ -132,9 +132,11 @@ Describe your data and the relationships between them. You can show this visuall
   - website (varchar)
   - longitude (decimal)
   - latitude (decimal)
+  - image
   - likes (int)
   - comments
     - user_id (int)
+    - user_name
     - comment(varchar)
     - likes (int)
     - date（date）
@@ -146,30 +148,37 @@ Describe your data and the relationships between them. You can show this visuall
   - date (varchar)
   - location (varchar)
   - website (varchar)
+  - image
   - likes (int)
   - comments
     - user_id (int)
+    - user_name
     - comment(varchar)
     - likes (int)
     - date（date）
   - articles
     - user_id (int)
+    - user_name
     - content (varchar)
     - images (varchar)
     - date（date）
+    - image
     - likes (int)
     - comments
       - user_id (int)
+      - user_name
       - date（date）
       - likes (int)
 
 - user
-  - id (int)
-  - name (varchar)
-  - saved cinemas
-  - saved film festivals
-  - commented cinemas
-  - commented film festivals
+  - user_id (int)
+  - user_name (varchar)
+  - user_email
+  - user_password
+  - user_avatar
+  - commented and liked(saved) cinemas
+  - commented and liked(saved) film festivals
+  - commented and liked(saved) articles
 
 ### Endpoints
 
@@ -193,19 +202,21 @@ Response:
         "name": "TIFF Lightbox",
         "address": "350 King St W, Toronto, ON M5V 3X5",
         "website": 'tiff.net',
-        "image":"url"
+        "likes":2,
+        "image":"url",
+        "comments":[{...}]
     },
     ...
 ]
 ```
 
-**GET /cinemas/:id**
+**GET /cinemas/:cinemaId**
 
 - Get cinemas by id
 
 Parameters:
 
-- id: cinemas id as number
+- cinemaId: cinemas id as number
 
 Response:
 
@@ -216,7 +227,56 @@ Response:
         "name": "TIFF Lightbox",
         "address": "350 King St W, Toronto, ON M5V 3X5",
         "website": 'tiff.net',
-        "image":"url"
+        "likes":2,
+        "image":"url",
+        "comments":[{...}]
+    },
+    ...
+]
+```
+
+**GET /cinemas/:cinemaId/comments**
+
+- Get comments by cinemasId
+
+Parameters:
+
+- cinemaId: cinemas id as number
+
+Response:
+
+```json
+[
+    {
+        "user_id": uuid(),
+        "user_name":"Jennifer",
+        "likes":2,
+        "date":,
+        "comments":[{...}]
+    },
+    ...
+]
+```
+
+**GET /cinemas/:cinemaId/comments/:commentId**
+
+- Get comment by cinemasId and commentId
+
+Parameters:
+
+- cinemaId: cinemas id as number
+- commentId: comment id as number
+
+Response:
+
+```json
+[
+    {
+        "user_id": uuid(),
+        "user_name": "Jennifer",
+        "likes":2,
+        "date":,
+        "comments":[{...}]
     },
     ...
 ]
@@ -229,58 +289,69 @@ Response:
 Response:
 
 ```json
-{
-    "id": uuid
+[
+  {
+    "id": uuid(),
     "name": "Toronto International Film Festival",
     "date": "Sep 5 - 15, 2024",
+    "location":"TIFF Lightbox",
     "website": "tiff.net",
+    "image":"url",
+    "likes":2,
     "comments":[{...}],
     "articles":[{...}]
-}
+  },
+  ...
+]
 ```
 
-**GET /festivals/:id**
+**GET /festivals/:festivalId**
 
-- Get festivals by id
+- Get festivals by festivalId
 
 Parameters:
 
-- id: festivals id as number
+- festivalId: festivals id as number
 
 Response:
 
 ```json
 [
     {
-    "id": uuid
+    "id": uuid(),
     "name": "Toronto International Film Festival",
     "date": "Sep 5 - 15, 2024",
+    "location":"TIFF Lightbox",
     "website": "tiff.net",
-    "comments": [{...}]
+    "image":"url",
+    "likes":2,
+    "comments":[{...}],
     "articles":[{...}]
     }
-    ...
 ]
 ```
 
-**POST festivals/:festivalId/comments**
+**GET festivals/:festivalId/comments**
 
 - Logged in user can make comment on festivals
 
 Parameters:
 
-- id: festival id
+- festivalId: festival festivalId
 
 Response:
 
 ```json
-{
-    "id": uuid
-    "name": "Toronto International Film Festival",
-    "comment": "I volunteer at TIFF every year and get to watch many movies for free. Highly recommend it!”
-    “likes”: 5
-    "date": timestamp
-}
+[
+    {
+        "user_id": uuid(),
+        "user_name": "Jennifer",
+        "likes":2,
+        "date":,
+        "comments":[{...}]
+    },
+    ...
+]
 ```
 
 **PUT festivals/:festivalId/comments/:commentsId/like**
@@ -294,7 +365,7 @@ Response:
 
 ```json
 {
-    "id": uuid
+    "user_id": uuid(),
     "name": "Toronto International Film Festival",
     "comment": "I volunteer at TIFF every year and get to watch many movies for free. Highly recommend it!”
     “likes”: 5
