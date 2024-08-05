@@ -1,24 +1,22 @@
-# Project Title:
-
-## 🎥 filmTO 🎞️
+# 🎥 filmTO 🎞️
 
 ## Overview
 
 > Q: What is your app? Brief description in a couple of sentences.
 
-> filmTO is an interactive online guide for film enthusiasts. This app highlights Toronto's historic independent art cinemas, recommends multicultural film festivals, and suggests popular movies and related YouTube channels based on users' viewing habits.
+`filmTO` is an _interactive_ online guide for film enthusiasts 🎦. This app _highlights_ Toronto's independent art cinemas with rich history, _recommends_ multicultural film festivals, and _suggests_ popular movies and related YouTube channels based on users' viewing habits.
 
 ### Problem
 
 > Q: Why is your app needed? Background information around any pain points or other reasons.
 
-> Toronto welcomes many newcomers, including students and immigrants, each year. As one of them, I understand how eager these individuals are to participate in local activities, explore different cultures, and make new friends.
+Toronto welcomes many newcomers, including students and immigrants, each year. As one of them, I understand how eager these individuals are to participate in local activities, explore different cultures, and make new friends.
 
-> As a film enthusiast, I noticed Toronto has many film-related events, but they are often hard to find. People miss out on free summer park movie festivals, TIFF under 25 free memberships, and other events because information is poorly presented online. Google searches for film festivals or art cinemas in Toronto often yield disappointing results.
+As a film enthusiast, I noticed Toronto has many film-related events, but they are often hard to find. People miss out on free summer park movie festivals, TIFF under 25 free memberships, and other events because information is poorly presented online. Google searches for film festivals or art cinemas in Toronto often yield disappointing results.
 
-> The pandemic has further impacted independent cinemas, with many struggling to stay open. For example, Revue Cinema nearly closed last month.
+The pandemic has further impacted independent cinemas, with many struggling to stay open. For example, Revue Cinema nearly closed last month.
 
-> filmTO aims to bridge this gap by connecting film enthusiasts with exciting events. It will aggregate information about film-related activities and venues, helping film festivals find their audiences and ensuring viewers never miss events they're interested in.
+`filmTO` aims to bridge this gap by connecting film enthusiasts with exciting events. It will aggregate information about film-related activities and venues, helping film festivals find their audiences and ensuring viewers never miss events they're interested in.
 
 ### User Profile
 
@@ -34,52 +32,57 @@
 
 > Q: List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
 
-- As a user, I want to be able to find the closest art house cinema near my current or any given location.
+- As a user, I want to be able to **find the closest art house cinema** near my current or any given location.
 
-- As a user, I want to know which film festivals are currently happening.
+- As a user, I want to know which **film festivals** are currently happening.
 
 - As a user, I want to know which film festivals are happening each month.
 
 - As a user, I want to add interesting film festival events to my calendar.
 
-- As a user, I want to see the latest news about the cinemas and film festivals.
+- As a user, I want to see the **latest news** about the cinemas and film festivals.
 
-- As a user, I want to be able to create an account and log in to manage my liked film festivals, cinemas and articles.
+- As a user, I want to be able to create an account and log in to manage my **liked** film festivals, cinemas and articles.
 
-- As a logged-in user, I want to be able to like(save) or unlike a visited cinemas, film festivals or articles.
+- As a logged-in user, I want to be able to **like(save)** or unlike a visited cinemas, film festivals or articles.
 
-- As a logged-in user, I want to be able to comment on a visited cinemas, film festivals or articles.
+- As a logged-in user, I want to be able to **comment** on a visited cinemas, film festivals or articles.
 
-- As a logged-in user, I want to be able to update or delete my comment on a visited cinemas, film festivals or articles.
+- As a logged-in user, I want to be able to **update or delete my comment** on a visited cinemas, film festivals or articles.
 
-- As a logged-in user, I want to search for popular films.
+- As a logged-in user, I want to **search** for popular films.
 
 ## Implementation
 
 ### Tech Stack
 
-List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
+> Q: List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
 
-- React
-- TypeScript
-- MySQL
-- Client libraries:
-  - react
-  - react-router
-  - axios
-- Server libraries:
-  - knex
-  - express
-  - bcrypt for password hashing
+#### Main Stack
+
+`filmTO` is a web app built in [Next.js](https://nextjs.org/docs):
+
+- Client:
+  - React with TypeScript (for functionalities)
+  - [NextUI](https://nextui.org/docs/guide/introduction) with [TailwindCSS](https://tailwindcss.com/docs/installation) (for styles)
+  - [Zustand](https://docs.pmnd.rs/zustand/getting-started/introduction) (for state management)
+  - [react-query](https://tanstack.com/query/latest/docs/framework/react/overview) (for API fetching)
+
+---
+
+- Server:
+  - Node with TypeScript (for server-side code)
+  - MySQL with [Drizzle](https://orm.drizzle.team/docs/get-started-mysql) (for database and ORM)
+  - [LangChain](https://js.langchain.com/v0.1/docs/guides/deployment/nextjs/) (for fetching LLMs)
 
 ### APIs
 
 List any external sources of data that will be used in your app.
 
-- Google Maps API for the cinema map
-- Google Calendar API for add film events to user's calendar
-- OMDb API for display movies
-- OpenAI API for search the popular films
+- [Google Maps API](https://developers.google.com/maps) for the cinema map
+- [Google Calendar API](https://developers.google.com/calendar/api/guides/overview) for add film events to user's calendar
+- [OMDb API](https://www.omdbapi.com/) / [TMDB API](https://www.themoviedb.org/) for display movies
+- [OpenAI API](https://platform.openai.com/docs/overview) for search the popular films
 
 ### Sitemap
 
@@ -123,48 +126,59 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 
 Describe your data and the relationships between them. You can show this visually using diagrams, or write it out.
 
-- cinema
+- Cinema
 
-  - id (int)
+  - id (int -- prmiry key)
   - name (varchar)
   - address (varchar)
+  - description (text)
   - website (varchar)
   - longitude (decimal)
   - latitude (decimal)
   - image
   - likes (int)
 
-- festival
+- Festival
 
-  - id (int)
+  - id (int -- primary key)
   - name (varchar)
   - date (varchar)
   - location (varchar)
+  - description (text)
   - website (varchar)
   - image
   - likes (int)
 
-- comment
+- Comment
 
-  - id(int)
-  - commentableId (int -- foreign key)
-  - commentableType (varchar)
-  - user_id (int -- foreign key)
+  - id (int -- primary key)
+  - festivalId (int -- foreign key)
+  - cinemaId (int -- foreign key)
+  - articleId (int -- foreign key)
+  - userId (int -- foreign key)
+  - content (text)
   - likes (int)
-  - comment(varchar)
 
-- user
+- Like
 
-  - user_id (int)
+  - id (int -- primary key)
+  - festivalId (int -- foreign key)
+  - cinemaId (int -- foreign key)
+  - articleId (int -- foreign key)
+  - userId (int -- foreign key)
+
+- User
+
+  - user_id (int -- primary key)
   - user_name (varchar)
   - user_email (varchar)
   - user_password (varchar/int)
-  - liked(saved) cinemaId (int -- foreign key)
-  - liked(saved) articleId (int -- foreign key)
-  - liked(saved) festivalId (int -- foreign key)
 
-- article
-  - id(int)
+- Article
+
+  - id(int -- primary key)
+  - url (varchar)
+  - article's content will be saved in backend's public storage
 
 ### Endpoints
 
@@ -174,7 +188,7 @@ List endpoints that your server will implement, including HTTP methods, paramete
 
 - Get cinemas
 
-Parameters:
+Parameters (Optional):
 
 - longitude: User-provided location as a number
 - latitude: User-provided location as a number
@@ -221,13 +235,14 @@ Response:
 ```
 
 **GET /comments**
-**GET /comments/:commentableId**
+**GET /comments/:commentable/:commentableId**
 
 - Get comments by commentableId
 
 Parameters:
 
-- commentableId: by type of cinema/article/festival
+- commentable: one of 'cinema', 'article', 'festival'
+- commentableId: id of the commentable entity
 
 Response:
 
@@ -248,11 +263,12 @@ Response:
 **GET /users**
 **GET /users/:userId**
 
+- Get all users or a specific user.
 - Logged in user can make like(save) cinemas/festivals/articles
 
 Parameters:
 
-- userId: users userId
+- userId: user's id
 
 Response:
 
@@ -262,11 +278,12 @@ Response:
         "user_id": uuid(),
         "user_name": "Jennifer",
         "user_email":"Jennifer.zhan.2015@gmail.com",
-        "user_password":"BrainSation0603*",
-        "cinemaId": uuid(),
-        "festivalId": uuid(),
-        "articleId": uuid(),
-
+        "user_password":"ASf_3soi*2sad]]a[sfp,fn]",
+        "liked": {
+            "cinemas": [{...}],
+            "articles": [{...}],
+            "festivals": [{...}],
+        }
     },
     ...
 ]
@@ -274,7 +291,7 @@ Response:
 
 **GET /articles**
 
-- Get articles
+- Get all articles
 
 Response:
 
@@ -282,20 +299,25 @@ Response:
 [
     {
         "id": uuid(),
-        "url":"url"
+        "url": "url"
+        "content": "..."
     },
     ...
 ]
 ```
 
-**POST /comment/:userId/:commentableId**
+**POST /comment/:commentableType**
 
-- post comment
+- post a comment
+
+Body:
+
+- userId
+- comment: content of the comment
 
 Parameters:
 
-- userId
-- commentableId
+- commentableType: one of 'cinema', 'article', 'festival'
 
 Response:
 
@@ -303,42 +325,44 @@ Response:
 [
     {
         "id": uuid(),
-        "commentableId":uuid(),
         "commentableType":"cinema/article/festival",
-        "user_id":uuid(),
+        "user_name": "Jennifer",
         "likes":2,
-        "comments":[{...}]
+        "content": "..."
     }
 ]
 ```
 
-**PUT /like/:commentableId**
+**PUT /like/:commentableType/:commentableId**
 
 - put like
 
 Parameters:
 
+- commentableType
 - commentableId
 
 Response:
 
 ```json
 {
-    "commentableId": uuid(),
-    "commentableType": "Toronto International Film Festival",
+    "id": uuid(),
     “likes”: 5,
-    "comments":[{...}]
 }
 ```
 
-**DELETE comment/:commentableId/:userId**
+**DELETE comment/:commentableType/:commentableId/**
 
-- delete comment
+- delete user's own comment
+
+Body:
+
+- userId
 
 Parameters:
 
+- commentableType
 - commentableId
-- userId (user can only delete their own comment)
 
 Response:
 
@@ -347,10 +371,8 @@ Response:
     {
         "id": uuid(),
         "user_id":uuid(),
-        "commentableId":uuid(),
         "commentableType":"cinema/article/festival",
         "likes":2,
-        "comments":[{...}]
     }
 ]
 ```
@@ -359,7 +381,7 @@ Response:
 
 - Add a user account
 
-Parameters:
+Body:
 
 - email: User's email
 - password: User's provided password
@@ -376,7 +398,7 @@ Response:
 
 - Login a user
 
-Parameters:
+Body:
 
 - email: User's email
 - password: User's provided password
@@ -389,7 +411,7 @@ Response:
 }
 ```
 
-### Auth ??
+### Auth (Optional)
 
 Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented.
 
@@ -407,11 +429,11 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 
 - Create client
 
-  - react project with routes and boilerplate pages
+  - Next.js and react project with routes and boilerplate pages
 
 - Create server - Create client
 
-  - express project with routing, with placeholder 200 responses
+  - Next.js project with routing, with placeholder 200 responses
 
 - Create migrations
 
