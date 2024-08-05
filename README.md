@@ -538,6 +538,7 @@ Your project will be marked based on what you committed to in the above document
 Does your project include any login or user profile functionality?
 If so, describe how authentication/authorization will be implemented.
 
+- Change website color themes based on movie color palette (default theme, star war theme for dark mode and The Grand Budapest Hotel theme)
 - Show article views
 - Show more theatres, DVD-store, music and books stores in cinema map
 - Recommend more film related contents (e.g. video essays, film critiques)
