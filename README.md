@@ -4,7 +4,7 @@
 
 > Q: What is your app? Brief description in a couple of sentences.
 
-`filmTO` is an _interactive_ online guide for film enthusiasts 🎦. This app _highlights_ Toronto's independent art cinemas with rich history, _recommends_ multicultural film festivals, and _suggests_ popular movies and related YouTube channels based on users' viewing habits.
+`filmTO` is an _interactive_ online guide for film enthusiasts 🎦. This app _highlights_ Toronto's independent art cinemas with rich history, _recommends_ multicultural film festivals, and _suggests_ popular movies based on users' viewing habits.
 
 ### Problem
 
@@ -16,7 +16,7 @@ As a film enthusiast, I noticed Toronto has many film-related events, but they a
 
 The pandemic has further impacted independent cinemas, with many struggling to stay open. For example, Revue Cinema nearly closed last month.
 
-`filmTO` aims to bridge this gap by connecting film enthusiasts with exciting events. It will aggregate information about film-related activities and venues, helping film festivals find their audiences and ensuring viewers never miss events they're interested in.
+`filmTO` aims to bridge this gap by connecting film enthusiasts with exciting events. It will aggregate information about film-related activities and venues, helping art house cinemas and film festivals find their audiences, also ensuring viewers never miss events they're interested in.
 
 ### User Profile
 
@@ -48,7 +48,7 @@ The pandemic has further impacted independent cinemas, with many struggling to s
 
 - As a logged-in user, I want to be able to **comment** on a visited cinemas, film festivals or articles.
 
-- As a logged-in user, I want to be able to **update or delete my comment** on a visited cinemas, film festivals or articles.
+- As a logged-in user, I want to be able to **delete my comment** on a visited cinemas, film festivals or articles.
 
 - As a logged-in user, I want to **search** for popular films.
 
@@ -81,7 +81,7 @@ List any external sources of data that will be used in your app.
 
 - [Google Maps API](https://developers.google.com/maps) for the cinema map
 - [Google Calendar API](https://developers.google.com/calendar/api/guides/overview) for add film events to user's calendar
-- [OMDb API](https://www.omdbapi.com/) / [TMDB API](https://www.themoviedb.org/) for display movies
+- [TMDB API](https://www.themoviedb.org/) for display movies
 - [OpenAI API](https://platform.openai.com/docs/overview) for search the popular films
 
 ### Sitemap
@@ -108,19 +108,38 @@ Provide visuals of your app's screens. You can use tools like Figma or pictures 
 
 #### Home Page
 
+<img width=500 src="./assets/home.png"/>
+
 #### Cinema Map
+
+<img width=500 src="./assets/map.png"/>
 
 #### Film Festival Calendar
 
+<img width=500 src="./assets/festival.png"/>
+
 #### Film Recommendations
 
-### Film Event Articles
+<img width=500 src="./assets/recommendation.png"/>
+<img width=500 src="./assets/recommendation_1.png"/>
+<img width=500 src="./assets/recommendation_2.png"/>
+<img width=500 src="./assets/recommendation_3.png"/>
+
+#### Film Event Articles
+
+<img width=500 src="./assets/article.png"/>
 
 #### Register Page
 
+<img width=500 src="./assets/signup.png"/>
+
 #### Login Page
 
+<img width=500 src="./assets/login.png"/>
+
 #### Account Dashboard Page
+
+<img width=500 src="./assets/userdashboard.png"/>
 
 ### Data
 
@@ -277,7 +296,7 @@ Response:
     {
         "user_id": uuid(),
         "user_name": "Jennifer",
-        "user_email":"Jennifer.zhan.2015@gmail.com",
+        "user_email":"Jennifer.2015@gmail.com",
         "user_password":"ASf_3soi*2sad]]a[sfp,fn]",
         "liked": {
             "cinemas": [{...}],
@@ -521,6 +540,7 @@ If so, describe how authentication/authorization will be implemented.
 
 - Show article views
 - Show more theatres, DVD-store, music and books stores in cinema map
-- Recommend Film related contents from Youtube channels by using Youtube API
+- Recommend more film related contents (e.g. video essays, film critiques)
+- Show which stream service can watch it
 - Forgot password functionality
 - Unit and Integration Tests
