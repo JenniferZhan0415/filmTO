@@ -15,7 +15,9 @@ import NavbarItems from "./nav-items";
 import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import NavbarMenu from "@/components/header/nav-menu";
-import { GithubIcon, Logo } from "@/components/icons";
+import { GithubIcon } from "@/components/icons";
+import logo from "@/public/Logo.svg"
+import Image from "next/image";
 
 export const Navbar = () => (
   <NextUINavbar maxWidth="xl" position="sticky">
@@ -23,7 +25,7 @@ export const Navbar = () => (
     <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
       <NavbarBrand as="li" className="gap-3 max-w-fit">
         <NextLink className="flex justify-start items-center gap-1" href="/">
-          <Logo />
+          <Image priority src={logo} alt="filmTo logo" className="max-w-14"/>
           <p className="font-bold text-inherit">filmTO</p>
         </NextLink>
       </NavbarBrand>
