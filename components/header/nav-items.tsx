@@ -1,17 +1,19 @@
 "use client";
 
-import { Tabs, Tab } from "@nextui-org/tabs";
 import { NavbarContent } from "@nextui-org/navbar";
 import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { Tab, Tabs } from "@nextui-org/tabs";
 
 import { siteConfig } from "@/config/site";
+import { NavItem } from "@/types";
 
 const NavBar = () => {
   const pathname = usePathname();
 
   return (
     <NavbarContent
-      className="hidden md:flex basis-full lg:basis-2/3"
+      className="hidden md:flex basis-full lg:basis-2/3 font-semibold"
       justify="center"
     >
       <Tabs
@@ -20,12 +22,36 @@ const NavBar = () => {
         radius="full"
         selectedKey={pathname}
       >
-        {siteConfig.navItems.map((item) => (
-          <Tab key={item.href} href={item.href} title={item.label} />
+        {siteConfig.navItems.map((item: NavItem) => (
+          <Tab
+            key={item.href}
+            title={
+              <Link key={item.href} href={item.href}>
+                {item.label}
+              </Link>
+            }
+          />
         ))}
       </Tabs>
     </NavbarContent>
   );
+  // return (
+  //   <NavbarContent
+  //     className="hidden md:flex basis-full lg:basis-2/3"
+  //     justify="center"
+  //   >
+  //     {siteConfig.navItems.map((item: NavItem) => (
+  //       <NavbarItem key={item.href}>
+  //         <Link
+  //           color={pathname === item.href ? "primary" : "foreground"}
+  //           href={item.href}
+  //         >
+  //           {item.label}
+  //         </Link>
+  //       </NavbarItem>
+  //     ))}
+  //   </NavbarContent>
+  // );
 };
 
 export default NavBar;
