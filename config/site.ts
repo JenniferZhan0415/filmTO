@@ -1,58 +1,38 @@
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "Next.js + NextUI",
-  description: "Make beautiful websites regardless of your design experience.",
+  name: "filmTO",
+  description: "Interactive online guide for film enthusiasts 🎦",
   navItems: [
     {
       label: "Home",
       href: "/",
     },
     {
-      label: "Docs",
-      href: "/docs",
+      label: "Cinema",
+      href: "/cinema",
     },
     {
-      label: "Pricing",
-      href: "/pricing",
+      label: "Festival",
+      href: "/festival",
     },
     {
-      label: "Blog",
-      href: "/blog",
+      label: "Article",
+      href: "/article",
     },
     {
-      label: "About",
-      href: "/about",
-    },
-  ],
-  navMenuItems: [
-    {
-      label: "Profile",
-      href: "/profile",
+      label: "Recommendation",
+      href: "/recommendation",
     },
     {
       label: "Dashboard",
       href: "/dashboard",
     },
+  ],
+  navMenuItems: [
     {
-      label: "Projects",
-      href: "/projects",
-    },
-    {
-      label: "Team",
-      href: "/team",
-    },
-    {
-      label: "Calendar",
-      href: "/calendar",
-    },
-    {
-      label: "Settings",
-      href: "/settings",
-    },
-    {
-      label: "Help & Feedback",
-      href: "/help-feedback",
+      label: "Sign in",
+      href: "/signin",
     },
     {
       label: "Logout",
@@ -60,10 +40,6 @@ export const siteConfig = {
     },
   ],
   links: {
-    github: "https://github.com/nextui-org/nextui",
-    twitter: "https://twitter.com/getnextui",
-    docs: "https://nextui.org",
-    discord: "https://discord.gg/9b6yyZKmH4",
-    sponsor: "https://patreon.com/jrgarciadev",
+    github: "https://github.com/JenniferZhan0415/filmTO/",
   },
 };
