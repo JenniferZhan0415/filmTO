@@ -1,0 +1,19 @@
+@use "@styles/partials/variables" as *;
+@use "@styles/partials/mixins" as *;
+.map {
+    &__title {
+        text-align: center;
+        // @include tablet {
+        //     text-align: start;
+        //     padding-left: 1rem;
+        // }
+    }
+    &__section {
+        @include tablet {
+            display: flex;
+            flex-direction: row;
+            align-items: flex-start;
+            justify-content: center;
+        }
+    }
+}

@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "name": "TIFF Lightbox",
+        "address": "350 King St W, Toronto, ON M5V 3X5",
+        "website": "tiff.net",
+        "description": "This centre of the Toronto International Film Festival features world cinema & events year-round."
+    },
+    {
+        "id": 2,
+        "name": "Hot Docs Ted Rogers Cinema",
+        "address": "506 Bloor St W, Toronto, ON M5S 1Y3",
+        "website": "hotdocs.ca",
+        "description": "Restored 1913 movie theatre that screens documentaries & independent film festival fare."
+    },
+    {
+        "id": 3,
+        "name": "Revue Cinema",
+        "address": "400 Roncesvalles Ave, Toronto, ON M6R 2M9",
+        "website": "revuecinema.ca",
+        "description": "Historic community-run theatre with 2nd-run Hollywood films & regular special-interest screenings."
+    },
+    {
+        "id": 4,
+        "name": "Paradise Theatre",
+        "address": "1006c Bloor St W, Toronto, ON M6H 1M2",
+        "website": "paradiseonbloor.com",
+        "description": "Paradise Theatre was built and opened in 1937. Initially, it served as a typical neighborhood cinema. Over the years, it underwent several renovations and functional transformations, evolving into a multifunctional cultural entertainment center. In its early years, the theater mainly screened films, but it later hosted various live performances, concerts, and theatrical productions."
+    },
+    {
+        "id": 5,
+        "name": "Imagine Cinemas Carlton Cinema",
+        "address": "20 Carlton St., Toronto, ON M5B 2H5",
+        "website": "imaginecinemas.com",
+        "description": "Multiplex with film-themed art showing Hollywood, independent, Canadian & foreign flicks."
+    },
+    {
+        "id": 6,
+        "name": "CineCycle",
+        "address": "behind 129 Spadina Ave., Toronto",
+        "website": "super8porter.ca",
+        "description": "This funky coffee bar, bicycle repair shop & cinema is located in an old coach house down an alley."
+    },
+    {
+        "id": 7,
+        "name": "Fox Theatre",
+        "address": "2236 Queen St E, Toronto, ON M4E 1G2",
+        "website": "foxtheatre.ca",
+        "description": "Long-running, single-screen movie theatre with retro flair showing second-run & independent films."
+    },
+    {
+        "id": 8,
+        "name": "The Royal",
+        "address": "608 College St, Toronto, ON M6G 1B4",
+        "website": "theroyal.to",
+        "description": "Refurbished 1939 cinema screening independent films, global documentaries & 2nd-run features."
+    },
+    {
+        "id": 9,
+        "name": "Kingsway Theatre",
+        "address": "3030 Bloor St W, Etobicoke, ON M8X 2Y8",
+        "website": "kingswaymovies.ca",
+        "description": "Updated 1939 theatre with a classic feel, showing foreign films, docs & occasional blockbusters."
+    },
+    {
+        "id": 10,
+        "name": "Innis Town Hall",
+        "address": "Innis College, 2 Sussex Ave, Toronto, ON M5S 1J5",
+        "website": "innis.utoronto.ca",
+        "description": "The heart and hub of Innis College, Town Hall (IN112) is a purpose-built, fully equipped, 4K-digital theatre with a warm and inviting ambience. A popular rental venue for film festivals and artistic/cultural events."
+    }
+]

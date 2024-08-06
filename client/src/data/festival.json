@@ -1,0 +1,219 @@
+{
+    "January": [
+        {
+            "festival": "Toronto International Film Festival",
+            "date": "January 10"
+        },
+        {
+            "festival": "Toronto Black Film Festival",
+            "date": "January 20"
+        },
+        {
+            "festival": "ReelWorld Film Festival",
+            "date": "January 30"
+        }
+    ],
+    "February": [
+        {
+            "id": "0201",
+            "festival": "Toronto Black Film Festival",
+            "date": "February12-17 2025",
+            "website": "https://torontoblackfilm.com/"
+        },
+        {
+            "festival": "Toronto International Film Festival",
+            "date": "February 10"
+        },
+        {
+            "festival": "ReelWorld Film Festival",
+            "date": "February 30"
+        }
+    ],
+    "March": [
+        {
+            "id": "0301",
+            "festival": "Toronto Irish Film Festival",
+            "date": "March 22 - 24, 2024",
+            "website": "https://toirishfilmfest.com/"
+        },
+        {
+            "festival": "TIFF Kids International Film Festival",
+            "date": "March"
+        },
+        {
+            "festival": "ReelWorld Film Festival",
+            "date": "March 30"
+        }
+    ],
+    "April": [
+        {
+            "id": "0401",
+            "festival": "Hot Docs Festival",
+            "date": "April 25 - May 5, 2024",
+            "website": "https://hotdocs.ca/"
+        },
+        {
+            "id": "0402",
+            "festival": "Toronto Animation Film Festival",
+            "date": "April 4-6, 2024",
+            "location": "Hot Docs Cinema",
+            "website": "www.taafi.com"
+        },
+        {
+            "id": "0403",
+            "festival": "Spring of Horror and Fantasy Film Festival",
+            "date": "April 16, 2024",
+            "website": "https://springofhorror.com/"
+        }
+    ],
+    "May": [
+        {
+            "id": "0501",
+            "festival": "Inside Out Film Festival",
+            "date": "May 24 - June 1, 2024",
+            "website": "https://insideout.ca/"
+        },
+        {
+            "id": "0502",
+            "festival": "Toronto Jewish Film Festival",
+            "date": "May 20",
+            "website": "https://tjff.com"
+        },
+        {
+            "festival": "ReelWorld Film Festival",
+            "date": "May 30"
+        }
+    ],
+    "June": [
+        {
+            "id": "0601",
+            "festival": "Toronto  Japanese Film Festival",
+            "date": "June 6 - 20, 2024",
+            "website": "https://jccc.on.ca/films/tjff"
+        },
+        {
+            "id": "0602",
+            "festival": "The Lavazza IncluCity Festival",
+            "date": "June 27 - July 21, 2024",
+            "website": "https://icff.ca"
+        },
+        {
+            "id": "0603",
+            "festival": "Toronto Ourdoor Picture Show @ Fort York",
+            "date": "June 19 - 26, 2024",
+            "website": "https://www.topictureshow.com"
+        }
+    ],
+    "July": [
+        {
+            "id": "0701",
+            "festival": "Toronto Ourdoor Picture Show @ Christie Pits",
+            "date": "July 7 - Aug 25, 2024",
+            "website": "https://www.topictureshow.com"
+        },
+        {
+            "id": "0702",
+            "festival": "The Female Eye Film Festival",
+            "date": "July 18 - 21, 2024",
+            "website": "https://www.thefemaleeyefilmfestival.com/"
+        },
+        {
+            "id": "0703",
+            "festival": "Regent Park Film Festival's Under the Stars",
+            "date": "July 17, 24, 31, 2024",
+            "website": "https://rpff.ca/under-the-stars"
+        }
+    ],
+    "August": [
+        {
+            "id": "0801",
+            "festival": "Mulan International Film Festival",
+            "date": "August 9 - 17, 2024",
+            "website": "https://mulanfestival.com"
+        },
+        {
+            "id": "0802",
+            "festival": "Toronto Ourdoor Picture Show @ Bell Manor Park",
+            "date": "Aug 15 - 17, 2024",
+            "website": "https://www.topictureshow.com"
+        },
+        {
+            "id": "0803",
+            "festival": "Dufferin Film Festival",
+            "date": "August 9-10, 2024",
+            "website": "https://www.dufferinfilmfest.com"
+        }
+    ],
+    "September": [
+        {
+            "id": "0901",
+            "festival": "Toronto International Film Festival",
+            "date": "September 10",
+            "website": "tiff.net"
+        },
+        {
+            "id": "0902",
+            "festival": "Toronto Palestine Film Festival",
+            "date": "September 25 - October 2, 2024",
+            "website": "https://www.tpff.ca/"
+        },
+        {
+            "festival": "Toronto Black Film Festival",
+            "date": "September 20"
+        }
+    ],
+    "October": [
+        {
+            "id": "1001",
+            "festival": "aluCine Latin Film & Media Arts Festival",
+            "date": "October 16 - 19, 2024",
+            "website": "https://www.alucinefestival.com/24th-anniversary-alucine-2024"
+        },
+        {
+            "id": "1002",
+            "festival": "Toronto After Dark Film Festival",
+            "date": "October 16 - 22, 2024",
+            "website": "https://torontoafterdark.com/"
+        },
+        {
+            "id": "1003",
+            "festival": "International Film Festival of South Asia",
+            "date": "October 10 - 20, 2024",
+            "website": "https://iffsatoronto.com/"
+        }
+    ],
+    "November": [
+        {
+            "id": "1001",
+            "festival": "Imagine Fantastic Film Festival",
+            "date": "October 24 - November 3, 2024",
+            "website": "https://www.imaginefilmfestival.nl/"
+        },
+        {
+            "id": "1102",
+            "festival": "Toronto Reel Asian International Film Festival",
+            "date": "November 8-19 2023",
+            "website": "https://www.reelasian.com/"
+        },
+        {
+            "id": "1103",
+            "festival": "Regent Park Film Festival",
+            "date": "November 28 - December 1, 2024",
+            "website": "https://rpff.ca"
+        }
+    ],
+    "December": [
+        {
+            "festival": "Toronto International Film Festival",
+            "date": "December 10"
+        },
+        {
+            "festival": "Toronto Black Film Festival",
+            "date": "December 20"
+        },
+        {
+            "festival": "ReelWorld Film Festival",
+            "date": "December 30"
+        }
+    ]
+}

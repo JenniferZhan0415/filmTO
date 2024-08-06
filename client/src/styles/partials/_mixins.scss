@@ -1,0 +1,95 @@
+@use "./variables" as *;
+
+// breakpoint
+@mixin tablet {
+    @media screen and (min-width: $tablet-Breakpoint) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media screen and (min-width: $desktop-Breakpoint) {
+        @content;
+    }
+}
+
+// flex-box
+@mixin flex-basic($flex-direction, $align-items, $justify-content) {
+    display: flex;
+    flex-direction: $flex-direction;
+    align-items: $align-items;
+    justify-content: $justify-content;
+}
+
+@mixin flex-align($flex-direction, $align-items) {
+    display: flex;
+    flex-direction: $flex-direction;
+    align-items: $align-items;
+}
+
+@mixin flex-justify($flex-direction, $justify-content) {
+    display: flex;
+    flex-direction: $flex-direction;
+    justify-content: $justify-content;
+}
+
+@mixin flex-row($flex-direction) {
+    display: flex;
+    flex-direction: $flex-direction;
+}
+
+// header mixins
+@mixin logo-mobile() {
+    max-height: 1.5625rem; //25px
+    max-width: 7.5rem; // 120px
+}
+
+@mixin logo-tablet() {
+    min-height: 1.5625rem; //25px
+    min-width: 7.5rem; // 120px
+}
+
+// avatar mixins
+@mixin avatar-search() {
+    max-width: 2.25rem; // 36px
+    min-height: 2.25rem;
+    object-fit: cover;
+    object-position: 15% 50%;
+    border-radius: 50%;
+}
+
+@mixin avatar-search-tablet() {
+    margin-left: 1rem;
+    max-width: 2.6rem;
+    min-height: 2.6rem;
+}
+
+@mixin avatar-form() {
+    max-width: 2.75rem;
+    max-height: 2.75rem;
+    object-fit: cover;
+    object-position: 15% 50%;
+    border-radius: 50%;
+    margin-top: 1.75rem;
+    margin-right: 1rem;
+}
+
+@mixin avatar-form-tablet() {
+    margin-top: 1.5rem;
+    min-width: 2.6rem;
+    min-height: 2.6rem;
+}
+
+@mixin avatar-place-holder() {
+    width: 100%;
+    margin-right: 1rem;
+    max-width: 2.75rem;
+    max-height: 2.75rem;
+    background-color: $Mercury;
+    border-radius: 50%;
+}
+
+@mixin avatar-place-holder-tablet() {
+    min-width: 2.6rem;
+    min-height: 2.6rem;
+}

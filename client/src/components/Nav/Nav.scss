@@ -1,0 +1,29 @@
+@use "@styles/partials/mixins" as *;
+@use "@styles/partials/variables" as *;
+
+.nav {
+    // @include flex-basic(row, center, space-between);
+    padding: 1rem 2rem;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        @include tablet {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+    &__item {
+        margin: 0.5rem 1rem;
+        font-weight: 600;
+        border-bottom: 2px solid $White;
+        &:hover {
+            border-bottom: 2px solid $Dark-Orange;
+            cursor: pointer;
+        }
+    }
+}
