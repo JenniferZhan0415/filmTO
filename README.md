@@ -444,7 +444,7 @@ Does your project include any login or user profile functionality? If so, descri
 
 Scope your project as a sprint. Break down the tasks that will need to be completed and map out time frames for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
 
-(Aug 4 Mon - Aug 6 Sun 3-DAYS) - sprint 1
+(Aug 4 Sun - Aug 5 Mon 2-DAYS) - sprint 1
 
 - Create client
 
@@ -454,26 +454,25 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 
   - Next.js project with routing, with placeholder 200 responses
 
-- Create migrations
+- Set Database & Create Seed
 
 - Gather 10 cinema and 30 festivals in Toronto
 
 - Create seeds with sample data
 
-- Deploy client and server projects so all commits will be reflected in production
-
-- Front-end: Home page
-
-- Front-end: Cinema map / Film Festival Calendar / Film Recommendations / Film Event Articles
+- Front-end: Home page / Nav / Hero
 
 - Front-end: Register Page / Login Page / Account Dashboard Page
 
-(Aug 6 Mon - Aug 11 Sun 6 DAYS) - sprint 2
+(Aug 6 Tue - Aug 11 Sun 6 DAYS) - sprint 2
+
+- Front-end: Cinema map / Film Festival Calendar / Film Recommendations / Film Event Articles
 
 - Feature: List cinemas from a given location
 
   - Implement list cinemas page including location form
-  - Store given location in sessionStorage
+  - Store given location in sessionStorage (optional)
+  - Use Google API
   - Create GET /cinemas endpoint
 
 - Feature: View festivals
@@ -484,7 +483,7 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
 - Feature: View articles
 
   - Implement view festivals page
-  - Create GET /festivals endpoint
+  - Create GET /articles endpoint
 
 - Feature: put likes
 
@@ -521,9 +520,11 @@ Scope your project as a sprint. Break down the tasks that will need to be comple
   - delete comment festival/cinema/article page
   - Create DELETE /comments
 
+- Deploy client and server projects so all commits will be reflected in production
+
 (Aug 16 Fri) - DEMO DAY
 
-(Aug 16 Sat - Aug 19 Mon 4 DAYS) - sprint 4
+(Aug 16 Fri - Aug 19 11:59 PM Mon 4 DAYS) - sprint 4
 
 - Optional features
 - Bug fixes
