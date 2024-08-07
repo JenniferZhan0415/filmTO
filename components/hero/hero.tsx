@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, CardBody, Button, Slider } from "@nextui-org/react";
+import { Card, CardBody } from "@nextui-org/react";
 import Link from "next/link";
 import { button as buttonStyles } from "@nextui-org/theme";
 import logo from "@/public/filmTO_logo.png";
@@ -31,13 +31,13 @@ export default function Hero() {
               Art House Cinemas &nbsp;
             </h1>
             <h1 className={title({ color: "cyan" })}>& Film Festivals!</h1>
-            <h2 className={subtitle({ class: "mt-4 text-left" })}>
-              🎥 A Must-see for Toronto movie enthusiasts!
-            </h2>
             <h2 className={subtitle({ class: "mt-0 text-left" })}>
-              🎬 A film fans club based in Toronto, dedicated to recommending
+              🎥 A film fans club based in Toronto, dedicated to recommending
               multicultural film festivals and events, with a focus on art-house
               and independent cinemas.
+            </h2>
+            <h2 className={subtitle({ class: "mt-2 text-left" })}>
+              🌈 Click to change page theme by your favorite movies!
             </h2>
           </div>
 
@@ -51,7 +51,29 @@ export default function Hero() {
                 fullWidth: true,
               })}
             >
-              Join us
+              Default theme
+            </Link>
+            <Link
+              href="/"
+              className={buttonStyles({
+                color: "primary",
+                radius: "full",
+                variant: "ghost",
+                fullWidth: true,
+              })}
+            >
+              Star War theme
+            </Link>
+            <Link
+              href="/"
+              className={buttonStyles({
+                color: "primary",
+                radius: "full",
+                variant: "ghost",
+                fullWidth: true,
+              })}
+            >
+              The Grand Budapest hotel theme
             </Link>
           </div>
         </CardBody>

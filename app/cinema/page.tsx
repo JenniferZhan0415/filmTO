@@ -1,9 +1,10 @@
 import { title } from "@/components/primitives";
+import Cinema from "@/components/cinema/cinema";
 
 export default function CinemaPage() {
   return (
     <div>
-      <h1 className={title()}>Toronto Art-House Cinemas</h1>
+      <Cinema />
     </div>
   );
 }

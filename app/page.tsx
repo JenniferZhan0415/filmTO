@@ -7,11 +7,13 @@ import { siteConfig } from "@/config/site";
 import { title, subtitle } from "@/components/primitives";
 import { GithubIcon } from "@/components/icons";
 import Hero from "@/components/hero/hero";
+import Cinema from "@/components/cinema/cinema";
 
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-0 py-8 md:py-10">
       <Hero />
+      <Cinema />
     </section>
   );
 }
