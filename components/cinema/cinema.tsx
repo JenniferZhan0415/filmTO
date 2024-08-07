@@ -10,6 +10,7 @@ import {
 } from "@vis.gl/react-google-maps";
 import cinemas from "@/data/cinema";
 import CinemaCard from "./cinema-card";
+import MapCard from "./cinema-map-card";
 
 export default function Cinema() {
   const position = { lat: 43.64, lng: -79.39 };
@@ -24,7 +25,9 @@ export default function Cinema() {
         shadow="sm"
       >
         <CardBody className="flex items-center justify-center ">
-          <h1 className={`${title()} pb-4`}>Art-House Cinemas</h1>
+          <h1 className={`${title({ color: "blue" })} pb-4`}>
+            Click to Find Cinemas
+          </h1>
           <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY ?? ""}>
             <div style={{ height: "40vh", width: "100%" }}>
               <Map
@@ -43,6 +46,7 @@ export default function Cinema() {
                     onCloseClick={() => setOpen(false)}
                   >
                     <CinemaCard />
+                    {/* <MapCard /> */}
                   </InfoWindow>
                 )}
               </Map>

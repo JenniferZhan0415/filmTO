@@ -9,7 +9,7 @@ import { subtitle, title } from "../primitives";
 
 export default function Hero() {
   return (
-    <section className="sm:flex">
+    <section className="w-full sm:flex">
       <Card
         isBlurred
         className="border-none bg-background/60 dark:bg-default-100/50 sm:basis-1/3"
