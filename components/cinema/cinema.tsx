@@ -19,25 +19,28 @@ export default function Cinema() {
   const [point, setPoint] = useState(position);
 
   return (
-    <section className="mt-6 w-full">
+    <section className="w-full">
       <Card
         isBlurred
-        className="border-none bg-background/60 dark:bg-default-100/50 "
+        className="border-none bg-background/60 dark:bg-default-100/50"
         shadow="sm"
       >
         <CardBody className="flex items-center justify-center ">
           <h1 className={`${title({ color: "blue" })} pb-4`}>Legacy Cinemas</h1>
+          <h4 className="text-default-500 mb-6">
+            Click to explore the art house and independent cinemas
+          </h4>
           <div className="flex flex-row w-full">
             <Card
               isBlurred
               className=" w-full border-none bg-background/60 dark:bg-default-100/50 "
               shadow="sm"
             >
-              <CardBody className="flex items-center justify-center w-full ">
+              <CardBody className="flex items-center justify-center w-full  ">
                 {/* <APIProvider
                   apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY ?? ""}
                 >
-                  <div style={{ height: "40vh", width: "100%" }}>
+                  <div style={{ height: "60vh", width: "100%" }}>
                     <Map
                       zoom={12}
                       center={position}

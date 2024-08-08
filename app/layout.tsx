@@ -55,7 +55,7 @@ export default function RootLayout({
                 title="nextui.org homepage"
               >
                 <span className="text-default-600">Powered by</span>
-                <p className="text-primary">TORONTO FILM LOVERS</p>
+                <small className="text-primary">TORONTO FILM LOVERS</small>
               </Link>
             </footer>
           </div>

@@ -6,16 +6,17 @@ import { button as buttonStyles } from "@nextui-org/theme";
 import logo from "@/public/filmTO_logo.png";
 import Image from "next/image";
 import { subtitle, title } from "../primitives";
+import JoinUsButton from "./button";
 
 export default function Hero() {
   return (
-    <section className="w-full sm:flex">
+    <section className="w-full flex flex-col">
       <Card
         isBlurred
-        className="border-none bg-background/60 dark:bg-default-100/50 sm:basis-1/3"
+        className="flex flex-row justify-center items-center border-none bg-background/60 dark:bg-default-100/50 sm:min-h-48"
         shadow="sm"
       >
-        <CardBody className="flex items-center justify-center">
+        <CardBody className="max-w-md">
           <Image priority alt="Album cover" src={logo} />
         </CardBody>
       </Card>
@@ -26,12 +27,12 @@ export default function Hero() {
         shadow="sm"
       >
         <CardBody>
-          <div className="flex flex-col  items-center justify-center">
+          <div className="flex flex-col  items-center justify-center mb-4">
             <h1 className={title({ color: "blue" })}>
               Art House Cinemas &nbsp;
             </h1>
             <h1 className={title({ color: "cyan" })}>& Film Festivals!</h1>
-            <h2 className={subtitle({ class: "mt-0 text-left" })}>
+            <h2 className={subtitle({ class: "mt-4 text-left" })}>
               🎥 A film fans club based in Toronto, dedicated to recommending
               multicultural film festivals and events, with a focus on art-house
               and independent cinemas.
@@ -40,8 +41,8 @@ export default function Hero() {
               🌈 Click to change page theme by your favorite movies!
             </h2>
           </div>
-
-          <div className="flex w-full items-center justify-center mt-1">
+          <JoinUsButton />
+          {/* <div className="flex w-full items-center justify-center mt-1">
             <Link
               href="/"
               className={buttonStyles({
@@ -51,31 +52,9 @@ export default function Hero() {
                 fullWidth: true,
               })}
             >
-              Default theme
+              Join us today!
             </Link>
-            <Link
-              href="/"
-              className={buttonStyles({
-                color: "primary",
-                radius: "full",
-                variant: "ghost",
-                fullWidth: true,
-              })}
-            >
-              Star War theme
-            </Link>
-            <Link
-              href="/"
-              className={buttonStyles({
-                color: "primary",
-                radius: "full",
-                variant: "ghost",
-                fullWidth: true,
-              })}
-            >
-              The Grand Budapest hotel theme
-            </Link>
-          </div>
+          </div> */}
         </CardBody>
       </Card>
     </section>

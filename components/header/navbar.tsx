@@ -24,7 +24,9 @@ export const Navbar = () => (
       <NavbarBrand as="li" className="gap-3 max-w-fit">
         <NextLink className="flex justify-start items-center gap-1" href="/">
           <Image priority src={logo} alt="filmTo logo" className="max-w-14" />
-          <p className="font-bold text-inherit text-gray-500 ">filmTO</p>
+          <p className="font-bold text-inherit" style={{ color: "#71717A" }}>
+            filmTO
+          </p>
         </NextLink>
       </NavbarBrand>
     </NavbarContent>

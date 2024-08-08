@@ -15,12 +15,12 @@ import Article from "@/components/article/article";
 
 export default function Home() {
   return (
-    <section className="flex flex-col items-center justify-center gap-0 py-8 md:py-10">
+    <section className="flex flex-col items-center justify-center min-h-full">
       <Hero />
-      <Cinema />
+      {/* <Cinema />
       <Festival />
       <Recommendation />
-      <Article />
+      <Article /> */}
     </section>
   );
 }

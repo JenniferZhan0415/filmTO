@@ -16,13 +16,14 @@ export const siteConfig = {
       label: "Festival",
       href: "/festival",
     },
-    {
-      label: "Article",
-      href: "/article",
-    },
+  
     {
       label: "Recommendation",
       href: "/recommendation",
+    },
+    {
+      label: "Article",
+      href: "/article",
     },
     {
       label: "Dashboard",

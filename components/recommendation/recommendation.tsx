@@ -5,7 +5,7 @@ import FilmCard from "./film-card";
 
 export default function Recommendation() {
   return (
-    <section className="mt-6 w-full">
+    <section className="w-full">
       <Card
         isBlurred
         className="border-none bg-background/60 dark:bg-default-100/50 "

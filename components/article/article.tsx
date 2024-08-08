@@ -5,7 +5,7 @@ import ArticleList from "./article-list";
 
 export default function Article() {
   return (
-    <section className="mt-6 w-full">
+    <section className="w-full">
       <Card
         isBlurred
         className="border-none bg-background/60 dark:bg-default-100/50 "
