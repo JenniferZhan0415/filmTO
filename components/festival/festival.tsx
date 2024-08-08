@@ -1,5 +1,5 @@
 "use client";
-import { Card, CardBody, Link } from "@nextui-org/react";
+import { Card, CardBody } from "@nextui-org/react";
 import { title } from "@/components/primitives";
 import FestivalCard from "./festivalcard";
 import FestivalCalender from "./festivalcalender";

@@ -1,9 +1,4 @@
-import { title } from "@/components/primitives";
-
+import UserDashboard from "@/components/userdashboard/user-dashboard";
 export default function DashboardPage() {
-  return (
-    <div>
-      <h1 className={title()}>User Dashboard</h1>
-    </div>
-  );
+  return <UserDashboard />;
 }
