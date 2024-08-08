@@ -1,5 +1,5 @@
 "use client";
-import { Card, CardBody } from "@nextui-org/react";
+import { Card, CardBody, Link } from "@nextui-org/react";
 import { title } from "@/components/primitives";
 import { useState } from "react";
 import {
@@ -10,7 +10,8 @@ import {
 } from "@vis.gl/react-google-maps";
 import cinemas from "@/data/cinema";
 import CinemaCard from "./cinema-card";
-import MapCard from "./cinema-map-card";
+// import MapCard from "./cinema-map-card";
+import CinemaList from "./cinema-list";
 
 export default function Cinema() {
   const position = { lat: 43.64, lng: -79.39 };
@@ -25,33 +26,43 @@ export default function Cinema() {
         shadow="sm"
       >
         <CardBody className="flex items-center justify-center ">
-          <h1 className={`${title({ color: "blue" })} pb-4`}>
-            Click to Find Cinemas
-          </h1>
-          <APIProvider apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY ?? ""}>
-            <div style={{ height: "40vh", width: "100%" }}>
-              <Map
-                zoom={12}
-                center={position}
-                mapId={process.env.NEXT_PUBLIC_GOOGLE_MAP_ID}
-              >
-                <Markers
-                  points={cinemas}
-                  setOpen={() => setOpen(true)}
-                  setPoint={setPoint}
-                />
-                {open && (
-                  <InfoWindow
-                    position={point}
-                    onCloseClick={() => setOpen(false)}
-                  >
-                    <CinemaCard />
-                    {/* <MapCard /> */}
-                  </InfoWindow>
-                )}
-              </Map>
-            </div>
-          </APIProvider>
+          <h1 className={`${title({ color: "blue" })} pb-4`}>Legacy Cinemas</h1>
+          <div className="flex flex-row w-full">
+            <Card
+              isBlurred
+              className=" w-full border-none bg-background/60 dark:bg-default-100/50 "
+              shadow="sm"
+            >
+              <CardBody className="flex items-center justify-center w-full ">
+                {/* <APIProvider
+                  apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY ?? ""}
+                >
+                  <div style={{ height: "40vh", width: "100%" }}>
+                    <Map
+                      zoom={12}
+                      center={position}
+                      mapId={process.env.NEXT_PUBLIC_GOOGLE_MAP_ID}
+                    >
+                      <Markers
+                        points={cinemas}
+                        setOpen={() => setOpen(true)}
+                        setPoint={setPoint}
+                      />
+                      {open && (
+                        <InfoWindow
+                          position={point}
+                          onCloseClick={() => setOpen(false)}
+                        >
+                          <CinemaCard />
+                        </InfoWindow>
+                      )}
+                    </Map>
+                  </div>
+                </APIProvider> */}
+              </CardBody>
+            </Card>
+            <CinemaList />
+          </div>
         </CardBody>
       </Card>
     </section>

@@ -9,13 +9,18 @@ import { GithubIcon } from "@/components/icons";
 import Hero from "@/components/hero/hero";
 import Cinema from "@/components/cinema/cinema";
 import CinemaMap from "@/components/cinema/cinema-map";
+import Festival from "@/components/festival/festival";
+import Recommendation from "@/components/recommendation/recommendation";
+import Article from "@/components/article/article";
 
 export default function Home() {
   return (
     <section className="flex flex-col items-center justify-center gap-0 py-8 md:py-10">
       <Hero />
       <Cinema />
-      {/* <CinemaMap /> */}
+      <Festival />
+      <Recommendation />
+      <Article />
     </section>
   );
 }

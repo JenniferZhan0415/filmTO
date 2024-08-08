@@ -14,7 +14,7 @@ import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import NavbarMenu from "@/components/header/nav-menu";
 import { GithubIcon } from "@/components/icons";
-import logo from "@/public/Logo.svg"
+import logo from "@/public/Logo.svg";
 import Image from "next/image";
 
 export const Navbar = () => (
@@ -23,8 +23,8 @@ export const Navbar = () => (
     <NavbarContent className="basis-1/5 sm:basis-full" justify="start">
       <NavbarBrand as="li" className="gap-3 max-w-fit">
         <NextLink className="flex justify-start items-center gap-1" href="/">
-          <Image priority src={logo} alt="filmTo logo" className="max-w-14"/>
-          <p className="font-bold text-inherit">filmTO</p>
+          <Image priority src={logo} alt="filmTo logo" className="max-w-14" />
+          <p className="font-bold text-inherit text-gray-500 ">filmTO</p>
         </NextLink>
       </NavbarBrand>
     </NavbarContent>

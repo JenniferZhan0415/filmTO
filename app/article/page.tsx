@@ -1,9 +1,10 @@
 import { title } from "@/components/primitives";
+import Article from "@/components/article/article";
 
 export default function ArticlePage() {
   return (
     <div>
-      <h1 className={title()}>Articles</h1>
+      <Article />
     </div>
   );
 }
