@@ -1,6 +1,6 @@
 import React from "react";
 import { Listbox, ListboxItem, RadioGroup, Radio } from "@nextui-org/react";
-import { ListboxWrapper } from "./listboxWrapper";
+import { ListboxWrapper } from "./listbox-wrapper";
 import { EditDocumentIcon } from "./edit-document-icon";
 
 export default function CinemaList() {

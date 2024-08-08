@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardHeader, CardBody, Image, Button } from "@nextui-org/react";
-import { HeartIcon } from "./HeartIcon";
+import { HeartIcon } from "./heart-icon";
 
 export default function CinemaCard() {
   const [liked, setLiked] = React.useState(false);

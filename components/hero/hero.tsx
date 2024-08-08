@@ -13,7 +13,7 @@ export default function Hero() {
     <section className="w-full flex flex-col">
       <Card
         isBlurred
-        className="flex flex-row justify-center items-center border-none bg-background/60 dark:bg-default-100/50 sm:min-h-48"
+        className="flex flex-row justify-center items-center border-none bg-background/60 dark:bg-default-100/50 sm:min-h-42"
         shadow="sm"
       >
         <CardBody className="max-w-md">
@@ -33,12 +33,16 @@ export default function Hero() {
             </h1>
             <h1 className={title({ color: "cyan" })}>& Film Festivals!</h1>
             <h2 className={subtitle({ class: "mt-4 text-left" })}>
-              🎥 A film fans club based in Toronto, dedicated to recommending
-              multicultural film festivals and events, with a focus on art-house
-              and independent cinemas.
+              🎥 A film fan club based in Toronto
             </h2>
-            <h2 className={subtitle({ class: "mt-2 text-left" })}>
-              🌈 Click to change page theme by your favorite movies!
+            <h2 className={subtitle({ class: "mt-0 text-left" })}>
+              🌈 Dedicated to recommending multicultural film festivals
+            </h2>
+            <h2 className={subtitle({ class: "mt-0 text-left" })}>
+              🎞️ Focus on art-house and independent cinemas
+            </h2>
+            <h2 className={subtitle({ class: "mt-0 text-left" })}>
+              🎬 Sharing the latest film events and reviews
             </h2>
           </div>
           <JoinUsButton />

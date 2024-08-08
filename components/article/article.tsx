@@ -15,6 +15,9 @@ export default function Article() {
           <h1 className={`${title({ color: "blue" })} pb-4`}>
             Film Events and Reviews
           </h1>
+          <h4 className="text-default-500 mb-8">
+            Click star to save the article to your dashboard
+          </h4>
           <ArticleList />
         </CardBody>
       </Card>

@@ -29,11 +29,15 @@ export const siteConfig = {
       label: "Dashboard",
       href: "/dashboard",
     },
+    {
+      label: "Login",
+      href: "/Login",
+    },
   ],
   navMenuItems: [
     {
-      label: "Sign in",
-      href: "/signin",
+      label: "Sign up",
+      href: "/signup",
     },
     {
       label: "Logout",
