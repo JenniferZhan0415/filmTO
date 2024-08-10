@@ -1,5 +1,5 @@
 import React from "react";
-import { Button } from "@nextui-org/react";
+import { Button, Link } from "@nextui-org/react";
 
 export default function LoginButton() {
   return (
@@ -7,7 +7,7 @@ export default function LoginButton() {
       <Button className="w-full" color="default" variant="bordered">
         Login
       </Button>
-      <Button className="w-full" color="primary">
+      <Button href="/signup" as={Link} className="w-full" color="primary">
         Sign up
       </Button>
     </div>
