@@ -51,8 +51,8 @@ export default function RootLayout({
               <Link
                 isExternal
                 className="flex items-center gap-1 text-current"
-                href="https://sinoluxfilm.com/"
-                title="nextui.org homepage"
+                href="https://github.com/JenniferZhan0415"
+                title="Jennifer Zhan github page"
               >
                 <span className="text-default-600">Powered by</span>
                 <small className="text-primary">TORONTO FILM LOVERS</small>
