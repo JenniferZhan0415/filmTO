@@ -1,17 +1,20 @@
 "use server";
 
 import { cache } from "react";
+import { eq } from "drizzle-orm";
+
 import { db } from "@/db";
 import { cinemas } from "@/db/schemas/cinema";
-import { eq } from "drizzle-orm";
 import { Cinema } from "@/types/cinema";
 
 /**
  * Retrieve all cinemas, cached as they are static.
  */
 export const getAllCinemas = cache(async () => {
-  return (await db.select().from(cinemas)).map((cinema: Cinema) => ({
-    ...cinemas,
+  const cinemas = await db.query.cinemas.findMany();
+
+  return cinemas.map((cinema: Cinema) => ({
+    ...cinema,
     key: cinema.name,
   }));
 });

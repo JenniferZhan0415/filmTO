@@ -12,12 +12,14 @@ import { getAllCinemas } from "@/actions/cinema";
 export async function GET() {
   try {
     const cinemas = await getAllCinemas();
+
     return NextResponse.json(cinemas, { status: 200 });
   } catch (error) {
     console.error(error);
+
     return NextResponse.json(
       { error: "Cannot fetch cinemas." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

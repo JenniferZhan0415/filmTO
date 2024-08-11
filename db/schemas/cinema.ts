@@ -25,12 +25,12 @@ export const cinemas = pgTable(
 
     lng: real("lng").notNull(),
 
-    image: text("image").notNull(),
+    image: text("image"),
   },
   (cinemas) => {
     return {
       // cinema name must be unique
       nameIndex: uniqueIndex("name_idx").on(cinemas.name),
     };
-  }
+  },
 );
