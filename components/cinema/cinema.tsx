@@ -23,7 +23,8 @@ export default function Cinema() {
   const { data: cinemas } = useSWR<FormattedCinema[]>("/api/cinemas", {
     fetcher,
   });
-  const showMap = false;
+  // const showMap = false;
+  const showMap = true;
 
   return (
     <section className="w-full">
@@ -37,10 +38,10 @@ export default function Cinema() {
           <h4 className="text-default-500 mb-6">
             Click to explore the art house and independent cinemas
           </h4>
-          <div className="flex flex-row w-full">
+          <div className="flex flex-col sm:flex-row w-full ">
             <Card
               isBlurred
-              className=" w-full border-none bg-background/60 dark:bg-default-100/50 "
+              className="w-full border-none bg-background/60 dark:bg-default-100/50 "
               shadow="sm"
             >
               <CardBody className="flex items-center justify-center w-full  ">

@@ -11,7 +11,7 @@ import { Cinema } from "@/types/cinema";
  */
 export const getAllCinemas = cache(async () => {
   return (await db.select().from(cinemas)).map((cinema: Cinema) => ({
-    ...cinemas,
+    ...cinema,
     key: cinema.name,
   }));
 });
