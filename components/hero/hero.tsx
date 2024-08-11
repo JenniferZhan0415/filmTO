@@ -3,7 +3,7 @@
 import { Card, CardBody } from "@nextui-org/react";
 import Link from "next/link";
 import { button as buttonStyles } from "@nextui-org/theme";
-import logo from "@/public/Logo/filmTO_logo.png";
+import logo from "@/public/logo/filmTO.png";
 import Image from "next/image";
 import { subtitle, title } from "../primitives";
 import JoinUsButton from "./button";

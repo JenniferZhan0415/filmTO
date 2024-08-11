@@ -23,8 +23,8 @@ export default function Cinema() {
   const { data: cinemas } = useSWR<FormattedCinema[]>("/api/cinemas", {
     fetcher,
   });
-  // const showMap = false;
-  const showMap = true;
+  const showMap = false;
+  // const showMap = true;
 
   return (
     <section className="w-full">
