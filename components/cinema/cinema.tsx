@@ -8,15 +8,22 @@ import {
   AdvancedMarker,
   InfoWindow,
 } from "@vis.gl/react-google-maps";
-import cinemas from "@/data/cinema";
 import CinemaCard from "./cinema-card";
 // import MapCard from "./cinema-map-card";
 import CinemaList from "./cinema-list";
+import FormattedCinema from "@/types/cinema";
+
+import useSWR from "swr";
+import fetcher from "@/utils/fetcher";
 
 export default function Cinema() {
   const position = { lat: 43.64, lng: -79.39 };
   const [open, setOpen] = useState(false);
   const [point, setPoint] = useState(position);
+  const { data: cinemas } = useSWR<FormattedCinema[]>("/api/cinemas", {
+    fetcher,
+  });
+  const showMap = false;
 
   return (
     <section className="w-full">
@@ -37,31 +44,33 @@ export default function Cinema() {
               shadow="sm"
             >
               <CardBody className="flex items-center justify-center w-full  ">
-                {/* <APIProvider
-                  apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY ?? ""}
-                >
-                  <div style={{ height: "60vh", width: "100%" }}>
-                    <Map
-                      zoom={12}
-                      center={position}
-                      mapId={process.env.NEXT_PUBLIC_GOOGLE_MAP_ID}
-                    >
-                      <Markers
-                        points={cinemas}
-                        setOpen={() => setOpen(true)}
-                        setPoint={setPoint}
-                      />
-                      {open && (
-                        <InfoWindow
-                          position={point}
-                          onCloseClick={() => setOpen(false)}
-                        >
-                          <CinemaCard />
-                        </InfoWindow>
-                      )}
-                    </Map>
-                  </div>
-                </APIProvider> */}
+                {showMap && cinemas && (
+                  <APIProvider
+                    apiKey={process.env.NEXT_PUBLIC_GOOGLE_API_KEY ?? ""}
+                  >
+                    <div style={{ height: "60vh", width: "100%" }}>
+                      <Map
+                        zoom={12}
+                        center={position}
+                        mapId={process.env.NEXT_PUBLIC_GOOGLE_MAP_ID}
+                      >
+                        <Markers
+                          points={cinemas}
+                          setOpen={() => setOpen(true)}
+                          setPoint={setPoint}
+                        />
+                        {open && (
+                          <InfoWindow
+                            position={point}
+                            onCloseClick={() => setOpen(false)}
+                          >
+                            <CinemaCard />
+                          </InfoWindow>
+                        )}
+                      </Map>
+                    </div>
+                  </APIProvider>
+                )}
               </CardBody>
             </Card>
             <CinemaList />
@@ -72,11 +81,10 @@ export default function Cinema() {
   );
 }
 
-type Point = google.maps.LatLngLiteral & { key: string };
 type Props = {
-  points: Point[];
+  points: FormattedCinema[];
   setOpen: () => void;
-  setPoint: (point: Point) => void;
+  setPoint: (point: FormattedCinema) => void;
 };
 
 const Markers = ({ points, setOpen, setPoint }: Props) => {

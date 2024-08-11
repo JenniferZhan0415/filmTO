@@ -2,6 +2,8 @@
 import { Card, CardBody, Link } from "@nextui-org/react";
 import { title } from "@/components/primitives";
 import ArticleList from "./article-list";
+import ArticleCart from "./article-card";
+import LikeButton from "./like-button";
 
 export default function Article() {
   return (
@@ -18,7 +20,8 @@ export default function Article() {
           <h4 className="text-default-500 mb-8">
             Click star to save the article to your dashboard
           </h4>
-          <ArticleList />
+          {/* <ArticleList /> */}
+          <ArticleCart />
         </CardBody>
       </Card>
     </section>

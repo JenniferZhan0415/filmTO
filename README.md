@@ -1,4 +1,3 @@
-
 # 🎥 filmTO 🎞️
 
 ## Overview
@@ -6,6 +5,43 @@
 > Q: What is your app? Brief description in a couple of sentences.
 
 `filmTO` is an _interactive_ online guide for film enthusiasts 🎦. This app _highlights_ Toronto's independent art cinemas with rich history, _recommends_ multicultural film festivals, and _suggests_ popular movies based on users' viewing habits.
+
+## How to start
+
+1. Install dependencies
+
+```bash
+npm i
+```
+
+2. Populate env variables
+
+```bash
+cp .env.example .env.local
+
+# update .env.local accordingly
+```
+
+3. Initialize database
+
+Run PostgreSQL server locally:
+
+```bash
+docker compose up -d
+
+# to stop the database and clean volumes
+docker compose down -v
+```
+
+Run migrations and seedings:
+
+```bash
+npm run db:generate
+npm run db:migrate
+npm run db:seed
+```
+
+## Proposal
 
 ### Problem
 
