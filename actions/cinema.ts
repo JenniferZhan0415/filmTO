@@ -1,9 +1,10 @@
 "use server";
 
 import { cache } from "react";
+import { eq } from "drizzle-orm";
+
 import { db } from "@/db";
 import { cinemas } from "@/db/schemas/cinema";
-import { eq } from "drizzle-orm";
 import { Cinema } from "@/types/cinema";
 
 /**

@@ -26,7 +26,7 @@ export const cinemas = pgTable(
     lng: real("lng").notNull(),
 
     established: varchar("established", { length: 256 }),
-
+    
     image: text("image"),
   },
   (cinemas) => {
@@ -34,5 +34,5 @@ export const cinemas = pgTable(
       // cinema name must be unique
       nameIndex: uniqueIndex("name_idx").on(cinemas.name),
     };
-  }
+  },
 );

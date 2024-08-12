@@ -3,9 +3,9 @@ import { SQL, getTableColumns, sql } from "drizzle-orm";
 import { PgTable } from "drizzle-orm/pg-core";
 import { SQLiteTable } from "drizzle-orm/sqlite-core";
 
-import { Cinema } from "@/types/cinema";
 import { db } from "..";
 import { cinemas } from "../schemas/cinema";
+import { Cinema } from "@/types/cinema";
 
 const buildConflictUpdateColumns = <
   T extends PgTable | SQLiteTable,
@@ -34,7 +34,7 @@ const buildConflictUpdateColumns = <
   try {
     // load cinemas
     const cinemaData: Cinema[] = JSON.parse(
-      await readFile("./db/seeds/cinema.json", "utf-8")
+      await readFile("./db/seeds/cinema.json", "utf-8"),
     );
 
     // insert cinemas
