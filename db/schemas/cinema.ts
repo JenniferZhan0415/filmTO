@@ -25,6 +25,8 @@ export const cinemas = pgTable(
 
     lng: real("lng").notNull(),
 
+    established: varchar("established", { length: 256 }),
+    
     image: text("image"),
   },
   (cinemas) => {

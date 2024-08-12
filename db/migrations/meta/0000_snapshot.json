@@ -1,5 +1,5 @@
 {
-  "id": "3397a088-f235-483d-a3ec-3f01412f2237",
+  "id": "3595b3e2-5cb9-40b7-add1-df06352fb2bb",
   "prevId": "00000000-0000-0000-0000-000000000000",
   "version": "7",
   "dialect": "postgresql",
@@ -18,7 +18,7 @@
           "name": "name",
           "type": "varchar(256)",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "address": {
           "name": "address",
@@ -42,13 +42,19 @@
           "name": "lat",
           "type": "real",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
         },
         "lng": {
           "name": "lng",
           "type": "real",
           "primaryKey": false,
-          "notNull": false
+          "notNull": true
+        },
+        "image": {
+          "name": "image",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
         }
       },
       "indexes": {

@@ -1,1 +1,0 @@
-ALTER TABLE "cinema" ADD COLUMN "image" text;

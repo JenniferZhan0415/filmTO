@@ -1,6 +1,6 @@
 {
-  "id": "95cee828-9024-413c-b882-4de2161d7e35",
-  "prevId": "3595b3e2-5cb9-40b7-add1-df06352fb2bb",
+  "id": "0f89462d-6a4e-4870-b2d2-83d54252c726",
+  "prevId": "95cee828-9024-413c-b882-4de2161d7e35",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -50,8 +50,8 @@
           "primaryKey": false,
           "notNull": true
         },
-        "year_established": {
-          "name": "year_established",
+        "established": {
+          "name": "established",
           "type": "varchar(256)",
           "primaryKey": false,
           "notNull": false
