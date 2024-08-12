@@ -6,6 +6,8 @@ import { SQLiteTable } from "drizzle-orm/sqlite-core";
 import { db } from "..";
 import { cinemas } from "../schemas/cinema";
 import { Cinema } from "@/types/cinema";
+import Festival from "@/types/festival";
+import { festivals } from "../schemas/festival";
 
 const buildConflictUpdateColumns = <
   T extends PgTable | SQLiteTable,
@@ -34,7 +36,7 @@ const buildConflictUpdateColumns = <
   try {
     // load cinemas
     const cinemaData: Cinema[] = JSON.parse(
-      await readFile("./db/seeds/cinema.json", "utf-8"),
+      await readFile("./db/seeds/cinema.json", "utf-8")
     );
 
     // insert cinemas
@@ -52,6 +54,29 @@ const buildConflictUpdateColumns = <
           "lat",
           "lng",
           "established",
+          "image",
+        ]),
+      });
+
+    // load festivals
+    const festivalData: Festival[] = JSON.parse(
+      await readFile("./db/seeds/festival.json", "utf-8")
+    );
+
+    // insert festivals
+    await db
+      .insert(festivals)
+      .values(festivalData)
+      .onConflictDoUpdate({
+        target: festivals.id,
+        set: buildConflictUpdateColumns(festivals, [
+          "id",
+          "name",
+          "month",
+          "start",
+          "end",
+          "website",
+          "since",
           "image",
         ]),
       });

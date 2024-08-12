@@ -3,8 +3,15 @@ import { Card, CardBody } from "@nextui-org/react";
 import { title } from "@/components/primitives";
 import FestivalCard from "./festivalcard";
 import FestivalCalender from "./festivalcalender";
+import type { Festival } from "@/types/festival";
+import { useState } from "react";
+import { getFestivalsByMonth } from "@/actions/festival";
 
 export default function Festival() {
+  const [festivals, setFestivals] = useState<Festival[]>([]);
+  const selectMonth = async (month: string) => {
+    setFestivals(await getFestivalsByMonth(month));
+  };
   return (
     <section className="w-full">
       <Card
@@ -13,11 +20,11 @@ export default function Festival() {
         shadow="sm"
       >
         <CardBody className="flex items-center justify-center w-full">
-          <h1 className={`${title({ color: "blue" })} pb-4`}>
+          <h1 className={`${title({ color: "blue" })} pb-4 text-center`}>
             Year-round Film Festivals
           </h1>
-          <FestivalCalender />
-          <FestivalCard />
+          <FestivalCalender handleClick={selectMonth} />
+          <FestivalCard festivals={festivals} />
         </CardBody>
       </Card>
     </section>
