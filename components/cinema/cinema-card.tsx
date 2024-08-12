@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, CardHeader, CardBody, Image, Button } from "@nextui-org/react";
 import { HeartIcon } from "./heart-icon";
-import { getAllCinemas } from "@/actions/cinema";
 import { Cinema } from "@/types/cinema";
 
 export default function CinemaCard({ cinema }: { cinema: Cinema }) {

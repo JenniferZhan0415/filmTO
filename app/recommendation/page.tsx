@@ -1,5 +1,9 @@
 import { title } from "@/components/primitives";
-import Recommendation from "@/components/recommendation/recommendation";
+
 export default function RecommendationPage() {
-  return <Recommendation />;
+  return (
+    <div>
+      <h1 className={title()}>Film Recommendations</h1>
+    </div>
+  );
 }
