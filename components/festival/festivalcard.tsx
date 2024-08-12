@@ -7,7 +7,11 @@ import LikeButton from "./like-button";
 import { getFestivalsByMonth } from "@/actions/festival";
 import Festival from "@/types/festival";
 
-export default function FestivalCard({ festivals }) {
+interface FestivalCardProps {
+  festivals: Festival[];
+}
+
+export default function FestivalCard({ festivals }: FestivalCardProps) {
   return (
     <div className="flex flex-wrap gap-10 justify-center w-full">
       {festivals?.map((item: Festival) => (
@@ -16,11 +20,11 @@ export default function FestivalCard({ festivals }) {
           key={item.id}
           onPress={() => console.log("item pressed")}
         >
-          <CardBody className="overflow-visible p-0">
-            <FestivalImage image={item.image} />
+          <CardBody className="overflow-visible p-0 max-w-60 min-h-64">
+            <FestivalImage image={item.image!} />
           </CardBody>
-          <CardFooter className="text-small justify-between">
-            <b>{item.name}</b>
+          <CardFooter className="text-small justify-between ">
+            <b className="max-w-36">{item.name}</b>
             <LikeButton />
           </CardFooter>
         </Card>

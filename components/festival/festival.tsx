@@ -4,14 +4,22 @@ import { title } from "@/components/primitives";
 import FestivalCard from "./festivalcard";
 import FestivalCalender from "./festivalcalender";
 import type { Festival } from "@/types/festival";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { getFestivalsByMonth } from "@/actions/festival";
+import fetcher from "@/utils/fetcher";
+import useSWR from "swr";
 
 export default function Festival() {
   const [festivals, setFestivals] = useState<Festival[]>([]);
+
+  const { data: defaultFestivals } = useSWR<Festival[]>("/api/festivals", {
+    fetcher,
+  });
+
   const selectMonth = async (month: string) => {
     setFestivals(await getFestivalsByMonth(month));
   };
+
   return (
     <section className="w-full">
       <Card
@@ -24,7 +32,9 @@ export default function Festival() {
             Year-round Film Festivals
           </h1>
           <FestivalCalender handleClick={selectMonth} />
-          <FestivalCard festivals={festivals} />
+          <FestivalCard
+            festivals={festivals.length ? festivals : defaultFestivals!}
+          />
         </CardBody>
       </Card>
     </section>

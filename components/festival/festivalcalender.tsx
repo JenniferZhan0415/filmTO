@@ -1,9 +1,13 @@
 import React from "react";
-import { Button, Link } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
 import useSWR from "swr";
 import fetcher from "@/utils/fetcher";
 
-export default function FestivalCalender({ handleClick }) {
+export default function FestivalCalender({
+  handleClick,
+}: {
+  handleClick: (month: string) => void;
+}) {
   const { data: months } = useSWR("/api/festivals/months", {
     fetcher,
   });
