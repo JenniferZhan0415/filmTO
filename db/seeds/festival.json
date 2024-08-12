@@ -5,7 +5,9 @@
         "month": "February",
         "startDate": "02-12",
         "endDate": "02-17",
-        "website": "https://torontoblackfilm.com/"
+        "website": "https://torontoblackfilm.com/",
+        "foundingYear": "2013",
+        "image": "/festival/black.png"
     },
     {
         "id": "0301",
@@ -13,7 +15,9 @@
         "month": "March",
         "startDate": "03-22",
         "endDate": "03-24",
-        "website": "https://toirishfilmfest.com/"
+        "website": "https://toirishfilmfest.com/",
+        "foundingYear": "2011",
+        "image": "/festival/irish.png"
     },
     {
         "id": "0401",
@@ -21,7 +25,8 @@
         "month": "April",
         "startDate": "04-25",
         "endDate": "05-05",
-        "website": "https://hotdocs.ca/"
+        "website": "https://hotdocs.ca/",
+        "foundingYear": 1993
     },
     {
         "id": "0402",
@@ -30,7 +35,8 @@
         "startDate": "04-04",
         "endDate": "04-06",
         "location": "Hot Docs Cinema",
-        "website": "www.taafi.com"
+        "website": "www.taafi.com",
+        "foundingYear": 2012
     },
     {
         "id": "0403",
@@ -38,7 +44,8 @@
         "month": "April",
         "startDate": "04-16",
         "endDate": "04-16",
-        "website": "https://springofhorror.com/"
+        "website": "https://springofhorror.com/",
+        "foundingYear": null
     },
     {
         "id": "0501",
@@ -46,7 +53,8 @@
         "month": "May",
         "startDate": "05-24",
         "endDate": "06-01",
-        "website": "https://insideout.ca/"
+        "website": "https://insideout.ca/",
+        "foundingYear": 1991
     },
     {
         "id": "0502",
@@ -54,15 +62,17 @@
         "month": "May",
         "startDate": "05-20",
         "endDate": "05-20",
-        "website": "https://tjff.com"
+        "website": "https://tjff.com",
+        "foundingYear": 1993
     },
     {
         "id": "0601",
-        "festival": "Toronto  Japanese Film Festival",
+        "festival": "Toronto Japanese Film Festival",
         "month": "June",
         "startDate": "06-06",
         "endDate": "06-20",
-        "website": "https://jccc.on.ca/films/tjff"
+        "website": "https://jccc.on.ca/films/tjff",
+        "foundingYear": 2012
     },
     {
         "id": "0602",
@@ -70,7 +80,8 @@
         "month": "June",
         "startDate": "06-27",
         "endDate": "07-21",
-        "website": "https://icff.ca"
+        "website": "https://icff.ca",
+        "foundingYear": 2012
     },
     {
         "id": "0603",
@@ -78,7 +89,8 @@
         "month": "June",
         "startDate": "06-19",
         "endDate": "06-26",
-        "website": "https://www.topictureshow.com"
+        "website": "https://www.topictureshow.com",
+        "foundingYear": 2011
     },
     {
         "id": "0701",
@@ -86,7 +98,8 @@
         "month": "July",
         "startDate": "07-07",
         "endDate": "08-25",
-        "website": "https://www.topictureshow.com"
+        "website": "https://www.topictureshow.com",
+        "foundingYear": 2011
     },
     {
         "id": "0702",
@@ -94,7 +107,8 @@
         "month": "July",
         "startDate": "07-18",
         "endDate": "07-21",
-        "website": "https://www.thefemaleeyefilmfestival.com/"
+        "website": "https://www.thefemaleeyefilmfestival.com/",
+        "foundingYear": 2001
     },
     {
         "id": "0703",
@@ -102,7 +116,8 @@
         "month": "July",
         "startDate": "07-17",
         "endDate": "07-31",
-        "website": "https://rpff.ca/under-the-stars"
+        "website": "https://rpff.ca/under-the-stars",
+        "foundingYear": 2003
     },
     {
         "id": "0801",
@@ -110,7 +125,8 @@
         "month": "August",
         "startDate": "08-09",
         "endDate": "08-17",
-        "website": "https://mulanfestival.com"
+        "website": "https://mulanfestival.com",
+        "foundingYear": 2018
     },
     {
         "id": "0802",
@@ -118,7 +134,8 @@
         "month": "August",
         "startDate": "08-15",
         "endDate": "08-17",
-        "website": "https://www.topictureshow.com"
+        "website": "https://www.topictureshow.com",
+        "foundingYear": 2011
     },
     {
         "id": "0803",
@@ -126,7 +143,8 @@
         "month": "August",
         "startDate": "08-09",
         "endDate": "08-10",
-        "website": "https://www.dufferinfilmfest.com"
+        "website": "https://www.dufferinfilmfest.com",
+        "foundingYear": 2024
     },
     {
         "id": "0901",
@@ -134,7 +152,8 @@
         "month": "September",
         "startDate": "09-05",
         "endDate": "09-15",
-        "website": "tiff.net"
+        "website": "tiff.net",
+        "foundingYear": 1976
     },
     {
         "id": "0902",
@@ -142,7 +161,8 @@
         "month": "September",
         "startDate": "09-25",
         "endDate": "10-02",
-        "website": "https://www.tpff.ca/"
+        "website": "https://www.tpff.ca/",
+        "foundingYear": 2008
     },
     {
         "id": "1001",
@@ -150,7 +170,8 @@
         "month": "October",
         "startDate": "10-16",
         "endDate": "10-19",
-        "website": "https://www.alucinefestival.com/24th-anniversary-alucine-2024"
+        "website": "https://www.alucinefestival.com/24th-anniversary-alucine-2024",
+        "foundingYear": 1994
     },
     {
         "id": "1002",
@@ -158,7 +179,8 @@
         "month": "October",
         "startDate": "10-16",
         "endDate": "10-22",
-        "website": "https://torontoafterdark.com/"
+        "website": "https://torontoafterdark.com/",
+        "foundingYear": 2006
     },
     {
         "id": "1003",
@@ -166,15 +188,17 @@
         "month": "October",
         "startDate": "10-10",
         "endDate": "10-20",
-        "website": "https://iffsatoronto.com/"
+        "website": "https://iffsatoronto.com/",
+        "foundingYear": 2012
     },
     {
-        "id": "1001",
+        "id": "1101",
         "festival": "Imagine Fantastic Film Festival",
         "month": "October",
         "startDate": "10-24",
         "endDate": "11-03",
-        "website": "https://www.imaginefilmfestival.nl/"
+        "website": "https://www.imaginefilmfestival.nl/",
+        "foundingYear": 1984
     },
     {
         "id": "1102",
@@ -182,14 +206,29 @@
         "month": "November",
         "startDate": "11-08",
         "endDate": "11-19",
-        "website": "https://www.reelasian.com/"
+        "website": "https://www.reelasian.com/",
+        "foundingYear": "1997",
+        "image": "/festival/reel.png"
     },
     {
         "id": "1103",
         "festival": "Regent Park Film Festival",
         "month": "November",
-        "startDate": "11-28",
-        "endDate": "12-01",
-        "website": "https://rpff.ca"
+        "startDate": "11-23",
+        "endDate": "11-26",
+        "website": "https://rpff.ca",
+        "foundingYear": "2003",
+        "image": "/festival/regent.png"
+    },
+    {
+        "id": "1104",
+        "festival": "The European Film Festival",
+        "month": "November",
+        "venue": "Spadina Theatre",
+        "startDate": "11-16",
+        "endDate": "11-30",
+        "website": "https://rpff.ca",
+        "foundingYear": "2004",
+        "image": "/festival/european.png"
     }
 ]

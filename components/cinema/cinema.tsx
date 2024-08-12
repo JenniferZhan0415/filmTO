@@ -12,6 +12,7 @@ import CinemaCard from "./cinema-card";
 // import MapCard from "./cinema-map-card";
 import CinemaList from "./cinema-list";
 import FormattedCinema from "@/types/cinema";
+import type { Cinema } from "@/types/cinema";
 
 import useSWR from "swr";
 import fetcher from "@/utils/fetcher";
@@ -65,7 +66,7 @@ export default function Cinema() {
                             position={point}
                             onCloseClick={() => setOpen(false)}
                           >
-                            <CinemaCard />
+                            <CinemaCard cinema={point as any as Cinema} />
                           </InfoWindow>
                         )}
                       </Map>

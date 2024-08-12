@@ -9,7 +9,7 @@ import FormattedCinema from "@/types/cinema";
 export default function CinemaList() {
   type ListboxProps = ComponentProps<typeof Listbox>;
   const [selectedVariant, setSelectedVariant] =
-    useState<ListboxProps["variant"]>("bordered");
+    useState<ListboxProps["variant"]>("flat");
   const [selectedColor, setSelectedColor] =
     useState<ListboxProps["color"]>("primary");
 

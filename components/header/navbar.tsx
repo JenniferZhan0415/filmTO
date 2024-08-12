@@ -14,7 +14,7 @@ import { siteConfig } from "@/config/site";
 import { ThemeSwitch } from "@/components/theme-switch";
 import NavbarMenu from "@/components/header/nav-menu";
 import { GithubIcon } from "@/components/icons";
-import logo from "@/public/Logo/Logo.svg";
+import logo from "@/public/logo/logo.svg";
 import Image from "next/image";
 
 export const Navbar = () => (
