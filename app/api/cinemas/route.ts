@@ -19,7 +19,7 @@ export async function GET() {
 
     return NextResponse.json(
       { error: "Cannot fetch cinemas." },
-      { status: 500 },
+      { status: 500 }
     );
   }
 }

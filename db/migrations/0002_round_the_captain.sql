@@ -1,1 +1,0 @@
-ALTER TABLE "cinema" RENAME COLUMN "year_established" TO "established";

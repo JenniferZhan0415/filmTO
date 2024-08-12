@@ -1,48 +1,31 @@
 import React from "react";
-import { Link } from "@nextui-org/react";
+import { Button } from "@nextui-org/react";
+import useSWR from "swr";
+import fetcher from "@/utils/fetcher";
 
-export default function FestivalCalender() {
+export default function FestivalCalender({
+  handleClick,
+}: {
+  handleClick: (month: string) => void;
+}) {
+  const { data: months } = useSWR("/api/festivals/months", {
+    fetcher,
+  });
+
   return (
-    <section className="mb-4">
-      <div className="flex gap-2 flex-wrap ">
-        <Link isBlock showAnchorIcon href="#" color="foreground">
-          Foreground
-        </Link>
-        <Link isBlock showAnchorIcon href="#" color="primary">
-          Primary
-        </Link>
-        <Link isBlock showAnchorIcon href="#" color="secondary">
-          Secondary
-        </Link>
-        <Link isBlock showAnchorIcon href="#" color="success">
-          Success
-        </Link>
-        <Link isBlock showAnchorIcon href="#" color="warning">
-          Warning
-        </Link>
-        <Link isBlock showAnchorIcon href="#" color="danger">
-          Danger
-        </Link>
-      </div>
-      <div className="flex gap-2">
-        <Link isBlock showAnchorIcon href="#" color="foreground">
-          Foreground
-        </Link>
-        <Link isBlock showAnchorIcon href="#" color="primary">
-          Primary
-        </Link>
-        <Link isBlock showAnchorIcon href="#" color="secondary">
-          Secondary
-        </Link>
-        <Link isBlock showAnchorIcon href="#" color="success">
-          Success
-        </Link>
-        <Link isBlock showAnchorIcon href="#" color="warning">
-          Warning
-        </Link>
-        <Link isBlock showAnchorIcon href="#" color="danger">
-          Danger
-        </Link>
+    <section className="mb-4 min-w-60 sm:w-full">
+      <div className="flex gap-2 flex-wrap hover:cursor-pointer items-center justify-center ">
+        {months?.map(({ month }: { month: string }) => (
+          <Button
+            onClick={() => handleClick(month)}
+            radius="full"
+            variant="light"
+            color="primary"
+            key={month}
+          >
+            {month}
+          </Button>
+        ))}
       </div>
     </section>
   );
