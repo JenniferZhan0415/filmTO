@@ -27,6 +27,8 @@ const buildConflictUpdateColumns = <
   );
 };
 
+import { Cinema } from "@/types/cinema";
+
 /**
  * Seed the database with initial data:
  *  - cinemas
