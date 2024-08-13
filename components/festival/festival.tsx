@@ -4,7 +4,7 @@ import { title } from "@/components/primitives";
 import FestivalCard from "./festivalcard";
 import FestivalCalender from "./festivalcalender";
 import type { Festival } from "@/types/festival";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getFestivalsByMonth } from "@/actions/festival";
 import fetcher from "@/utils/fetcher";
 import useSWR from "swr";
@@ -31,6 +31,9 @@ export default function Festival() {
           <h1 className={`${title({ color: "blue" })} pb-4 text-center`}>
             Year-round Film Festivals
           </h1>
+          <h4 className="text-default-500 mb-6">
+            Click to like and save the film festivals to your dashboard
+          </h4>
           <FestivalCalender handleClick={selectMonth} />
           <FestivalCard
             festivals={festivals.length ? festivals : defaultFestivals!}

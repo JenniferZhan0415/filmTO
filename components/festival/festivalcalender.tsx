@@ -13,13 +13,13 @@ export default function FestivalCalender({
   });
 
   return (
-    <section className="mb-4 min-w-60 sm:w-full">
-      <div className="flex gap-2 flex-wrap hover:cursor-pointer items-center justify-center ">
+    <section className="mb-4 min-w-60 sm:min-w-80">
+      <div className="flex gap-2 flex-wrap hover:cursor-pointer items-center justify-center mb-4">
         {months?.map(({ month }: { month: string }) => (
           <Button
             onClick={() => handleClick(month)}
             radius="full"
-            variant="light"
+            variant="ghost"
             color="primary"
             key={month}
           >

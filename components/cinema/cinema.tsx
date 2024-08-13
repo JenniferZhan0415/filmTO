@@ -24,11 +24,18 @@ export default function Cinema() {
   const { data: cinemas } = useSWR<FormattedCinema[]>("/api/cinemas", {
     fetcher,
   });
-  const showMap = false;
-  // const showMap = true;
+  // const showMap = false;
+  const showMap = true;
+
+  const handleOpenCinemaCard = (key: string) => () => {
+    const cinema = cinemas?.find((c: FormattedCinema) => c.key === key);
+    if (!cinema) return;
+    setPoint(cinema);
+    setOpen(true);
+  };
 
   return (
-    <section className="w-full">
+    <section className="w-full ">
       <Card
         isBlurred
         className="border-none bg-background/60 dark:bg-default-100/50"
@@ -37,9 +44,9 @@ export default function Cinema() {
         <CardBody className="flex items-center justify-center ">
           <h1 className={`${title({ color: "blue" })} pb-4`}>Legacy Cinemas</h1>
           <h4 className="text-default-500 mb-6">
-            Click to explore the art house and independent cinemas
+            Click to explore and save the art house cinemas to your dashboard
           </h4>
-          <div className="flex flex-col sm:flex-row w-full ">
+          <div className="flex flex-col sm:flex-row w-full sm:h-[60vh] ">
             <Card
               isBlurred
               className="w-full border-none bg-background/60 dark:bg-default-100/50 "
@@ -75,7 +82,7 @@ export default function Cinema() {
                 )}
               </CardBody>
             </Card>
-            <CinemaList />
+            <CinemaList handleOpenCinemaCard={handleOpenCinemaCard} />
           </div>
         </CardBody>
       </Card>

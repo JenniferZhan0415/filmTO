@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Image, Link } from "@nextui-org/react";
 import FestivalImage from "./festival-image";
 import LikeButton from "./like-button";
-import { getFestivalsByMonth } from "@/actions/festival";
 import Festival from "@/types/festival";
 
 interface FestivalCardProps {
@@ -24,7 +23,14 @@ export default function FestivalCard({ festivals }: FestivalCardProps) {
             <FestivalImage image={item.image!} />
           </CardBody>
           <CardFooter className="text-small justify-between ">
-            <b className="max-w-36">{item.name}</b>
+            <Link
+              isExternal
+              href={item.website!}
+              underline="hover"
+              className="max-w-36 text-medium font-medium"
+            >
+              {item.name}
+            </Link>
             <LikeButton />
           </CardFooter>
         </Card>
