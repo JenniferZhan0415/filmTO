@@ -1,5 +1,4 @@
-import React from "react";
-
+import React, { useState } from "react";
 import {
   Card,
   CardHeader,
@@ -15,82 +14,67 @@ import mulaniff2024 from "@/assets/article-images/mulan24.png";
 import Top10 from "@/assets/article-images/top10.png";
 import AsianFocus from "@/assets/article-images/asianfocus.png";
 import LikeButton from "./like-button";
-// import Link from "next/link";
+import { getAllArticles } from "@/actions/article";
+import type { Article } from "@/types/article";
+import useSWR from "swr";
+import fetcher from "@/utils/fetcher";
 
 export default function App() {
+  // const [articles, setArticles] = useState<Article[]>([]);
+  // (async () => {
+  //   setArticles(await getAllArticles());
+  // })();
+  const { data: articles } = useSWR<Article[]>("/api/articles", fetcher);
+  // console.log(articles);
+
+  const articleCards = articles?.filter(
+    (article) => article.type === "article"
+  );
+  // console.log(articleCards);
+
+  const eventCards = articles?.filter((article) => article.type === "event");
+  // console.log(eventCards);
+
+  const screeningCards = articles?.filter(
+    (article) => article.type === "screening"
+  );
+  // console.log(screeningCards);
+
+  const articleCardComponent = (articleCard: Article) => (
+    <Card key={articleCard.id} className="col-span-12 sm:col-span-4  h-[300px]">
+      <CardHeader className="absolute z-10 pt-4 flex-col !items-start ">
+        <div className="w-full flex items-center justify-between">
+          <div>
+            <p className="text-tiny text-white/60 uppercase font-bold">
+              {articleCard.subtitle}
+            </p>
+            <Link
+              isExternal
+              href={articleCard.url!}
+              underline="hover"
+              showAnchorIcon
+              className="text-white font-medium text-large mt-1"
+            >
+              {articleCard.title}
+            </Link>
+          </div>
+          <LikeButton />
+        </div>
+      </CardHeader>
+      <Image
+        isZoomed
+        removeWrapper
+        alt="Card background"
+        className="z-0 w-full h-full object-cover"
+        src={articleCard.image!}
+      />
+    </Card>
+  );
+
   return (
     <div className="max-w-[900px] gap-2 grid grid-cols-12 grid-rows-2 px-8">
-      <Card className="col-span-12 sm:col-span-4  h-[300px]">
-        <CardHeader className="absolute z-10 pt-4 flex-col !items-start ">
-          <div className="w-full flex items-center justify-between">
-            <div>
-              <p className="text-tiny text-white/60 uppercase font-bold">
-                TIFF 2024
-              </p>
-              <Link
-                isExternal
-                href="https://tiff.net"
-                underline="hover"
-                showAnchorIcon
-                className="text-white font-medium text-large mt-1"
-              >
-                Tickets Guide
-              </Link>
-            </div>
-            <LikeButton />
-          </div>
-        </CardHeader>
-        <Image
-          isZoomed
-          removeWrapper
-          alt="Card background"
-          className="z-0 w-full h-full object-cover"
-          src={TIFF24Poster.src}
-        />
-        {/* <CardFooter className="absolute bg-white/30 bottom-0 z-10 flex flex-row justify-items-start ">
-          <LikeButton />
-        </CardFooter> */}
-      </Card>
-      <Card className="col-span-12 sm:col-span-4 h-[300px]">
-        <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-          <div className="w-full flex items-center justify-between">
-            <div>
-              <p className="text-tiny text-white/60 uppercase font-bold">
-                TIFF 2024
-              </p>
-              <h4 className="text-white font-medium text-large">Must See</h4>
-            </div>
-            <LikeButton />
-          </div>
-        </CardHeader>
-        <Image
-          isZoomed
-          removeWrapper
-          alt="Card background"
-          className="z-0 w-full h-full object-cover"
-          src={Top10.src}
-        />
-      </Card>
-      <Card className="col-span-12 sm:col-span-4 h-[300px]">
-        <CardHeader className="absolute z-10 top-1 flex-col !items-start">
-          <div className="w-full flex items-center justify-between">
-            <div>
-              <p className="text-tiny text-white/60 uppercase font-bold">
-                TIFF 2024
-              </p>
-              <h4 className="text-white font-medium text-large">Asian Focus</h4>
-            </div>
-            <LikeButton />
-          </div>
-        </CardHeader>
-        <Image
-          isZoomed
-          removeWrapper
-          alt="Card background"
-          className="z-0 w-full h-full object-cover"
-          src={AsianFocus.src}
-        />
-      </Card>
+      {articleCards?.map((articleCard) => articleCardComponent(articleCard))}
+
       <Card
         isFooterBlurred
         className="w-full h-[300px] col-span-12 sm:col-span-5"

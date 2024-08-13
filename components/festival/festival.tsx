@@ -4,7 +4,7 @@ import { title } from "@/components/primitives";
 import FestivalCard from "./festivalcard";
 import FestivalCalender from "./festivalcalender";
 import type { Festival } from "@/types/festival";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { getFestivalsByMonth } from "@/actions/festival";
 import fetcher from "@/utils/fetcher";
 import useSWR from "swr";
