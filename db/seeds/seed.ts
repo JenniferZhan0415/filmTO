@@ -6,8 +6,12 @@ import { SQLiteTable } from "drizzle-orm/sqlite-core";
 import { db } from "..";
 import { cinemas } from "../schemas/cinema";
 import { Cinema } from "@/types/cinema";
+
 import Festival from "@/types/festival";
 import { festivals } from "../schemas/festival";
+
+import Article from "@/types/article";
+import { articles } from "../schemas/article";
 
 const buildConflictUpdateColumns = <
   T extends PgTable | SQLiteTable,
@@ -26,8 +30,6 @@ const buildConflictUpdateColumns = <
     {} as Record<Q, SQL>
   );
 };
-
-import { Cinema } from "@/types/cinema";
 
 /**
  * Seed the database with initial data:
@@ -79,6 +81,27 @@ import { Cinema } from "@/types/cinema";
           "end",
           "website",
           "since",
+          "image",
+        ]),
+      });
+
+    // load articles
+    const articleData: Article[] = JSON.parse(
+      await readFile("./db/seeds/article.json", "utf-8")
+    );
+
+    // insert articles
+    await db
+      .insert(articles)
+      .values(articleData)
+      .onConflictDoUpdate({
+        target: articles.id,
+        set: buildConflictUpdateColumns(articles, [
+          "id",
+          "type",
+          "title",
+          "subtitle",
+          "url",
           "image",
         ]),
       });

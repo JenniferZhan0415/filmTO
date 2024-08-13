@@ -17,7 +17,7 @@ export default function LikeButton() {
     >
       <HeartIcon
         className={liked ? "[&>path]:stroke-transparent" : ""}
-        fill={liked ? "currentColor" : "none"}
+        fill={liked ? "danger" : "none"}
       />
     </Button>
   );
