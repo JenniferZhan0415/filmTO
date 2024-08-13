@@ -1,0 +1,262 @@
+[
+    {
+        "id": "0201",
+        "name": "Toronto Black Film Festival",
+        "month": "February",
+        "start": "02-12",
+        "end": "02-17",
+        "website": "https://torontoblackfilm.com/",
+        "since": "2013",
+        "image": "/festival/black.png"
+    },
+    {
+        "id": "0301",
+        "name": "Toronto Irish Film Festival",
+        "month": "March",
+        "start": "03-22",
+        "end": "03-24",
+        "website": "https://toirishfilmfest.com/",
+        "since": "2011",
+        "image": "/festival/irish.png"
+    },
+    {
+        "id": "0401",
+        "name": "Hot Docs Festival",
+        "month": "April",
+        "start": "04-25",
+        "end": "05-05",
+        "website": "https://hotdocs.ca/",
+        "since": "1993",
+        "image": "/festival/hotdocs.png"
+    },
+    {
+        "id": "0402",
+        "name": "Toronto Animation Film Festival",
+        "month": "April",
+        "start": "04-04",
+        "end": "04-06",
+        "website": "https://www.taafi.com/news/",
+        "since": "2012",
+        "image": "/festival/taafi.png"
+    },
+    {
+        "id": "0403",
+        "name": "Spring of Horror and Fantasy Film Festival",
+        "month": "April",
+        "start": "04-16",
+        "end": "04-16",
+        "website": "https://springofhorror.com/",
+        "since": "2017",
+        "image": "/festival/spring.png"
+    },
+    {
+        "id": "0501",
+        "name": "Inside Out Film Festival",
+        "month": "May",
+        "start": "05-24",
+        "end": "06-01",
+        "website": "https://insideout.ca/",
+        "since": "1991",
+        "image": "/festival/insideout.png"
+    },
+    {
+        "id": "0502",
+        "name": "Toronto Jewish Film Festival",
+        "month": "May",
+        "start": "05-20",
+        "end": "05-20",
+        "website": "https://tjff.com",
+        "since": "1993",
+        "image": "/festival/jewish.png"
+    },
+    {
+        "id": "0601",
+        "name": "Toronto Japanese Film Festival",
+        "month": "June",
+        "start": "06-06",
+        "end": "06-20",
+        "website": "https://jccc.on.ca/films/tjff",
+        "since": "2012",
+        "image": "/festival/tjff.png"
+    },
+    {
+        "id": "0602",
+        "name": "The Lavazza IncluCity Festival",
+        "month": "June",
+        "start": "06-27",
+        "end": "07-21",
+        "website": "https://icff.ca",
+        "since": "2012",
+        "image": "/festival/lavazza.png"
+    },
+    {
+        "id": "0603",
+        "name": "Toronto Outdoor Picture Show @ Fort York",
+        "month": "June",
+        "start": "06-19",
+        "end": "06-26",
+        "website": "https://www.topictureshow.com",
+        "since": "2011",
+        "image": "/festival/fort.png"
+    },
+    {
+        "id": "0701",
+        "name": "Toronto Outdoor Picture Show @ Christie Pits",
+        "month": "July",
+        "start": "07-07",
+        "end": "08-25",
+        "website": "https://www.topictureshow.com",
+        "since": "2011",
+        "image": "/festival/christie.png"
+    },
+    {
+        "id": "0702",
+        "name": "Toronto Outdoor Picture Show @ Corktown Common",
+        "month": "July",
+        "start": "07-11",
+        "end": "08-1",
+        "website": "https://www.topictureshow.com",
+        "since": "2011",
+        "image": "/festival/corktown.png"
+    },
+    {
+        "id": "0703",
+        "name": "The Female Eye Film Festival",
+        "month": "July",
+        "start": "07-18",
+        "end": "07-21",
+        "website": "https://www.thefemaleeyefilmfestival.com/",
+        "since": "2001",
+        "image": "/festival/femaleeye.png"
+    },
+    {
+        "id": "0704",
+        "name": "Regent Park Film Festival's Under the Stars",
+        "month": "July",
+        "start": "07-17",
+        "end": "07-31",
+        "website": "https://rpff.ca/under-the-stars",
+        "since": "2003",
+        "image": "/festival/understars.png"
+    },
+    {
+        "id": "0801",
+        "name": "Mulan International Film Festival",
+        "month": "August",
+        "start": "08-09",
+        "end": "08-17",
+        "website": "https://mulanfestival.com",
+        "since": "2018",
+        "image": "/festival/mulan.png"
+    },
+    {
+        "id": "0802",
+        "name": "Toronto Outdoor Picture Show @ Bell Manor Park",
+        "month": "August",
+        "start": "08-15",
+        "end": "08-17",
+        "website": "https://www.topictureshow.com",
+        "since": "2011",
+        "image": "/festival/bell.png"
+    },
+    {
+        "id": "0803",
+        "name": "Dufferin Film Festival",
+        "month": "August",
+        "start": "08-09",
+        "end": "08-10",
+        "website": "https://www.dufferinfilmfest.com",
+        "since": "2024",
+        "image": "/festival/dufferin.png"
+    },
+    {
+        "id": "0901",
+        "name": "Toronto International Film Festival",
+        "month": "September",
+        "start": "09-05",
+        "end": "09-15",
+        "website": "tiff.net",
+        "since": "1976",
+        "image": "/festival/tiff.png"
+    },
+    {
+        "id": "0902",
+        "name": "Toronto Palestine Film Festival",
+        "month": "September",
+        "start": "09-25",
+        "end": "10-02",
+        "website": "https://www.tpff.ca/",
+        "since": "2008",
+        "image": "/festival/palestine.png"
+    },
+    {
+        "id": "1001",
+        "name": "aluCine Latin Film & Media Arts Festival",
+        "month": "October",
+        "start": "10-16",
+        "end": "10-19",
+        "website": "https://www.alucinefestival.com/24th-anniversary-alucine-2024",
+        "since": "1994",
+        "image": "/festival/alucine.png"
+    },
+    {
+        "id": "1002",
+        "name": "Toronto After Dark Film Festival",
+        "month": "October",
+        "start": "10-16",
+        "end": "10-22",
+        "website": "https://torontoafterdark.com/",
+        "since": "2006",
+        "image": "/festival/afterdark.png"
+    },
+    {
+        "id": "1003",
+        "name": "International Film Festival of South Asia",
+        "month": "October",
+        "start": "10-10",
+        "end": "10-20",
+        "website": "https://iffsatoronto.com/",
+        "since": "2012",
+        "image": "/festival/iffsa.png"
+    },
+    {
+        "id": "1101",
+        "name": "Imagine Fantastic Film Festival",
+        "month": "October",
+        "start": "10-24",
+        "end": "11-03",
+        "website": "https://www.imaginefilmfestival.nl/",
+        "since": "1984",
+        "image": "/festival/imagine.png"
+    },
+    {
+        "id": "1102",
+        "name": "Toronto Reel Asian International Film Festival",
+        "month": "November",
+        "start": "11-08",
+        "end": "11-19",
+        "website": "https://www.reelasian.com/",
+        "since": "1997",
+        "image": "/festival/reel.png"
+    },
+    {
+        "id": "1103",
+        "name": "Regent Park Film Festival",
+        "month": "November",
+        "start": "11-23",
+        "end": "11-26",
+        "website": "https://rpff.ca",
+        "since": "2003",
+        "image": "/festival/regent.png"
+    },
+    {
+        "id": "1104",
+        "name": "The European Film Festival",
+        "month": "November",
+        "start": "11-16",
+        "end": "11-30",
+        "website": "https://rpff.ca",
+        "since": "2004",
+        "image": "/festival/european.png"
+    }
+]

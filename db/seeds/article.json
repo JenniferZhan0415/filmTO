@@ -1,0 +1,46 @@
+[
+    {
+        "id": "1",
+        "type": "article",
+        "title": "Tickets Guide",
+        "subtitle": "TIFF 2024",
+        "url": "https://www.tiff.net/about-the-festival",
+        "image": "/article/tiff24.png"
+    },
+    {
+        "id": "2",
+        "type": "article",
+        "title": "Must See",
+        "subtitle": "TIFF 2024",
+        "url": "https://www.tiff.net",
+        "image": "/article/top10.png"
+    },
+    {
+        "id": "3",
+        "type": "article",
+        "title": "Asian Focus",
+        "subtitle": "TIFF 2024",
+        "url": "https://www.tiff.net",
+        "image": "/article/asianfocus.png"
+    },
+    {
+        "id": "4",
+        "type": "event",
+        "venue": "Innis Town Hall",
+        "date": "Aug 9 - Aug 17, 2024",
+        "title": "Mulan Film Festival",
+        "subtitle": "Festival Happenings",
+        "url": "https://mulanfestival.com/",
+        "image": "/article/mulan24.png"
+    },
+    {
+        "id": "5",
+        "type": "screening",
+        "venue": "Revue Cinema",
+        "date": "Mon Sep 09, 09:30 PM",
+        "title": "July Rhapsody 4K",
+        "subtitle": "More Screenings",
+        "url": "https://revuecinema.ca/films/revue-event-july-rhapsody-2002-new-4k-restoration/",
+        "image": "/article/rhapsody.png"
+    }
+]
