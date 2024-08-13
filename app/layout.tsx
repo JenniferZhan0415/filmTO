@@ -38,7 +38,7 @@ export default function RootLayout({
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
+          fontSans.variable
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
@@ -48,15 +48,8 @@ export default function RootLayout({
               {children}
             </main>
             <footer className="w-full flex items-center justify-center py-3">
-              <Link
-                isExternal
-                className="flex items-center gap-1 text-current"
-                href="https://github.com/JenniferZhan0415"
-                title="Jennifer Zhan github page"
-              >
-                <span className="text-default-600">Powered by</span>
-                <small className="text-primary">TORONTO FILM LOVERS</small>
-              </Link>
+              <span className="text-default-600 mr-2">Powered by</span>
+              <small className="text-primary">TORONTO FILM LOVERS</small>
             </footer>
           </div>
         </Providers>

@@ -23,7 +23,7 @@ export default function ChangeTheme() {
   ];
 
   return (
-    <div className="flex flex-wrap">
+    <div className="flex flex-col sm:flex-row  flex-wrap justify-end">
       {colors.map((color) => {
         return (
           <Tooltip
@@ -35,7 +35,7 @@ export default function ChangeTheme() {
             <Button
               variant="flat"
               color={color.theme}
-              className="capitalize  mr-2 mb-2"
+              className="capitalize ml-2 mb-2"
             >
               {color.name}
             </Button>

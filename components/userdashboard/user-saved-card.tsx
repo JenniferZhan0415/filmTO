@@ -6,19 +6,18 @@ import {
   CardFooter,
   Divider,
   Link,
-  Image,
 } from "@nextui-org/react";
-import { ArrowOpen } from "../icons";
-import starIcon from "@/public/svg/star.svg";
+
+import { StarIcon } from "@/components/icons";
 
 export default function UserSavedCard() {
   return (
     <Card className="sm:w-1/3">
       <CardHeader className="flex gap-3">
-        <ArrowOpen />
-        <div className="flex flex-col">
-          <p className="text-md">NextUI</p>
-          <p className="text-small text-default-500">nextui.org</p>
+        <div className="flex flex-row w-full  justify-between">
+          <p className="text-md">Saved Cinemas</p>
+          <StarIcon className="text-default-500" />
+          {/* <p className="text-small text-default-500">nextui.org</p> */}
         </div>
       </CardHeader>
       <Divider />
@@ -32,7 +31,7 @@ export default function UserSavedCard() {
           showAnchorIcon
           href="https://github.com/nextui-org/nextui"
         >
-          Visit source code on GitHub.
+          Visit Cinema Map
         </Link>
       </CardFooter>
     </Card>

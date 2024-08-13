@@ -1,0 +1,10 @@
+[
+    {
+        "id": uuid(),
+        "festivalId": "(int -- foreign key)",
+        "cinemaId": " (int -- foreign key)",
+        "articleId": "(int -- foreign key)",
+        "filmId": "(int -- foreign key)",
+        "userId": " (int -- foreign key)"
+    }
+]
