@@ -12,7 +12,7 @@
         "type": "article",
         "title": "Must See",
         "subtitle": "TIFF 2024",
-        "url": "tiff.net",
+        "url": "https://www.tiff.net",
         "image": "/article/top10.png"
     },
     {
@@ -20,7 +20,7 @@
         "type": "article",
         "title": "Asian Focus",
         "subtitle": "TIFF 2024",
-        "url": "tiff.net",
+        "url": "https://www.tiff.net",
         "image": "/article/asianfocus.png"
     },
     {
