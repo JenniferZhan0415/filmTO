@@ -8,18 +8,14 @@ import {
   Link,
   Image,
 } from "@nextui-org/react";
+import { ArrowOpen } from "../icons";
+import starIcon from "@/public/svg/star.svg";
 
 export default function UserSavedCard() {
   return (
     <Card className="sm:w-1/3">
       <CardHeader className="flex gap-3">
-        <Image
-          alt="nextui logo"
-          height={40}
-          radius="sm"
-          src="https://avatars.githubusercontent.com/u/86160567?s=200&v=4"
-          width={40}
-        />
+        <ArrowOpen />
         <div className="flex flex-col">
           <p className="text-md">NextUI</p>
           <p className="text-small text-default-500">nextui.org</p>
