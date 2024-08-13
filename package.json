@@ -13,6 +13,7 @@
     },
     "dependencies": {
         "@ai-sdk/google": "^0.0.32",
+        "@auth0/nextjs-auth0": "^3.5.0",
         "@googlemaps/markerclusterer": "^2.5.1",
         "@nextui-org/button": "2.0.37",
         "@nextui-org/card": "^2.0.33",
@@ -40,6 +41,7 @@
         "intl-messageformat": "^10.5.0",
         "lodash": "^4.17.21",
         "next": "14.2.4",
+        "next-auth": "^4.24.7",
         "next-themes": "^0.2.1",
         "pg": "^8.12.0",
         "react": "18.3.1",

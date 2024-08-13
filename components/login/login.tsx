@@ -1,9 +1,10 @@
 "use client";
 import { Card, CardBody } from "@nextui-org/react";
-
 import LoginInput from "./login-input";
 import { title } from "@/components/primitives";
 import LoginButton from "./login-button";
+import LoginGoogleGithub from "./login-google-github";
+
 export default function Login() {
   return (
     <>
@@ -19,6 +20,7 @@ export default function Login() {
             </h1>
             <h4 className="text-default-500 mb-6">Login to your account</h4>
             <LoginInput />
+            <LoginGoogleGithub />
             <LoginButton />
           </CardBody>
         </Card>
