@@ -10,7 +10,7 @@ export default function ChangeTheme() {
   const colors: { theme: Color; name: string }[] = [
     {
       theme: "success",
-      name: "default",
+      name: "Default Theme",
     },
     {
       theme: "warning",
@@ -18,12 +18,12 @@ export default function ChangeTheme() {
     },
     {
       theme: "danger",
-      name: "The grand budapest hotel",
+      name: "The Grand Budapest Hotel",
     },
   ];
 
   return (
-    <div className="flex flex-col sm:flex-row  flex-wrap justify-end">
+    <div className="flex flex-col sm:flex-row justify-end gap-4">
       {colors.map((color) => {
         return (
           <Tooltip
@@ -32,11 +32,7 @@ export default function ChangeTheme() {
             content={color.name}
             className="capitalize"
           >
-            <Button
-              variant="flat"
-              color={color.theme}
-              className="capitalize ml-2 mb-2"
-            >
+            <Button variant="flat" color={color.theme} className="capitalize ">
               {color.name}
             </Button>
           </Tooltip>

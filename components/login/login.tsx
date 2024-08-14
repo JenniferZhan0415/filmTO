@@ -4,8 +4,27 @@ import LoginInput from "./login-input";
 import { title } from "@/components/primitives";
 import LoginButton from "./login-button";
 import LoginGoogleGithub from "./login-google-github";
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+import { Spinner } from "@nextui-org/react";
 
 export default function Login() {
+  const { status } = useSession();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (status === "authenticated") {
+      router.push("/dashboard");
+    }
+  }, [status]);
+
+  if (status === "loading") {
+    return (
+      <Spinner label="Authenticating..." color="primary" labelColor="primary" />
+    );
+  }
+
   return (
     <>
       <section className="w-full">
@@ -19,8 +38,11 @@ export default function Login() {
               Welcome back!
             </h1>
             <h4 className="text-default-500 mb-6">Login to your account</h4>
-            <LoginInput />
-            <LoginGoogleGithub />
+            <div className="flex flex-row w-full gap-4 mb-4 border-b-1 border-solid border-lightgray-500">
+              <LoginInput />
+              {/* <Divider className="h-56 mx-2 " orientation="vertical" /> */}
+              <LoginGoogleGithub />
+            </div>
             <LoginButton />
           </CardBody>
         </Card>

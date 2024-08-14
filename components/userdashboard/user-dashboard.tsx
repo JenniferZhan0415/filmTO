@@ -6,38 +6,45 @@ import UserSavedCard from "./user-saved-card";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
+import { Spinner } from "@nextui-org/react";
 
 export default function UserDashboard() {
-  const { data: session } = useSession();
+  const { data: session, status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (!session) router.push("/login");
-  }, []);
+    if (status === "unauthenticated") {
+      router.push("/login");
+    }
+  }, [status]);
+
+  if (status === "loading") {
+    return (
+      <Spinner label="Authenticating..." color="primary" labelColor="primary" />
+    );
+  }
 
   return (
-    session && (
-      <section className="flex flex-col items-center w-full px-10">
-        <h1 className={`${title({ color: "blue" })} pb-4 text-center`}>
-          Welcome back, Jennifer!
-        </h1>
-        <h4 className="text-default-500 mb-6">
-          Change your theme by favorite film
-        </h4>
+    <section className="flex flex-col items-center w-full px-10">
+      <h1 className={`${title({ color: "blue" })} pb-4 text-center`}>
+        Welcome back, {session?.user?.name}!
+      </h1>
+      <h4 className="text-default-500 mb-6">
+        Change your theme by favorite film
+      </h4>
 
-        <div className="flex flex-col sm:flex-row justify-between w-full h-full  items-center gap-4 mb-6 ">
-          <div className="flex flex-col items-start min-w-fit justify-between">
-            <UserInfo />
-          </div>
-          <ChangeTheme />
+      <div className="flex flex-col lg:justify-between flex-wrap   md:flex-row md:justify-center sm:items-center  w-full h-full gap-4 mb-6 ">
+        <div className="flex flex-col items-start min-w-fit justify-between">
+          <UserInfo session={session} />
         </div>
-        <div className="flex flex-col  sm:flex-row justify-between w-full gap-4 mb-2">
-          <UserSavedCard />
-          <UserSavedCard />
-          <UserSavedCard />
-          <UserSavedCard />
-        </div>
-      </section>
-    )
+        <ChangeTheme />
+      </div>
+      <div className="flex flex-col  sm:flex-row justify-between w-full gap-4 mb-2">
+        <UserSavedCard />
+        <UserSavedCard />
+        <UserSavedCard />
+        <UserSavedCard />
+      </div>
+    </section>
   );
 }

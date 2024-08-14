@@ -3,7 +3,7 @@ import { Button, Link } from "@nextui-org/react";
 
 export default function LoginButton() {
   return (
-    <div className="flex w-full justify-between gap-4 items-center">
+    <div className="flex w-full justify-between gap-6 items-center">
       <Button
         href="/"
         as={Link}

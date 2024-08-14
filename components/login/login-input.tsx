@@ -25,11 +25,11 @@ export default function LoginInput() {
     },
   ];
   return (
-    <div className="w-full flex flex-col">
+    <div className="w-full flex flex-col justify-end pr-4 border-r-1 border-solid border-lightgray-500">
       {variants.map((variant) => (
         <div
           key={variant.name}
-          className="flex w-full flex-wrap md:flex-nowrap mb-4 gap-1"
+          className="flex w-full flex-wrap md:flex-nowrap mb-4"
         >
           <Input
             type={variant.name}

@@ -2,14 +2,14 @@ import React from "react";
 import { User } from "@nextui-org/react";
 import UserEditLink from "./user-edit-link";
 
-export default function UserInfo() {
+export default function UserInfo({ session }) {
   return (
-    <div className="flex sm:flex-row flex-col items-center w-full sm:items-end sm:gap-4 ">
+    <div className="flex sm:flex-row flex-wrap flex-col items-center w-full sm:items-end sm:justify-center  lg:justify-start">
       <User
-        name="Jennifer Zhan"
-        description="jennifer.zhan.2015@gmail.com"
+        name={session?.user?.name}
+        description={session?.user?.email}
         avatarProps={{
-          src: "/user/jennifer.jpg",
+          src: session?.user?.image!,
         }}
       />
       <UserEditLink />
