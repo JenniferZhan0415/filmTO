@@ -1,24 +1,37 @@
+"use client";
+
 import React from "react";
+import { useEffect, useState } from "react";
+import { useTheme } from "next-themes";
 import { Tooltip, Button } from "@nextui-org/react";
 type Color =
-  //   | "default"
+  //   | "success"
   //   | "primary"
   //   | "secondary"
-  "success" | "warning" | "danger";
+  "default" | "warning" | "danger";
 
 export default function ChangeTheme() {
-  const colors: { theme: Color; name: string }[] = [
+  const [mounted, setMounted] = useState(false);
+  const { theme, setTheme } = useTheme();
+
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  const colors: { color: Color; name: string; theme: string }[] = [
     {
-      theme: "success",
+      color: "default",
       name: "Default Theme",
+      theme: "light",
     },
     {
-      theme: "warning",
+      color: "warning",
       name: "Star War",
+      theme: "dark",
     },
     {
-      theme: "danger",
+      color: "danger",
       name: "The Grand Budapest Hotel",
+      theme: "modern",
     },
   ];
 
@@ -28,11 +41,16 @@ export default function ChangeTheme() {
         return (
           <Tooltip
             key={color.name}
-            color={color.theme}
+            color={color.color}
             content={color.name}
             className="capitalize"
           >
-            <Button variant="flat" color={color.theme} className="capitalize ">
+            <Button
+              onClick={() => setTheme(color.theme)}
+              variant="flat"
+              color={color.color}
+              className="capitalize "
+            >
               {color.name}
             </Button>
           </Tooltip>

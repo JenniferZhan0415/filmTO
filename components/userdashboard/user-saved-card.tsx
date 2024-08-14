@@ -15,7 +15,7 @@ export default function UserSavedCard() {
     <Card className="sm:w-1/3">
       <CardHeader className="flex gap-3">
         <div className="flex flex-row w-full  justify-between">
-          <p className="text-md">Saved Cinemas</p>
+          <p className="text-md text-primary">Saved Cinemas</p>
           <StarIcon className="text-default-500" />
           {/* <p className="text-small text-default-500">nextui.org</p> */}
         </div>

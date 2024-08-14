@@ -8,10 +8,23 @@ import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Spinner } from "@nextui-org/react";
 import UserEditLink from "./user-edit-link";
+import { useTheme } from "next-themes";
 
 export default function UserDashboard() {
   const { data: session, status } = useSession();
   const router = useRouter();
+
+  const { theme } = useTheme();
+  const themeColor = () => {
+    switch (theme) {
+      case "light":
+        return "blue";
+      case "dark":
+        return "yellow";
+      case "modern":
+        return "pink";
+    }
+  };
 
   useEffect(() => {
     if (status === "unauthenticated") {
@@ -27,7 +40,7 @@ export default function UserDashboard() {
 
   return (
     <section className="flex flex-col items-center w-full px-2">
-      <h1 className={`${title({ color: "blue" })} pb-4 text-center`}>
+      <h1 className={`${title({ color: themeColor() })} pb-4 text-center`}>
         Welcome back, {session?.user?.name}!
       </h1>
       <div className="flex items-center mb-6 gap-4">
