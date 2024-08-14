@@ -24,8 +24,8 @@ export default function Cinema() {
   const { data: cinemas } = useSWR<FormattedCinema[]>("/api/cinemas", {
     fetcher,
   });
-  // const showMap = false;
-  const showMap = true;
+  const showMap = false;
+  // const showMap = true;
 
   const handleOpenCinemaCard = (key: string) => () => {
     const cinema = cinemas?.find((c: FormattedCinema) => c.key === key);

@@ -3,12 +3,18 @@ import { Button, Link } from "@nextui-org/react";
 
 export default function LoginButton() {
   return (
-    <div className="flex w-full justify-between gap-4 items-center">
-      <Button className="w-full" color="default" variant="bordered">
-        Login
+    <div className="flex w-full justify-between gap-6 items-center">
+      <Button
+        href="/"
+        as={Link}
+        className="w-full"
+        color="default"
+        variant="bordered"
+      >
+        Cancel
       </Button>
-      <Button href="/signup" as={Link} className="w-full" color="primary">
-        Sign up
+      <Button href="/dashboard" as={Link} className="w-full" color="primary">
+        Log in
       </Button>
     </div>
   );

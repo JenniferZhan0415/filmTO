@@ -5,7 +5,7 @@ export default function SignUpButton() {
   return (
     <div className="flex w-full justify-between gap-4 items-center">
       <Button
-        href="/login"
+        href="/"
         as={Link}
         className="w-full"
         color="default"
@@ -13,7 +13,7 @@ export default function SignUpButton() {
       >
         Cancel
       </Button>
-      <Button className="w-full" color="primary">
+      <Button href="/login" as={Link} className="w-full" color="primary">
         Sign up
       </Button>
     </div>
