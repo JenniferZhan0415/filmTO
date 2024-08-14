@@ -12,7 +12,6 @@ export default function UserInfo({ session }) {
           src: session?.user?.image!,
         }}
       />
-      <UserEditLink />
     </div>
   );
 }

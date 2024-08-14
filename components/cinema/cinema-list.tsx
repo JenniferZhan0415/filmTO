@@ -5,6 +5,9 @@ import { Listbox, ListboxItem } from "@nextui-org/react";
 import { ListboxWrapper } from "./listbox-wrapper";
 import { getAllCinemas } from "@/actions/cinema";
 import FormattedCinema from "@/types/cinema";
+import { StarIcon } from "@/components/icons";
+import { FilmIcon } from "@/components/cinema/film-icon";
+import { EditDocumentIcon } from "./DeleteDocumentIcon.tsx";
 
 type CinemaListProps = {
   handleOpenCinemaCard: (key: string) => {};
@@ -36,6 +39,8 @@ const CinemaList: React.FC<CinemaListProps> = ({
     "warning",
     "danger",
   ];
+  const iconClasses =
+    "display-line text-xl text-default-500 pointer-events-none flex-shrink-0";
 
   return (
     <div className="flex flex-row gap-4 w-full h-full sm:w-2/5 items-center">
@@ -49,7 +54,7 @@ const CinemaList: React.FC<CinemaListProps> = ({
           {cinemas.map((cinema) => (
             <ListboxItem
               onClick={handleOpenCinemaCard(cinema.key)}
-              className="h-10"
+              className="h-7 flex flex-col items-start justify-center"
               key={cinema.key}
             >
               {cinema.key}

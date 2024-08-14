@@ -30,7 +30,7 @@ export default function Login() {
       <section className="w-full">
         <Card
           isBlurred
-          className="border-none bg-background/60 dark:bg-default-100/50 min-w-80 pb-4 px-40"
+          className="border-none bg-background/60 dark:bg-default-100/50 min-w-80 pb-4 px-4"
           shadow="sm"
         >
           <CardBody className="flex items-center justify-center w-full">
@@ -38,11 +38,11 @@ export default function Login() {
               Welcome back!
             </h1>
             <h4 className="text-default-500 mb-6">Login to your account</h4>
-            <div className="flex flex-row w-full gap-4 mb-4 border-b-1 border-solid border-lightgray-500">
+            <div className="flex flex-col sm:flex-row w-full gap-4 mb-4 border-none sm:border-b-1 sm:border-solid sm:border-lightgray-500">
               <LoginInput />
-              {/* <Divider className="h-56 mx-2 " orientation="vertical" /> */}
               <LoginGoogleGithub />
             </div>
+
             <LoginButton />
           </CardBody>
         </Card>

@@ -7,6 +7,7 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Spinner } from "@nextui-org/react";
+import UserEditLink from "./user-edit-link";
 
 export default function UserDashboard() {
   const { data: session, status } = useSession();
@@ -25,15 +26,17 @@ export default function UserDashboard() {
   }
 
   return (
-    <section className="flex flex-col items-center w-full px-10">
+    <section className="flex flex-col items-center w-full px-2">
       <h1 className={`${title({ color: "blue" })} pb-4 text-center`}>
         Welcome back, {session?.user?.name}!
       </h1>
-      <h4 className="text-default-500 mb-6">
-        Change your theme by favorite film
-      </h4>
-
-      <div className="flex flex-col lg:justify-between flex-wrap   md:flex-row md:justify-center sm:items-center  w-full h-full gap-4 mb-6 ">
+      <div className="flex items-center mb-6 gap-4">
+        <h4 className="text-default-500 ">
+          Change the website theme by your favorite film
+        </h4>
+        <UserEditLink />
+      </div>
+      <div className="flex flex-col lg:justify-between md:flex-row md:justify-between sm:items-center  w-full h-full gap-4 mb-6 ">
         <div className="flex flex-col items-start min-w-fit justify-between">
           <UserInfo session={session} />
         </div>

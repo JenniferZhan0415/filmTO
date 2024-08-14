@@ -15,6 +15,13 @@
       "when": 1723519364068,
       "tag": "0001_naive_marvel_zombies",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1723599931152,
+      "tag": "0002_icy_proteus",
+      "breakpoints": true
     }
   ]
 }

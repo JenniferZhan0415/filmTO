@@ -25,7 +25,7 @@ export default function LoginInput() {
     },
   ];
   return (
-    <div className="w-full flex flex-col justify-end pr-4 border-r-1 border-solid border-lightgray-500">
+    <div className="w-full flex flex-col justify-end pr-4 border-none  sm:border-r-1 sm:border-solid sm:border-lightgray-500">
       {variants.map((variant) => (
         <div
           key={variant.name}
