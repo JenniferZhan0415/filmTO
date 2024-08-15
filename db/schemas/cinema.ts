@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
   pgTable,
   real,
@@ -6,6 +7,7 @@ import {
   uniqueIndex,
   varchar,
 } from "drizzle-orm/pg-core";
+import { likes } from "./like";
 
 // define the cinema table
 export const cinemas = pgTable(
@@ -26,7 +28,7 @@ export const cinemas = pgTable(
     lng: real("lng").notNull(),
 
     established: varchar("established", { length: 256 }),
-    
+
     image: text("image"),
   },
   (cinemas) => {
@@ -34,5 +36,9 @@ export const cinemas = pgTable(
       // cinema name must be unique
       nameIndex: uniqueIndex("name_idx").on(cinemas.name),
     };
-  },
+  }
 );
+
+export const cinemaRelations = relations(cinemas, ({ many }) => ({
+  likes: many(likes),
+}));

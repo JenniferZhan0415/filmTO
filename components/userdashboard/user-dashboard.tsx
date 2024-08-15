@@ -60,10 +60,9 @@ export default function UserDashboard() {
         <ChangeTheme />
       </div>
       <div className="flex flex-col  sm:flex-row justify-between w-full gap-4 mb-2">
-        <UserSavedCard />
-        <UserSavedCard />
-        <UserSavedCard />
-        <UserSavedCard />
+        <UserSavedCard type="cinema" />
+        <UserSavedCard type="festival" />
+        <UserSavedCard type="article" />
       </div>
     </section>
   );

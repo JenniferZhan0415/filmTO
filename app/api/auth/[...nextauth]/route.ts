@@ -27,7 +27,10 @@ const handler = NextAuth({
 
     async session({ session }) {
       const user = await getUserByEmail(session.user?.email!);
-      if (session.user) session.user.theme = user.theme;
+      if (session.user) {
+        session.user.theme = user.theme;
+        session.user.userId = user.id;
+      }
       return session;
     },
   },

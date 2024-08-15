@@ -1,10 +1,6 @@
-import {
-  pgTable,
-  serial,
-  text,
-  uniqueIndex,
-  varchar,
-} from "drizzle-orm/pg-core";
+import { relations } from "drizzle-orm";
+import { pgTable, serial, text, varchar } from "drizzle-orm/pg-core";
+import { likes } from "./like";
 
 // define the festival table
 export const articles = pgTable("article", {
@@ -20,3 +16,7 @@ export const articles = pgTable("article", {
 
   image: text("image"),
 });
+
+export const articleRelations = relations(articles, ({ many }) => ({
+  likes: many(likes),
+}));
