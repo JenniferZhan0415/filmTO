@@ -50,7 +50,9 @@ const Film: React.FC<IProps> = ({
       {/*title*/}
       <CardHeader className="pb-0 pt-2 px-4 flex-col gap-1 items-start text-left">
         <Skeleton className="rounded-lg w-full" isLoaded={loaded}>
-          <h4 className="font-bold line-clamp-2 h-12">{film?.title}</h4>
+          <h4 className="font-bold line-clamp-2 h-12 text-primary">
+            {film?.title}
+          </h4>
         </Skeleton>
         <Skeleton className="rounded-lg w-1/3" isLoaded={loaded}>
           <h4>{film?.year}</h4>
