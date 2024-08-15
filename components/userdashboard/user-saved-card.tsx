@@ -42,8 +42,8 @@ export default function UserSavedCard({ type }: { type: string }) {
         {items?.some(({ [type]: item }) => item) ? (
           items.map(({ [type]: item }) =>
             item ? (
-              <li className="mb-2" key={item.name}>
-                {item.name}
+              <li className="mb-2" key={item.name || item.title}>
+                {item.name || item.title}
               </li>
             ) : null
           )
