@@ -33,8 +33,8 @@ export default function Cinema() {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
-  // const showMap = false;
-  const showMap = true;
+  const showMap = false;
+  // const showMap = true;
 
   const handleOpenCinemaCard = (key: string) => () => {
     const cinema = cinemas?.find((c: FormattedCinema) => c.key === key);
