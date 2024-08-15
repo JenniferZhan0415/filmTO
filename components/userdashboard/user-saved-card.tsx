@@ -10,6 +10,8 @@ import {
 
 import { StarIcon } from "@/components/icons";
 
+import { StarIcon } from "@/components/icons";
+
 export default function UserSavedCard() {
   return (
     <Card className="sm:w-1/3">
@@ -31,7 +33,7 @@ export default function UserSavedCard() {
           showAnchorIcon
           href="https://github.com/nextui-org/nextui"
         >
-          Visit Cinema Map
+          Visit Cinema Map Visit Cinema Map
         </Link>
       </CardFooter>
     </Card>

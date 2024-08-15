@@ -56,10 +56,20 @@ export default function UserDashboard() {
       <div className="flex flex-col lg:justify-between md:flex-row md:justify-between sm:items-center  w-full h-full gap-4 mb-6 ">
         <div className="flex flex-col items-start min-w-fit justify-between">
           <UserInfo session={session} />
+      <div className="flex items-center mb-6 gap-4">
+        <h4 className="text-default-500 ">
+          Change the website theme by your favorite film
+        </h4>
+        <UserEditLink />
+      </div>
+      <div className="flex flex-col lg:justify-between md:flex-row md:justify-between sm:items-center  w-full h-full gap-4 mb-6 ">
+        <div className="flex flex-col items-start min-w-fit justify-between">
+          <UserInfo session={session} />
         </div>
         <ChangeTheme />
       </div>
       <div className="flex flex-col  sm:flex-row justify-between w-full gap-4 mb-2">
+        <UserSavedCard />
         <UserSavedCard />
         <UserSavedCard />
         <UserSavedCard />
