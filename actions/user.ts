@@ -5,7 +5,12 @@ import { db } from "@/db";
 import { users } from "@/db/schemas/user";
 
 export const getUserByEmail = async (email: string) => {
-  return await db.select().from(users).where(eq(users.email, email)).limit(1);
+  const res = await db
+    .select()
+    .from(users)
+    .where(eq(users.email, email))
+    .limit(1);
+  return res?.[0];
 };
 
 export const addUser = async (user) => {

@@ -10,8 +10,8 @@ const handler = NextAuth({
         // check if user already exists
         const existingUser = await getUserByEmail(user.email!);
 
-        if (existingUser.length > 0) {
-          await updateUser(user, existingUser[0].theme);
+        if (existingUser) {
+          await updateUser(user, existingUser.theme);
           return true;
         }
 
@@ -27,7 +27,7 @@ const handler = NextAuth({
 
     async session({ session }) {
       const user = await getUserByEmail(session.user?.email!);
-      if (session.user) session.user.theme = user[0].theme;
+      if (session.user) session.user.theme = user.theme;
       return session;
     },
   },

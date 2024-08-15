@@ -2,10 +2,13 @@
 
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Image, Skeleton } from "@nextui-org/react";
+import { useEffect, useState } from "react";
+import { map } from "lodash";
 
 import FilmDetails from "./film-details";
 
 import { DFilm } from "@/types/film";
+import { getFilmByTitle } from "@/actions/film";
 
 /**
  * User film selections.
@@ -15,10 +18,11 @@ import { DFilm } from "@/types/film";
  *  more details about the current film
  */
 interface IProps {
-  displayDescription: (film: IFilm, index: number) => void;
-  film: DFilm | null;
-  index: number;
+  displayDescription: (film: DFilm) => void;
+  film: DFilm;
   hideDescription: () => void;
+  generateRecos: (film: DFilm) => void;
+  loaded: boolean;
 }
 
 /**
@@ -27,20 +31,53 @@ interface IProps {
  */
 const Film: React.FC<IProps> = ({
   film,
-  index,
   displayDescription,
   hideDescription,
+  generateRecos,
+  loaded,
 }): JSX.Element => {
+  const [details, setDetails] = useState<DFilm | null>(null);
+
+  useEffect(() => {
+    details ||
+      (async () => {
+        if (!film?.title || !film?.year) return;
+        const res = await getFilmByTitle(film.title, film.year);
+
+        if (!res.results.length) return;
+
+        const {
+          id,
+          title,
+          genres,
+          overview: plot,
+          poster_path: poster,
+        } = res.results[0];
+
+        setDetails({
+          ...film,
+          id,
+          title,
+          genres: map(genres, "name"),
+          plot,
+          poster: "https://image.tmdb.org/t/p/w500" + poster,
+        });
+      })();
+  }, []);
+
   const handleSelect = (selected: IFilm | null) => {
     if (selected) {
-      hideDescription();
-      displayDescription({ ...selected, type: "description" }, index);
+      displayDescription({ ...selected, type: "description" });
     }
   };
 
-  const loaded: boolean = !!film;
-
-  const description = <FilmDetails film={film} hide={hideDescription} />;
+  const description = (
+    <FilmDetails
+      film={details}
+      generate={generateRecos}
+      hide={hideDescription}
+    />
+  );
 
   const cover = (
     <Card
@@ -50,24 +87,26 @@ const Film: React.FC<IProps> = ({
       {/*title*/}
       <CardHeader className="pb-0 pt-2 px-4 flex-col gap-1 items-start text-left">
         <Skeleton className="rounded-lg w-full" isLoaded={loaded}>
-          <h4 className="font-bold line-clamp-2 h-12">{film?.title}</h4>
+          <h4 className="font-bold line-clamp-2 h-12 text-primary">
+            {film?.title}
+          </h4>
         </Skeleton>
         <Skeleton className="rounded-lg w-1/3" isLoaded={loaded}>
-          <h4>{film?.year}</h4>
+          <h4>{details?.year}</h4>
         </Skeleton>
         <Skeleton className="rounded-lg w-3/4" isLoaded={loaded}>
-          <p className="line-clamp-1">By {film?.director}</p>
+          <p className="line-clamp-1">By {details?.director}</p>
         </Skeleton>
       </CardHeader>
 
       {/*poster*/}
       <CardBody className="overflow-hidden rounded-xl p-0 pt-4">
-        <Skeleton className="rounded-xl" isLoaded={loaded}>
+        <Skeleton className="rounded-xl" isLoaded={details?.poster}>
           <Image
             alt="Card background"
             className="object-cover rounded-xl"
             height={300}
-            src={film?.poster}
+            src={details?.poster}
             width={270}
           />
         </Skeleton>
@@ -76,7 +115,7 @@ const Film: React.FC<IProps> = ({
   );
 
   return (
-    <div key={`${film?.title} ${index}`} className="py-4 basis-60">
+    <div className="py-4 w-[240px]">
       {film?.type === "description" ? description : cover}
     </div>
   );
