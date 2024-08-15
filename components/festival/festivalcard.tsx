@@ -31,7 +31,7 @@ export default function FestivalCard({ festivals }: FestivalCardProps) {
             >
               {item.name}
             </Link>
-            <LikeButton />
+            <LikeButton type="festival" id={item.id} />
           </CardFooter>
         </Card>
       ))}

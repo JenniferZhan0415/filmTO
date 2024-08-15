@@ -1,3 +1,4 @@
+import { relations } from "drizzle-orm";
 import {
   pgTable,
   serial,
@@ -5,6 +6,7 @@ import {
   uniqueIndex,
   varchar,
 } from "drizzle-orm/pg-core";
+import { likes } from "./like";
 
 // define the festival table
 export const festivals = pgTable(
@@ -33,3 +35,7 @@ export const festivals = pgTable(
     };
   }
 );
+
+export const festivalRelations = relations(festivals, ({ many }) => ({
+  likes: many(likes),
+}));
