@@ -1,26 +1,23 @@
 "use client";
-import { Card, CardBody, Link } from "@nextui-org/react";
-import { title } from "@/components/primitives";
-import FilmCard from "./film-card";
 
-export default function Recommendation() {
+import { subtitle, title } from "@/components/primitives";
+import Films from "@/components/recommendation/films";
+import { useTheme } from "next-themes";
+import { useState, useEffect } from "react";
+
+export default function FilmRecommendation() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
   return (
-    <section className="w-full">
-      <Card
-        isBlurred
-        className="border-none bg-background/60 dark:bg-default-100/50 "
-        shadow="sm"
-      >
-        <CardBody className="flex items-center justify-center ">
-          <h1 className={`${title({ color: "blue" })} pb-4`}>
-            Film Recommendations
-          </h1>
-          <h4 className="text-default-500 mb-8">
-            Choose your favorite film from TIFF People's Choice Award
-          </h4>
-          <FilmCard />
-        </CardBody>
-      </Card>
-    </section>
+    <>
+      <h1 className={`${title({ color: theme })}`}>Film Recommendations</h1>
+      <h2 className="text-default-500">
+        Pick your facorite films from this list of <br />
+        TIFF People&apos;s Choice Awards
+      </h2>
+      <Films />
+    </>
   );
 }

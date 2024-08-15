@@ -4,17 +4,21 @@ import { title } from "@/components/primitives";
 import FestivalCard from "./festivalcard";
 import FestivalCalender from "./festivalcalender";
 import type { Festival } from "@/types/festival";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getFestivalsByMonth } from "@/actions/festival";
 import fetcher from "@/utils/fetcher";
 import useSWR from "swr";
+import { useTheme } from "next-themes";
 
 export default function Festival() {
   const [festivals, setFestivals] = useState<Festival[]>([]);
-
   const { data: defaultFestivals } = useSWR<Festival[]>("/api/festivals", {
     fetcher,
   });
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
 
   const selectMonth = async (month: string) => {
     setFestivals(await getFestivalsByMonth(month));
@@ -28,7 +32,7 @@ export default function Festival() {
         shadow="sm"
       >
         <CardBody className="flex items-center justify-center w-full">
-          <h1 className={`${title({ color: "blue" })} pb-4 text-center`}>
+          <h1 className={`${title({ color: theme })} pb-4 text-center`}>
             Year-round Film Festivals
           </h1>
           <h4 className="text-default-500 mb-6">
