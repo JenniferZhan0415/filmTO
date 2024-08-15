@@ -47,7 +47,6 @@ export default function ChangeTheme() {
 
   return (
     <div className="flex flex-col sm:flex-row justify-end gap-4">
-    <div className="flex flex-col sm:flex-row justify-end gap-4">
       {colors.map((color) => {
         return (
           <Tooltip
