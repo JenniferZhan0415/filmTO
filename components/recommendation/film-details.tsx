@@ -47,7 +47,7 @@ const FilmDetails = ({
         {film?.reason && (
           <>
             <DetailHeader title="Why is it recommended" />
-            <p>{film?.reason}</p>
+            <p>{film?.reason.replace(/\\"/g, '"')}</p>
           </>
         )}
       </div>

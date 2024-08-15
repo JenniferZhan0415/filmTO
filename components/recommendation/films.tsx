@@ -9,8 +9,11 @@ import { generate, generatePredefined } from "@/actions/recommend";
 import { DFilm } from "@/types/film";
 
 const Recommendations = (): JSX.Element => {
+  // display films
   const [films, setFilms] = useState<DFilm[]>([]);
-  const [loaded, setLoaded] = useState<boolean>(false);
+  // selected films
+  const [selected, setSelected] = useState<DFilm[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   // on mount
   useEffect(() => {
@@ -28,11 +31,20 @@ const Recommendations = (): JSX.Element => {
 
   // generate recommendations
   const generateRecos = async (film: DFilm) => {
+    if (selected.length >= 2) return;
     setLoaded(false);
+
+    // history recommendations
+    const prevRecos = selected
+      .map((f: DFilm) => `${f.title} by ${film.director}`)
+      .join(", ");
+    const other = prevRecos && `as well as ${prevRecos}`;
+
     const recos = await generate(
-      `I like the film ${film.title} by ${film.director}. Could you recommend three more films similar to it?`,
+      `I like the film ${film.title} by ${film.director} ${other}. Could you recommend three more films similar to it? Please give detailed explanation why these films are related.`,
     );
 
+    setSelected([...selected, film]);
     setFilms(recos);
   };
 
@@ -62,7 +74,7 @@ const Recommendations = (): JSX.Element => {
 
   return (
     <div className="flex flex-wrap gap-6 justify-center">
-      {films?.map((film: DFilm) => (
+      {films.map((film: DFilm) => (
         <FilmCard
           key={`${film.title}-${film.type}`}
           displayDescription={displayDescription}

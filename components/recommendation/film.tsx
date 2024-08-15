@@ -101,7 +101,7 @@ const Film: React.FC<IProps> = ({
 
       {/*poster*/}
       <CardBody className="overflow-hidden rounded-xl p-0 pt-4">
-        <Skeleton className="rounded-xl" isLoaded={details?.poster}>
+        <Skeleton className="rounded-xl" isLoaded={details?.poster && loaded}>
           <Image
             alt="Card background"
             className="object-cover rounded-xl"
