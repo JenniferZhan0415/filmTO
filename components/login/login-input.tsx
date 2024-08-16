@@ -1,7 +1,8 @@
 "use client";
 import React from "react";
 import { Input } from "@nextui-org/react";
-import { UserIcon } from "./user-icon";
+import { NewUserIcon } from "@/components/icons";
+import { Link } from "@nextui-org/react";
 type Variant = "bordered" | "flat" | "faded" | "underlined";
 
 interface VariantConfig {
@@ -11,10 +12,10 @@ interface VariantConfig {
 
 export default function LoginInput() {
   const variants: VariantConfig[] = [
-    {
-      name: "Name:",
-      style: "bordered",
-    },
+    // {
+    //   name: "Name:",
+    //   style: "bordered",
+    // },
     {
       name: "Email:",
       style: "bordered",
@@ -25,7 +26,14 @@ export default function LoginInput() {
     },
   ];
   return (
-    <div className="w-full flex flex-col justify-end pr-4 border-none  sm:border-r-1 sm:border-solid sm:border-lightgray-500">
+    <div className="w-full flex flex-col items-center justify-end pr-4 border-none  sm:border-r-1 sm:border-solid sm:border-lightgray-500">
+      <NewUserIcon width={15} height={15} />
+      <h4 className="text-default-500 mt-2 text-center">
+        Don't have an account yet?
+      </h4>
+      <Link underline="hover" href="/signup" className="mb-4 cursor-pointer">
+        Click here to sign up!
+      </Link>
       {variants.map((variant) => (
         <div
           key={variant.name}
@@ -35,7 +43,6 @@ export default function LoginInput() {
             type={variant.name}
             variant={variant.style}
             label={variant.name}
-            endContent={<UserIcon />}
           />
         </div>
       ))}

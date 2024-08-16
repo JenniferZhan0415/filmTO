@@ -37,7 +37,6 @@ export default function SignUpInput() {
             type={variant.name}
             variant={variant.style}
             label={variant.name}
-            endContent={<UserIcon />}
           />
         </div>
       ))}

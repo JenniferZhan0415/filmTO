@@ -5,7 +5,7 @@ export default function SignUpButton() {
   return (
     <div className="flex w-full justify-between gap-4 items-center">
       <Button
-        href="/"
+        href="/login"
         as={Link}
         className="w-full"
         color="default"
