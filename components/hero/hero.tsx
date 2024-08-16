@@ -3,9 +3,6 @@
 import { Card, CardBody } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-
-import Link from "next/link";
-import { button as buttonStyles } from "@nextui-org/theme";
 import logo from "@/public/logo/filmTO.png";
 import Image from "next/image";
 import { subtitle, title } from "../primitives";
@@ -35,7 +32,7 @@ export default function Hero() {
       >
         <CardBody>
           <div className="flex flex-col  items-center justify-center mb-4">
-            <h1 className={`${title({ color: theme })}`}>
+            <h1 className={title({ color: theme })}>
               Art House Cinemas &nbsp;
             </h1>
             <h1 className={title({ color: "cyan" })}>& Film Festivals!</h1>
