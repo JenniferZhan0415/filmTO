@@ -36,6 +36,10 @@ export const siteConfig = {
       href: "/login",
     },
     {
+      label: "Sign up",
+      href: "/signup",
+    },
+    {
       label: "Logout",
       href: "/logout",
     },
