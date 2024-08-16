@@ -18,8 +18,8 @@ export const siteConfig = {
     },
 
     {
-      label: "Recommendation",
-      href: "/recommendation",
+      label: "Film Recommendation",
+      href: "/film",
     },
     {
       label: "Article",

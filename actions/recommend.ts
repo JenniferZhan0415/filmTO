@@ -4,8 +4,9 @@ import { streamObject } from "ai";
 import { google } from "@ai-sdk/google";
 import { createStreamableValue } from "ai/rsc";
 import { z } from "zod";
-
-import { Film, DFilm } from "../types/film";
+import { getAllFilms } from "./film";
+import { Film } from "../types/film";
+import { SavedFilm } from "../types/film";
 
 const streamRecos = async (input: string, stream: any) => {
   const { partialObjectStream } = await streamObject({
@@ -29,8 +30,6 @@ const streamRecos = async (input: string, stream: any) => {
 };
 
 export async function generate(input: string) {
-  "use server";
-
   const stream = createStreamableValue();
 
   return streamRecos(input, stream);
@@ -39,35 +38,12 @@ export async function generate(input: string) {
 /**
  * Generate preconfigured films.
  */
-export const generatePredefined = (): Promise<DFilm[]> =>
-  new Promise((res) =>
-    res([
-      {
-        id: "581734",
-        title: "Nomadland",
-        year: 2019,
-        director: "Chloe Zhao",
-        type: "cover",
-        poster:
-          "https://image.tmdb.org/t/p/original/rIvfbT4UZB8Co304GgZ8tiszGlW.jpg",
-      },
-      {
-        id: "128846",
-        title: "Not Reconciled",
-        year: 1965,
-        director: "Jean-Marie Straub and Danielle Huillet",
-        type: "cover",
-        poster:
-          "https://image.tmdb.org/t/p/original/cg85XzG0dziEV7hiktTGyhNKbBL.jpg",
-      },
-      {
-        id: "91296",
-        title: "Histoire(s) du Cinéma 1a: All the (Hi)stories",
-        year: 1989,
-        director: "Jean-Luc Godard",
-        type: "cover",
-        poster:
-          "https://www.themoviedb.org/t/p/w1280/2wdbhSOucCW0R1Ud0iDDmnljKEP.jpg",
-      },
-    ]),
-  );
+export const generatePredefined = async (): Promise<SavedFilm[]> => {
+  const films = await getAllFilms();
+
+  // Randomly shuffle the array and select 3 films
+  const shuffledFilms = films.sort(() => 0.5 - Math.random());
+  const selectedFilms = shuffledFilms.slice(0, 3);
+
+  return selectedFilms;
+};
