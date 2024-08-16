@@ -16,10 +16,10 @@ export const siteConfig = {
       label: "Festival",
       href: "/festival",
     },
-  
+
     {
-      label: "Recommendation",
-      href: "/recommendation",
+      label: "Film Recommendation",
+      href: "/film",
     },
     {
       label: "Article",
@@ -34,12 +34,6 @@ export const siteConfig = {
     {
       label: "Login",
       href: "/login",
-    },
-  ],
-  navMenuItems: [
-    {
-      label: "Sign up",
-      href: "/signup",
     },
     {
       label: "Logout",

@@ -1,18 +1,9 @@
 import React from "react";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  Image,
-  Button,
-  Link,
-} from "@nextui-org/react";
-import { HeartIcon } from "./heart-icon";
+import { Card, CardHeader, CardBody, Image, Link } from "@nextui-org/react";
+import LikeButton from "../../components/like-button";
 import { Cinema } from "@/types/cinema";
 
 export default function CinemaCard({ cinema }: { cinema: Cinema }) {
-  const [liked, setLiked] = React.useState(false);
-
   return (
     <Card>
       <CardHeader className="pb-0 pt-2 px-2 flex-col items-start">
@@ -25,18 +16,7 @@ export default function CinemaCard({ cinema }: { cinema: Cinema }) {
           >
             {cinema.name}
           </Link>
-          <Button
-            isIconOnly
-            className="text-default-900/60 data-[hover]:bg-foreground/10 "
-            radius="full"
-            variant="light"
-            onPress={() => setLiked((v) => !v)}
-          >
-            <HeartIcon
-              className={liked ? "[&>path]:stroke-transparent" : ""}
-              fill={liked ? "currentColor" : "none"}
-            />
-          </Button>
+          <LikeButton type="cinema" id={cinema.id} />
         </div>
         <small className="text-default-500 max-w-32 font-medium pb-1">
           Established in: {cinema.established}

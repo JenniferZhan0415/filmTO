@@ -3,7 +3,7 @@
 import React from "react";
 import { Card, CardBody, CardFooter, Image, Link } from "@nextui-org/react";
 import FestivalImage from "./festival-image";
-import LikeButton from "./like-button";
+import LikeButton from "../../components/like-button";
 import Festival from "@/types/festival";
 
 interface FestivalCardProps {
@@ -31,7 +31,7 @@ export default function FestivalCard({ festivals }: FestivalCardProps) {
             >
               {item.name}
             </Link>
-            <LikeButton />
+            <LikeButton type="festival" id={item.id} />
           </CardFooter>
         </Card>
       ))}

@@ -1,0 +1,72 @@
+[
+    {
+        "id": "1",
+        "title": "American Fiction",
+        "year": "2023",
+        "director": "Cord Jefferson",
+        "tmdbId": "1056360"
+    },
+    {
+        "id": "2",
+        "title": "The Fabelmans",
+        "year": "2022",
+        "director": "Steven Spielberg",
+        "tmdbId": "804095"
+    },
+    {
+        "id": "3",
+        "title": "Belfast",
+        "year": "2021",
+        "director": "Kenneth Branagh",
+        "tmdbId": "777270"
+    },
+    {
+        "id": "4",
+        "title": "Nomadland",
+        "year": "2020",
+        "director": "Chloé Zhao",
+        "tmdbId": "581734"
+    },
+    {
+        "id": "5",
+        "title": "Jojo Rabbit",
+        "year": "2019",
+        "director": "Taika Waititi",
+        "tmdbId": "515001"
+    },
+    {
+        "id": "6",
+        "title": "Green Book",
+        "year": "2018",
+        "director": "Peter Farrelly",
+        "tmdbId": "490132"
+    },
+    {
+        "id": "7",
+        "title": "Three Billboards Outside Ebbing, Missouri",
+        "year": "2017",
+        "director": "Martin McDonagh",
+        "tmdbId": "359940"
+    },
+    {
+        "id": "8",
+        "title": "La La Land",
+        "year": "2016",
+        "director": "Damien Chazelle",
+        "tmdbId": "313369"
+    },
+    {
+        "id": "9",
+        "title": "Room",
+        "year": "2015",
+        "director": "Lenny Abrahamson",
+        "tmdbId": "264644"
+    },
+    {
+        "id": "10",
+        "title": "The Imitation Game",
+        "year": "2014",
+        "director": "Morten Tyldum",
+        "tmdbId": "205596"
+    }
+]

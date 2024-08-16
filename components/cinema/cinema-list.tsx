@@ -7,7 +7,7 @@ import { getAllCinemas } from "@/actions/cinema";
 import FormattedCinema from "@/types/cinema";
 
 type CinemaListProps = {
-  handleOpenCinemaCard: (key: string) => {};
+  handleOpenCinemaCard: (key: string) => void;
 };
 
 const CinemaList: React.FC<CinemaListProps> = ({
@@ -20,6 +20,7 @@ const CinemaList: React.FC<CinemaListProps> = ({
     useState<ListboxProps["color"]>("primary");
 
   const [cinemas, setCinemas] = useState<FormattedCinema[]>([]);
+
   useEffect(() => {
     (async () => {
       const allCinemas = await getAllCinemas();
@@ -36,6 +37,8 @@ const CinemaList: React.FC<CinemaListProps> = ({
     "warning",
     "danger",
   ];
+  const iconClasses =
+    "display-line text-xl text-default-500 pointer-events-none flex-shrink-0";
 
   return (
     <div className="flex flex-row gap-4 w-full h-full sm:w-2/5 items-center">
@@ -48,8 +51,10 @@ const CinemaList: React.FC<CinemaListProps> = ({
         >
           {cinemas.map((cinema) => (
             <ListboxItem
-              onClick={handleOpenCinemaCard(cinema.key)}
-              className="h-10"
+              onClick={() => {
+                handleOpenCinemaCard(cinema.key);
+              }}
+              className="h-7 flex flex-col items-start justify-center"
               key={cinema.key}
             >
               {cinema.key}

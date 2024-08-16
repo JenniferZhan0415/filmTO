@@ -1,4 +1,5 @@
 import { z } from "zod";
+import type { films } from "@/db/schemas/film";
 
 export const DisplayType = z.union([
   z.literal("description"),
@@ -6,21 +7,24 @@ export const DisplayType = z.union([
 ]);
 
 export const Film = z.object({
-  title: z.string().describe("Name of the film."),
-  director: z.string().describe("Director of the film."),
-  reason: z.string().describe("Reason why the film is recommended.").optional(),
+  title: z.string().describe("Name of the film"),
+  director: z.string().describe("Director of the film"),
+  reason: z.string().describe("Reason why the film is recommended").optional(),
+  year: z.number().describe("Release year of the film"),
 });
 
-export const DisplayFilm = Film.merge(
+export const FilmDetails = Film.merge(
   z.object({
     id: z.string().describe("TMDB ID").optional(),
-    year: z.number(),
-    plot: z.string().describe("Plot of the film.").optional(),
+    genres: z.array(z.string()).describe("Genres of the film"),
+    plot: z.string().describe("Plot of the film").optional(),
     poster: z.string(),
     type: DisplayType,
-  }),
+  })
 );
 
 export type Film = z.infer<typeof Film>;
 
-export type DFilm = z.infer<typeof DisplayFilm>;
+export type DFilm = z.infer<typeof FilmDetails>;
+
+export type SavedFilm = typeof films.$inferSelect;

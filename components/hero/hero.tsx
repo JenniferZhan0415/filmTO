@@ -1,14 +1,18 @@
 "use client";
 
 import { Card, CardBody } from "@nextui-org/react";
-import Link from "next/link";
-import { button as buttonStyles } from "@nextui-org/theme";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 import logo from "@/public/logo/filmTO.png";
 import Image from "next/image";
 import { subtitle, title } from "../primitives";
 import JoinUsButton from "./button";
 
 export default function Hero() {
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
   return (
     <section className="w-full flex flex-col">
       <Card
@@ -28,7 +32,7 @@ export default function Hero() {
       >
         <CardBody>
           <div className="flex flex-col  items-center justify-center mb-4">
-            <h1 className={title({ color: "blue" })}>
+            <h1 className={title({ color: theme })}>
               Art House Cinemas &nbsp;
             </h1>
             <h1 className={title({ color: "cyan" })}>& Film Festivals!</h1>

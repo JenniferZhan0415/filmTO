@@ -1,39 +1,27 @@
-import React, { useState } from "react";
+"use client";
+
+import React from "react";
 import {
   Card,
   CardHeader,
-  CardBody,
   CardFooter,
   Image,
   Button,
   Link,
 } from "@nextui-org/react";
-import julyRhapsody from "@/assets/article-images/rhapsody.png";
-import TIFF24Poster from "@/assets/article-images/tiff24.png";
-import mulaniff2024 from "@/assets/article-images/mulan24.png";
-import Top10 from "@/assets/article-images/top10.png";
-import AsianFocus from "@/assets/article-images/asianfocus.png";
-import LikeButton from "./like-button";
-import { getAllArticles } from "@/actions/article";
+import LikeButton from "../../components/like-button";
 import type { Article } from "@/types/article";
 import useSWR from "swr";
 import fetcher from "@/utils/fetcher";
 
 export default function App() {
-  // const [articles, setArticles] = useState<Article[]>([]);
-  // (async () => {
-  //   setArticles(await getAllArticles());
-  // })();
   const { data: articles } = useSWR<Article[]>("/api/articles", fetcher);
-  // console.log(articles);
 
   const articleCards = articles?.filter(
     (article) => article.type === "article"
   );
-  // console.log(articleCards);
 
   const eventCards = articles?.filter((article) => article.type === "event");
-  // console.log(eventCards);
 
   const screeningCards = articles?.filter(
     (article) => article.type === "screening"
@@ -58,7 +46,7 @@ export default function App() {
               {articleCard.title}
             </Link>
           </div>
-          <LikeButton />
+          <LikeButton type="article" id={articleCard.id} />
         </div>
       </CardHeader>
       <Image
@@ -93,7 +81,7 @@ export default function App() {
               {eventCard.title}
             </Link>
           </div>
-          <LikeButton />
+          <LikeButton type="article" id={eventCard.id} />
         </div>
       </CardHeader>
       <Image
@@ -143,7 +131,7 @@ export default function App() {
               {screeningCard.title}
             </Link>
           </div>
-          <LikeButton />
+          <LikeButton type="article" id={screeningCard.id} />
         </div>
       </CardHeader>
       <Image

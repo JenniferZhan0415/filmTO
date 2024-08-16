@@ -6,10 +6,13 @@ export const title = tv({
     color: {
       violet: "from-[#FF1CF7] to-[#b249f8]",
       yellow: "from-[#FF705B] to-[#FFB457]",
+      dark: "from-[#FF705B] to-[#FFB457]",
       blue: "from-[#5EA2EF] to-[#0072F5]",
+      light: "from-[#5EA2EF] to-[#0072F5]",
       cyan: "from-[#00b7fa] to-[#01cfea]",
       green: "from-[#6FEE8D] to-[#17c964]",
       pink: "from-[#FF72E1] to-[#F54C7A]",
+      modern: "from-[#FF72E1] to-[#F54C7A]",
       foreground: "dark:from-[#FFFFFF] dark:to-[#4B4B4B]",
     },
     size: {
@@ -34,6 +37,9 @@ export const title = tv({
         "green",
         "pink",
         "foreground",
+        "light",
+        "dark",
+        "modern",
       ],
       class: "bg-clip-text text-transparent bg-gradient-to-b",
     },

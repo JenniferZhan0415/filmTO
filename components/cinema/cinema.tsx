@@ -1,7 +1,6 @@
 "use client";
-import { Card, CardBody, Link } from "@nextui-org/react";
+import { Card, CardBody } from "@nextui-org/react";
 import { title } from "@/components/primitives";
-import { useState } from "react";
 import {
   APIProvider,
   Map,
@@ -9,29 +8,39 @@ import {
   InfoWindow,
 } from "@vis.gl/react-google-maps";
 import CinemaCard from "./cinema-card";
-// import MapCard from "./cinema-map-card";
 import CinemaList from "./cinema-list";
 import FormattedCinema from "@/types/cinema";
 import type { Cinema } from "@/types/cinema";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 import useSWR from "swr";
 import fetcher from "@/utils/fetcher";
 
 export default function Cinema() {
+  const { theme } = useTheme();
   const position = { lat: 43.64, lng: -79.39 };
   const [open, setOpen] = useState(false);
   const [point, setPoint] = useState(position);
   const { data: cinemas } = useSWR<FormattedCinema[]>("/api/cinemas", {
     fetcher,
   });
-  // const showMap = false;
-  const showMap = true;
 
-  const handleOpenCinemaCard = (key: string) => () => {
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => setMounted(true), []);
+  if (!mounted) return null;
+
+  const showMap = false;
+  // const showMap = true;
+
+  const handleOpenCinemaCard = (key: string) => {
+    console.log(cinemas);
     const cinema = cinemas?.find((c: FormattedCinema) => c.key === key);
+    console.log(cinema);
     if (!cinema) return;
     setPoint(cinema);
     setOpen(true);
+    console.log(cinema);
   };
 
   return (
@@ -42,7 +51,7 @@ export default function Cinema() {
         shadow="sm"
       >
         <CardBody className="flex items-center justify-center ">
-          <h1 className={`${title({ color: "blue" })} pb-4`}>Legacy Cinemas</h1>
+          <h1 className={`${title({ color: theme })} pb-4`}>Legacy Cinemas</h1>
           <h4 className="text-default-500 mb-6">
             Click to explore and save the art house cinemas to your dashboard
           </h4>

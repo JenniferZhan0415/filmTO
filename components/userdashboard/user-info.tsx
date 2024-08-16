@@ -1,14 +1,16 @@
 import React from "react";
 import { User } from "@nextui-org/react";
 
-export default function UserInfo() {
+export default function UserInfo({ session }) {
   return (
-    <User
-      name="Jane Doe"
-      description="Product Designer"
-      avatarProps={{
-        src: "https://i.pravatar.cc/150?u=a04258114e29026702d",
-      }}
-    />
+    <div className="flex sm:flex-row flex-wrap flex-col items-center w-full sm:items-end sm:justify-center  lg:justify-start">
+      <User
+        name={session?.user?.name}
+        description={session?.user?.email}
+        avatarProps={{
+          src: session?.user?.image!,
+        }}
+      />
+    </div>
   );
 }
