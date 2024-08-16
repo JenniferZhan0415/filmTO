@@ -56,7 +56,9 @@ export default function UserSavedCard({ type }: { type: string }) {
         <Link
           isExternal
           showAnchorIcon
+
           href={`http://localhost:3000/${type}`}
+
           className="capitalize"
         >
           Visit {type} page

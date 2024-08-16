@@ -8,6 +8,13 @@
       "when": 1723775166984,
       "tag": "0000_legal_jack_flag",
       "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1723688606424,
+      "tag": "0003_majestic_yellowjacket",
+      "breakpoints": true
     }
   ]
 }
