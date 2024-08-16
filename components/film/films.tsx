@@ -1,16 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { remove, findIndex } from "lodash";
+import { findIndex } from "lodash";
 
 import FilmCard from "./film";
 
-import { generatePredefined } from "@/actions/recommend";
+import { generate, generatePredefined } from "@/actions/recommend";
 import { DFilm, SavedFilm } from "@/types/film";
 import { getFilmById } from "@/actions/film";
 
 const Recommendations = (): JSX.Element => {
+  // display films
   const [films, setFilms] = useState<DFilm[]>([]);
+  // selected films
+  const [selected, setSelected] = useState<DFilm[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   // on mount
   useEffect(() => {
@@ -18,7 +22,7 @@ const Recommendations = (): JSX.Element => {
       // get predefined films
       const defaults = await generatePredefined();
       const tmdbFilms = await Promise.all(
-        defaults.map((film: SavedFilm) => getFilmById(film.tmdbId))
+        defaults.map((film: SavedFilm) => getFilmById(film.tmdbId)),
       );
       const defaultFilms = defaults.map(
         (savedFilm: SavedFilm, index: number): DFilm =>
@@ -26,46 +30,72 @@ const Recommendations = (): JSX.Element => {
             ...savedFilm,
             id: savedFilm.tmdbId,
             plot: tmdbFilms[index].overview,
-            poster:
-              "https://image.tmdb.org/t/p/w500" + tmdbFilms[index].poster_path,
+            poster: tmdbFilms[index].poster_path,
             type: "cover",
-          }) as DFilm
+          }) as DFilm,
       );
 
       setFilms(defaultFilms);
     })();
   }, []);
 
+  useEffect(() => {
+    if (films.length) setLoaded(true);
+  }, [films]);
+
+  // generate recommendations
+  const generateRecos = async (film: DFilm) => {
+    if (selected.length >= 2) return;
+    setLoaded(false);
+
+    // history recommendations
+    const prevRecos = selected
+      .map((f: DFilm) => `${f.title} by ${film.director}`)
+      .join(", ");
+    const other = prevRecos && `as well as ${prevRecos}`;
+
+    const recos = await generate(
+      `I like the film ${film.title} by ${film.director} ${other}. Could you recommend three more films similar to it? Please give detailed explanation why these films are related.`,
+    );
+
+    setSelected([...selected, film]);
+    setFilms(recos);
+  };
+
   /**
    * Display film description card.
    */
   const displayDescription = (film: DFilm) => {
+    const covers = hideDescription(false);
     const index = findIndex(
-      films,
-      (f: DFilm | null) => f?.title === film.title
+      covers,
+      (f: DFilm | null) => f?.title === film.title,
     );
 
-    setFilms([...films.slice(0, index + 1), film, ...films.slice(index + 1)]);
+    setFilms([...covers.slice(0, index + 1), film, ...covers.slice(index + 1)]);
   };
 
   /**
    * Hide film description card.
    */
-  const hideDescription = () => {
-    setFilms(
-      remove(films, (film: DFilm | null) => film?.type === "description")
-    );
+  const hideDescription = (set: boolean = true) => {
+    const covers = films.filter((f: DFilm | null) => f?.type !== "description");
+
+    if (set) setFilms(covers);
+
+    return covers;
   };
 
   return (
     <div className="flex flex-wrap gap-8 justify-center">
-      {films.map((film: DFilm | null, index) => (
+      {films.map((film: DFilm | null) => (
         <FilmCard
-          key={`${film?.title}-${film?.type}`}
+          key={`${film.title}-${film.type}`}
           displayDescription={displayDescription}
           film={film}
+          generateRecos={generateRecos}
           hideDescription={hideDescription}
-          index={index}
+          loaded={loaded}
         />
       ))}
     </div>

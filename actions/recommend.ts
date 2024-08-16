@@ -1,23 +1,26 @@
 "use server";
 
-import { streamObject } from "ai";
+import { streamObject, generateObject } from "ai";
 import { google } from "@ai-sdk/google";
-import { createStreamableValue } from "ai/rsc";
 import { z } from "zod";
 import { getAllFilms } from "./film";
 import { Film } from "../types/film";
 import { SavedFilm } from "../types/film";
 
+const config = {
+  model: google("models/gemini-1.5-pro-latest"),
+  system:
+    "Please generate THREE film recommendations based on user prefrences. REMEMBER that the films recommended should be different from the one provided by user.",
+  schema: z.object({
+    films: z.array(Film),
+  }),
+  maxTokens: 512,
+};
+
 const streamRecos = async (input: string, stream: any) => {
   const { partialObjectStream } = await streamObject({
-    model: google("models/gemini-1.5-pro-latest"),
-    system:
-      "Please generate THREE film recommendations based on user prefrences. REMEMBER that the films recommended should be different from the one provided by user.",
+    ...config,
     prompt: input,
-    schema: z.object({
-      films: z.array(Film),
-    }),
-    maxTokens: 512,
   });
 
   for await (const partialObject of partialObjectStream) {
@@ -29,10 +32,18 @@ const streamRecos = async (input: string, stream: any) => {
   return { object: stream.value };
 };
 
-export async function generate(input: string) {
-  const stream = createStreamableValue();
+const generateRecos = async (input: string) => {
+  const { object } = await generateObject({
+    ...config,
+    prompt: input,
+  });
 
-  return streamRecos(input, stream);
+  return object.films;
+};
+
+export async function generate(input: string) {
+  // return streamRecos(input, stream);
+  return await generateRecos(input);
 }
 
 /**

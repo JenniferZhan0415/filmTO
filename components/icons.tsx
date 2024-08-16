@@ -122,30 +122,6 @@ export const SearchIcon = (props: IconSvgProps) => (
   </svg>
 );
 
-export const ArrowLeft: React.FC<IconSvgProps> = (props) => {
-  const { width, height } = props;
-
-  return (
-    <svg
-      className="size-6"
-      fill="none"
-      height={height}
-      stroke="currentColor"
-      strokeWidth="1.5"
-      viewBox="0 0 24 24"
-      width={width}
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
-      <path
-        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-};
-
 export const ArrowOpen: React.FC<IconSvgProps> = (props) => {
   const { width, height } = props;
 
@@ -208,6 +184,30 @@ export const NewUserIcon: React.FC<IconSvgProps> = (props) => {
         strokeLinejoin="round"
         strokeWidth="1.5"
         d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+      />
+    </svg>
+  );
+};
+
+export const ArrowLeft: React.FC<IconSvgProps> = (props) => {
+  const { width, height } = props;
+
+  return (
+    <svg
+      className="size-6"
+      fill="none"
+      height={height}
+      stroke="currentColor"
+      strokeWidth="1.5"
+      viewBox="0 0 24 24"
+      width={width}
+      xmlns="http://www.w3.org/2000/svg"
+      {...props}
+    >
+      <path
+        d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );
