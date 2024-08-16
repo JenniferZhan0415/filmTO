@@ -1,5 +1,5 @@
 "use client";
-import { Card, CardBody, Link } from "@nextui-org/react";
+import { Card, CardBody } from "@nextui-org/react";
 import { title } from "@/components/primitives";
 import {
   APIProvider,
@@ -8,7 +8,6 @@ import {
   InfoWindow,
 } from "@vis.gl/react-google-maps";
 import CinemaCard from "./cinema-card";
-// import MapCard from "./cinema-map-card";
 import CinemaList from "./cinema-list";
 import FormattedCinema from "@/types/cinema";
 import type { Cinema } from "@/types/cinema";
@@ -20,8 +19,6 @@ import fetcher from "@/utils/fetcher";
 
 export default function Cinema() {
   const { theme } = useTheme();
-  console.log(theme);
-  console.log(title({ color: theme }));
   const position = { lat: 43.64, lng: -79.39 };
   const [open, setOpen] = useState(false);
   const [point, setPoint] = useState(position);
@@ -36,11 +33,14 @@ export default function Cinema() {
   const showMap = false;
   // const showMap = true;
 
-  const handleOpenCinemaCard = (key: string) => () => {
+  const handleOpenCinemaCard = (key: string) => {
+    console.log(cinemas);
     const cinema = cinemas?.find((c: FormattedCinema) => c.key === key);
+    console.log(cinema);
     if (!cinema) return;
     setPoint(cinema);
     setOpen(true);
+    console.log(cinema);
   };
 
   return (

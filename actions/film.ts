@@ -1,5 +1,10 @@
 "use server";
 
+import { cache } from "react";
+import { SavedFilm } from "@/types/film";
+import { films } from "@/db/schemas/film";
+import { db } from "@/db";
+
 export const getFilmById = async (id: string) => {
   const endpoint = process.env.TMDB_API! + `/movie/`;
   const res = await fetch(endpoint + id, {
@@ -34,3 +39,12 @@ export const getFilmByTitle = async (title: string, year: number) => {
 
   return res.json();
 };
+
+export const getAllFilms = cache(async () => {
+  return (await db.select().from(films).orderBy(films.id)).map(
+    (film: SavedFilm) => ({
+      ...film,
+      key: film.title,
+    })
+  );
+});

@@ -5,6 +5,8 @@ import { Image, Skeleton } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { map } from "lodash";
 
+import LikeButton from "../../components/like-button";
+
 import FilmDetails from "./film-details";
 
 import { DFilm } from "@/types/film";
@@ -60,7 +62,7 @@ const Film: React.FC<IProps> = ({
           title,
           genres: map(genres, "name"),
           plot,
-          poster: "https://image.tmdb.org/t/p/w500" + poster,
+          poster,
         });
       })();
   }, []);
@@ -80,16 +82,16 @@ const Film: React.FC<IProps> = ({
   );
 
   const cover = (
-    <Card
-      isPressable={film?.type !== "description"}
-      onPress={() => handleSelect(film)}
-    >
+    <Card>
       {/*title*/}
       <CardHeader className="pb-0 pt-2 px-4 flex-col gap-1 items-start text-left">
         <Skeleton className="rounded-lg w-full" isLoaded={loaded}>
-          <h4 className="font-bold line-clamp-2 h-12 text-primary">
-            {film?.title}
-          </h4>
+          <div className="flex items-center justify-between">
+            <h4 className="font-bold line-clamp-2 text-primary">
+              {film?.title}
+            </h4>
+            <LikeButton id={film?.tmdbId} type="film" />
+          </div>
         </Skeleton>
         <Skeleton className="rounded-lg w-1/3" isLoaded={loaded}>
           <h4>{details?.year}</h4>
@@ -100,17 +102,23 @@ const Film: React.FC<IProps> = ({
       </CardHeader>
 
       {/*poster*/}
-      <CardBody className="overflow-hidden rounded-xl p-0 pt-4">
-        <Skeleton className="rounded-xl" isLoaded={details?.poster && loaded}>
-          <Image
-            alt="Card background"
-            className="object-cover rounded-xl"
-            height={300}
-            src={details?.poster}
-            width={270}
-          />
-        </Skeleton>
-      </CardBody>
+      <Card
+        className="mt-2"
+        isPressable={film?.type !== "description"}
+        onPress={() => handleSelect(film)}
+      >
+        <CardBody className="overflow-hidden rounded-xl p-0">
+          <Skeleton className="rounded-xl" isLoaded={details?.poster && loaded}>
+            <Image
+              alt="Card background"
+              className="object-cover rounded-xl"
+              height={300}
+              src={"https://image.tmdb.org/t/p/w500" + details?.poster}
+              width={270}
+            />
+          </Skeleton>
+        </CardBody>
+      </Card>
     </Card>
   );
 

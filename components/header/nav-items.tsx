@@ -35,23 +35,6 @@ const NavBar = () => {
       </Tabs>
     </NavbarContent>
   );
-  // return (
-  //   <NavbarContent
-  //     className="hidden md:flex basis-full lg:basis-2/3"
-  //     justify="center"
-  //   >
-  //     {siteConfig.navItems.map((item: NavItem) => (
-  //       <NavbarItem key={item.href}>
-  //         <Link
-  //           color={pathname === item.href ? "primary" : "foreground"}
-  //           href={item.href}
-  //         >
-  //           {item.label}
-  //         </Link>
-  //       </NavbarItem>
-  //     ))}
-  //   </NavbarContent>
-  // );
 };
 
 export default NavBar;

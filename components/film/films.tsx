@@ -6,7 +6,8 @@ import { findIndex } from "lodash";
 import FilmCard from "./film";
 
 import { generate, generatePredefined } from "@/actions/recommend";
-import { DFilm } from "@/types/film";
+import { DFilm, SavedFilm } from "@/types/film";
+import { getFilmById } from "@/actions/film";
 
 const Recommendations = (): JSX.Element => {
   // display films
@@ -20,8 +21,21 @@ const Recommendations = (): JSX.Element => {
     (async () => {
       // get predefined films
       const defaults = await generatePredefined();
+      const tmdbFilms = await Promise.all(
+        defaults.map((film: SavedFilm) => getFilmById(film.tmdbId)),
+      );
+      const defaultFilms = defaults.map(
+        (savedFilm: SavedFilm, index: number): DFilm =>
+          ({
+            ...savedFilm,
+            id: savedFilm.tmdbId,
+            plot: tmdbFilms[index].overview,
+            poster: tmdbFilms[index].poster_path,
+            type: "cover",
+          }) as DFilm,
+      );
 
-      setFilms(defaults);
+      setFilms(defaultFilms);
     })();
   }, []);
 
@@ -73,8 +87,8 @@ const Recommendations = (): JSX.Element => {
   };
 
   return (
-    <div className="flex flex-wrap gap-6 justify-center">
-      {films.map((film: DFilm) => (
+    <div className="flex flex-wrap gap-8 justify-center">
+      {films.map((film: DFilm | null) => (
         <FilmCard
           key={`${film.title}-${film.type}`}
           displayDescription={displayDescription}

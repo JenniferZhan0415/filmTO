@@ -1,4 +1,5 @@
 import { z } from "zod";
+import type { films } from "@/db/schemas/film";
 
 export const DisplayType = z.union([
   z.literal("description"),
@@ -19,9 +20,11 @@ export const FilmDetails = Film.merge(
     plot: z.string().describe("Plot of the film").optional(),
     poster: z.string(),
     type: DisplayType,
-  }),
+  })
 );
 
 export type Film = z.infer<typeof Film>;
 
 export type DFilm = z.infer<typeof FilmDetails>;
+
+export type SavedFilm = typeof films.$inferSelect;
