@@ -56,7 +56,7 @@ export default function UserSavedCard({ type }: { type: string }) {
         <Link
           isExternal
           showAnchorIcon
-          href="https://github.com/nextui-org/nextui"
+          href={`http://localhost:3000/${type}`}
           className="capitalize"
         >
           Visit {type} page

@@ -1,7 +1,7 @@
 "use client";
 
 import { subtitle, title } from "@/components/primitives";
-import Films from "@/components/recommendation/films";
+import Films from "@/components/film/films";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 

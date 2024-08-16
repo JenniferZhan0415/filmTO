@@ -2,9 +2,8 @@
 
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Image, Skeleton } from "@nextui-org/react";
-
+import LikeButton from "../../components/like-button";
 import FilmDetails from "./film-details";
-
 import { DFilm } from "@/types/film";
 
 /**
@@ -43,16 +42,16 @@ const Film: React.FC<IProps> = ({
   const description = <FilmDetails film={film} hide={hideDescription} />;
 
   const cover = (
-    <Card
-      isPressable={film?.type !== "description"}
-      onPress={() => handleSelect(film)}
-    >
+    <Card>
       {/*title*/}
       <CardHeader className="pb-0 pt-2 px-4 flex-col gap-1 items-start text-left">
         <Skeleton className="rounded-lg w-full" isLoaded={loaded}>
-          <h4 className="font-bold line-clamp-2 h-12 text-primary">
-            {film?.title}
-          </h4>
+          <div className="flex items-center justify-between">
+            <h4 className="font-bold line-clamp-2 text-primary">
+              {film?.title}
+            </h4>
+            <LikeButton type="film" id={film?.tmdbId} />
+          </div>
         </Skeleton>
         <Skeleton className="rounded-lg w-1/3" isLoaded={loaded}>
           <h4>{film?.year}</h4>
@@ -63,17 +62,23 @@ const Film: React.FC<IProps> = ({
       </CardHeader>
 
       {/*poster*/}
-      <CardBody className="overflow-hidden rounded-xl p-0 pt-4">
-        <Skeleton className="rounded-xl" isLoaded={loaded}>
-          <Image
-            alt="Card background"
-            className="object-cover rounded-xl"
-            height={300}
-            src={film?.poster}
-            width={270}
-          />
-        </Skeleton>
-      </CardBody>
+      <Card
+        className="mt-2"
+        isPressable={film?.type !== "description"}
+        onPress={() => handleSelect(film)}
+      >
+        <CardBody className="overflow-hidden rounded-xl p-0">
+          <Skeleton className="rounded-xl" isLoaded={loaded}>
+            <Image
+              alt="Card background"
+              className="object-cover rounded-xl"
+              height={300}
+              src={film?.poster}
+              width={270}
+            />
+          </Skeleton>
+        </CardBody>
+      </Card>
     </Card>
   );
 

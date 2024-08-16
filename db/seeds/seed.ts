@@ -13,6 +13,9 @@ import { festivals } from "../schemas/festival";
 import Article from "@/types/article";
 import { articles } from "../schemas/article";
 
+import { SavedFilm } from "@/types/film";
+import { films } from "../schemas/film";
+
 const buildConflictUpdateColumns = <
   T extends PgTable | SQLiteTable,
   Q extends keyof T["_"]["columns"],
@@ -105,7 +108,25 @@ const buildConflictUpdateColumns = <
           "image",
         ]),
       });
+    // load films
+    const filmData: SavedFilm[] = JSON.parse(
+      await readFile("./db/seeds/film.json", "utf-8")
+    );
 
+    // insert films
+    await db
+      .insert(films)
+      .values(filmData)
+      .onConflictDoUpdate({
+        target: films.id,
+        set: buildConflictUpdateColumns(films, [
+          "id",
+          "title",
+          "year",
+          "director",
+          "tmdbId",
+        ]),
+      });
     console.info("Database seeded successfully!");
   } catch (error) {
     console.error("Error seeding database:", error);

@@ -4,6 +4,7 @@ import { db } from "@/db";
 import { articles } from "@/db/schemas/article";
 import { cinemas } from "@/db/schemas/cinema";
 import { festivals } from "@/db/schemas/festival";
+import { films } from "@/db/schemas/film";
 import { likes } from "@/db/schemas/like";
 import { and, eq } from "drizzle-orm";
 
@@ -36,6 +37,15 @@ export const like = async (userId: number, type: string, id: number) => {
         })
         .returning();
 
+    case "film":
+      return await db
+        .insert(likes)
+        .values({
+          userId: userId,
+          filmId: id,
+        })
+        .returning();
+
     default:
       break;
   }
@@ -59,6 +69,12 @@ export const unlike = async (userId: number, type: string, id: number) => {
       return await db
         .delete(likes)
         .where(and(eq(likes.userId, userId), eq(likes.articleId, id)))
+        .returning();
+
+    case "film":
+      return await db
+        .delete(likes)
+        .where(and(eq(likes.userId, userId), eq(likes.filmId, id)))
         .returning();
 
     default:
@@ -100,6 +116,14 @@ export const hasLikedItem = async (
 
       break;
 
+    case "film":
+      liked = await db
+        .select()
+        .from(likes)
+        .where(and(eq(likes.userId, userId), eq(likes.filmId, id)))
+        .limit(1);
+
+      break;
     default:
       break;
   }
@@ -126,6 +150,12 @@ export const likedItems = async (userId: number, type: string) => {
         .from(likes)
         .where(eq(likes.userId, userId))
         .leftJoin(articles, eq(likes.articleId, articles.id));
+    case "film":
+      return await db
+        .select()
+        .from(likes)
+        .where(eq(likes.userId, userId))
+        .leftJoin(films, eq(likes.filmId, films.tmdbId));
     default:
       break;
   }

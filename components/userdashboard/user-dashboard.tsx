@@ -63,6 +63,7 @@ export default function UserDashboard() {
         <UserSavedCard type="cinema" />
         <UserSavedCard type="festival" />
         <UserSavedCard type="article" />
+        <UserSavedCard type="film" />
       </div>
     </section>
   );
