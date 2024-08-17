@@ -1,9 +1,14 @@
-import { authOptions } from "@/lib/authOptions";
 import NextAuth from "next-auth/next";
+
+import { authOptions } from "@/lib/auth-options";
 import { getUserByEmail, addUser, updateUser } from "@/actions/user";
 
 const handler = NextAuth({
   ...authOptions,
+  // jwt: {
+  //   // set the jwt expiry to 1 day
+  //   maxAge: 60 * 60 * 24,
+  // },
   callbacks: {
     async signIn({ user }) {
       try {
@@ -12,6 +17,7 @@ const handler = NextAuth({
 
         if (existingUser) {
           await updateUser(user, existingUser.theme);
+
           return true;
         }
 
@@ -21,16 +27,28 @@ const handler = NextAuth({
         return true;
       } catch (error) {
         console.error("Cannot save user to database.");
+
         return false;
       }
     },
 
+    // async jwt({ token, user }) {
+    //   if (user) {
+    //     token.id = user.id;
+    //     token.email = user.email;
+    //   }
+
+    //   return token;
+    // },
+
     async session({ session }) {
       const user = await getUserByEmail(session.user?.email!);
+
       if (session.user) {
         session.user.theme = user.theme;
         session.user.userId = user.id;
       }
+
       return session;
     },
   },

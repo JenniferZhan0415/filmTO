@@ -1,13 +1,15 @@
 "use client";
 import { Card, CardBody } from "@nextui-org/react";
-import LoginInput from "./login-input";
-import { title } from "@/components/primitives";
-import LoginButton from "./login-button";
-import LoginGoogleGithub from "./login-google-github";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useEffect } from "react";
 import { Spinner } from "@nextui-org/react";
+
+import LoginGoogleGithub from "./login-google-github";
+import LoginButton from "./login-button";
+import LoginInput from "./login-input";
+
+import { title } from "@/components/primitives";
 
 export default function Login() {
   const { status } = useSession();
@@ -21,9 +23,18 @@ export default function Login() {
 
   if (status === "loading") {
     return (
-      <Spinner label="Authenticating..." color="primary" labelColor="primary" />
+      <Spinner color="primary" label="Authenticating..." labelColor="primary" />
     );
   }
+
+  /**
+   * Handler for changes on the form input.
+   */
+  const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = event.target;
+
+    if (!value) return;
+  };
 
   return (
     <>
@@ -33,17 +44,19 @@ export default function Login() {
           className="border-none bg-background/60 dark:bg-default-100/50 min-w-80 pb-4 px-4"
           shadow="sm"
         >
-          <CardBody className="flex items-center justify-center w-full">
-            <h1 className={`${title({ color: "blue" })} pb-4`}>
-              Welcome back!
-            </h1>
-            <h4 className="text-default-500 mb-6">Login to your account</h4>
-            <div className="flex flex-col sm:flex-row w-full gap-4 mb-4 border-none sm:border-b-1 sm:border-solid sm:border-lightgray-500">
-              <LoginInput />
-              <LoginGoogleGithub />
-            </div>
+          <CardBody>
+            <form className="flex flex-col items-center justify-center w-full">
+              <h1 className={`${title({ color: "blue" })} pb-4`}>
+                Welcome back!
+              </h1>
+              <h4 className="text-default-500 mb-6">Login to your account</h4>
+              <div className="flex flex-col sm:flex-row w-full gap-4 mb-4 border-none sm:border-b-1 sm:border-solid sm:border-lightgray-500">
+                <LoginInput />
+                <LoginGoogleGithub />
+              </div>
 
-            <LoginButton />
+              <LoginButton />
+            </form>
           </CardBody>
         </Card>
       </section>

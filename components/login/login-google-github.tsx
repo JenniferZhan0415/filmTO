@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Link } from "@nextui-org/react";
 import { signIn } from "next-auth/react";
+
 import { GithubIcon } from "@/components/icons";
 import { GoogleIcon } from "@/components/icons";
 
@@ -26,10 +27,10 @@ export default function LoginGoogleGithub() {
       </Button>
       <Button
         as={Link}
-        onClick={() => signIn("github")}
-        className="w-full  h-14"
+        className="w-full h-14"
         color="primary"
         variant="ghost"
+        onClick={() => signIn("github")}
       >
         Login with Github
       </Button>

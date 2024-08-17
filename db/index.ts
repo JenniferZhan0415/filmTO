@@ -2,11 +2,9 @@ import { drizzle } from "drizzle-orm/node-postgres";
 import { Pool } from "pg";
 import { config } from "dotenv";
 
-import * as schemaCinema from "@/db/schemas/cinema";
-
 config({ path: ".env.local" });
 
-const pool = new Pool({
+export const pool = new Pool({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
   user: process.env.DB_USER,
@@ -14,4 +12,4 @@ const pool = new Pool({
   database: process.env.DB_NAME,
 });
 
-export const db = drizzle(pool, { schema: { ...schemaCinema } });
+export const db = drizzle(pool);
