@@ -1,24 +1,32 @@
 "use client";
 
+import { Button } from "@nextui-org/button";
 import React, { useState } from "react";
+import { TranlateIcon } from "@/components/icons";
 
 interface LanguageToggleProps {
-  englishContent: React.ReactNode;
-  chineseContent: React.ReactNode;
+  english: React.ReactNode;
+  chinese: React.ReactNode;
 }
 
 const LanguageToggle: React.FC<LanguageToggleProps> = ({
-  englishContent,
-  chineseContent,
+  english,
+  chinese,
 }) => {
   const [isEnglish, setIsEnglish] = useState(true);
-
   return (
-    <div>
-      <button onClick={() => setIsEnglish(!isEnglish)}>
-        {isEnglish ? "Switch to Chinese" : "切换到英文"}
-      </button>
-      <div>{isEnglish ? englishContent : chineseContent}</div>
+    <div className="flex flex-row w-full items-start justify-center">
+      <div className="prose prose-headings:text-default-900">
+        {isEnglish ? english : chinese}
+      </div>
+      <Button
+        isIconOnly
+        size="sm"
+        color="primary"
+        onClick={() => setIsEnglish(!isEnglish)}
+      >
+        <TranlateIcon />
+      </Button>
     </div>
   );
 };
