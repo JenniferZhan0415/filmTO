@@ -5,15 +5,15 @@ export default function LoginButton() {
   return (
     <div className="flex w-full justify-between gap-6 items-center">
       <Button
-        href="/"
         as={Link}
         className="w-full"
         color="default"
+        href="/"
         variant="bordered"
       >
         Cancel
       </Button>
-      <Button href="/dashboard" as={Link} className="w-full" color="primary">
+      <Button className="w-full" color="primary" type="submit">
         Log in
       </Button>
     </div>
