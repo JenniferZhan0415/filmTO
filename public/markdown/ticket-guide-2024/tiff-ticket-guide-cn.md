@@ -1,0 +1,70 @@
+# TIFF 2024 购票指南 🎟️
+
+<img width=500 src="tiff.png" />
+
+## 关键日期 🗓️
+
+- 6月
+
+  - 6月12日 Curated 套票预售对TIFF会员开放
+  - 6月19日 Curated 套票预售对Visa卡持有者开放
+  - 6月26日 Curated 套票预售停止
+
+- 8月
+
+  - 8月13日 官方排片表公布
+  - 8月16日 电影节单票对Leader级别会员开售
+  - 8月17日 电影节单票及成套购票（一次性购买10张及以上）对 Champion 级别会员开售
+  - 8月18日 电影节单票及成套购票（一次性购买10张及以上）对 Patron 级别会员开售
+  - 8月19日 10:00am 电影节单票及成套购票（一次性购买10张及以上）对Early Bird Sustainer级别会员开售, 2:00pm 电影节单票及成套购票（一次性购买10张及以上）对普通Sustainer级别会员开售
+  - 8月20日 10:00am 电影节单票及成套购票（一次性购买10张及以上）对 Early Bird Contributor 级别会员开售, 2:00pm 电影节单票及成套购票（一次性购买10张及以上）对普通 Contributor 级别会员开售
+  - 8月21日 电影节单票及成套购票（一次性购买10张及以上）对 Early Bird Individual 及 Industry 级别会员开售
+  - 8月22日 电影节单票及成套购票（一次性购买10张及以上）对普通individual及Industry级别会员开售
+  - 8月23日 电影节Insider预售开始
+  - 8月23日 电影节单票对25岁以下的Free Pass持有者开售
+  - 8月26日 电影节所有电影票对大众开放售卖
+
+- 9月5日-15日 第49届多伦多国际电影节举行
+
+## 票务类型 🎟️
+
+总体分为三类：
+
+- Curated Ticket Packages
+- Individual Tickets
+- Ticket Bundles
+
+第一类：Curated Ticket Packages （类似以前的 TIFF 套票，具体分为 7 种不同的组合，影迷可根据自己的喜好选择适合自己的一种组合。）
+
+I. Buzz List $1730 
+可以选择 5 部对热门的电影
+
+II. Opening Night $135 
+可以观看本届电影节的开幕影片，并选择最好的位置
+
+III. Closing Night $115 
+可以观看本届电影节的闭幕影片，并选择最好的位置
+
+IV. Midnight Madness Premiere Pass $360
+
+可以观看全部公10部午夜惊奇单元（Midnight Madness）的首映场电影
+
+V. In Conversation With...All Access Pass $300
+
+可以参加全部共 4/5 场与名人对话活动（In Conversation With）
+
+VI. Gala Presentations Package $176
+
+可以观看 9月10日-13日 的全景展映单元（Gala Presentations）的世界首映场电影场次
+
+VII. People‘s Choice Award Screening $28
+
+可以观看电影节最后的大奖人民选择奖（People‘s Choice Award）的获奖电影
+
+第二类：Individual Tickets 单票
+
+每场电影的单票将于8月16日根据会员级别对TIFF会员开放售卖，于8月26日对大众开放售卖。
+
+第三类：Ticket Bundles 套票
+
+该组合为一次性购买10张及以上非首映场次的电影票。按这个组合购买会比分开单买10张及以上票节省20%。

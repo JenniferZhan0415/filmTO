@@ -9,7 +9,7 @@ import { siteConfig } from "@/config/site";
 import { NavItem } from "@/types";
 
 const NavBar = () => {
-  const pathname = usePathname();
+  const pathname = usePathname().split("/").slice(0, 2).join("/");
 
   return (
     <NavbarContent
