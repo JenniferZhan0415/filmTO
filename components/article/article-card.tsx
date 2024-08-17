@@ -28,36 +28,41 @@ export default function App() {
   );
   // console.log(screeningCards);
 
-  const articleCardComponent = (articleCard: Article) => (
-    <Card key={articleCard.id} className="col-span-12 sm:col-span-4  h-[300px]">
-      <CardHeader className="absolute z-10 pt-4 flex-col !items-start ">
-        <div className="w-full flex items-center justify-between">
-          <div>
-            <p className="text-tiny text-white/60 uppercase font-bold">
-              {articleCard.subtitle}
-            </p>
-            <Link
-              isExternal
-              href={articleCard.url!}
-              underline="hover"
-              showAnchorIcon
-              className="text-white font-medium text-large mt-1"
-            >
-              {articleCard.title}
-            </Link>
+  const articleCardComponent = (articleCard: Article) => {
+    return (
+      <Card
+        key={articleCard.id}
+        className="col-span-12 sm:col-span-4  h-[300px]"
+      >
+        <CardHeader className="absolute z-10 pt-4 flex-col !items-start ">
+          <div className="w-full flex items-center justify-between">
+            <div>
+              <p className="text-tiny text-white/60 uppercase font-bold">
+                {articleCard.subtitle}
+              </p>
+              <Link
+                isExternal
+                href={articleCard.url!}
+                underline="hover"
+                showAnchorIcon
+                className="text-white font-medium text-large mt-1"
+              >
+                {articleCard.title}
+              </Link>
+            </div>
+            <LikeButton type="article" id={articleCard.id} />
           </div>
-          <LikeButton type="article" id={articleCard.id} />
-        </div>
-      </CardHeader>
-      <Image
-        isZoomed
-        removeWrapper
-        alt="TIFF 2024 Poster"
-        className="z-0 w-full h-full object-cover"
-        src={articleCard.image!}
-      />
-    </Card>
-  );
+        </CardHeader>
+        <Image
+          isZoomed
+          removeWrapper
+          alt="TIFF 2024 Poster"
+          className="z-0 w-full h-full object-cover"
+          src={articleCard.image!}
+        />
+      </Card>
+    );
+  };
 
   const eventCardComponent = (eventCard: Article) => (
     <Card

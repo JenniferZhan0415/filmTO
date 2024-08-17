@@ -7,15 +7,18 @@ import useSWR from "swr";
 import html from "remark-html";
 
 export default function Page({ params }: { params: { article: string } }) {
-  const [content, setContent] = useState("");
+  const [content, setContent] = useState(<></>);
   const { data } = useSWR(
-    `/markdown/ticket-guide-2024/${params.article}.md`,
+    `/markdown/ticket-guide-2024/${params.article}.mdx`,
     fetcher
   );
 
   const fetchMarkdown = async () => {
+    console.log(data);
     const processed = await remark().use(html).process(data);
-    setContent(processed.toString());
+    console.log(processed);
+    // setContent(processed.toString());
+    // setContent(processed);
   };
 
   useEffect(() => {
