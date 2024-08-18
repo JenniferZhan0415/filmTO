@@ -1,5 +1,17 @@
 import { tv } from "tailwind-variants";
 
+export type Color =
+  | "violet"
+  | "yellow"
+  | "dark"
+  | "blue"
+  | "light"
+  | "cyan"
+  | "green"
+  | "pink"
+  | "modern"
+  | "foreground";
+
 export const title = tv({
   base: "tracking-tight inline font-semibold",
   variants: {
