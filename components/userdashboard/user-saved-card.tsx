@@ -11,10 +11,22 @@ import {
 } from "@nextui-org/react";
 
 import { StarIcon } from "@/components/icons";
+import { ArticleIcon } from "@/components/icons";
+import { FilmIcon } from "@/components/icons";
+import { SavedIcon } from "@/components/icons";
 import { likedItems } from "@/actions/like";
 import { useSession } from "next-auth/react";
 
-export default function UserSavedCard({ type }: { type: string }) {
+import { LikeType } from "@/types/like";
+
+const icons = {
+  cinema: <StarIcon className="text-default-500" />,
+  article: <ArticleIcon className="text-default-500" />,
+  film: <FilmIcon className="text-default-500" />,
+  festival: <SavedIcon className="text-default-500" />,
+};
+
+export default function UserSavedCard({ type }: { type: LikeType }) {
   const { data: session, status } = useSession();
   const [items, setItems] = useState<Awaited<ReturnType<typeof likedItems>>>(
     []
@@ -29,24 +41,34 @@ export default function UserSavedCard({ type }: { type: string }) {
     }
   }, [status]);
 
+  // whether user has liked any items in the current type
+  const cardItems = items?.map((item) => {
+    if ("name" in item)
+      return (
+        <li className="mb-2" key={item.name}>
+          {item.name}
+        </li>
+      );
+    else if ("title" in item)
+      return (
+        <li className="mb-2" key={item.title}>
+          {item.title}
+        </li>
+      );
+  });
+
   return (
     <Card className="sm:w-1/3">
       <CardHeader className="flex gap-3">
         <div className="flex flex-row w-full  justify-between">
           <p className="text-md text-primary capitalize">Saved {type}s</p>
-          <StarIcon className="text-default-500" />
+          {icons[type]}
         </div>
       </CardHeader>
       <Divider />
       <CardBody>
-        {items?.some(({ [type]: item }) => item) ? (
-          items.map(({ [type]: item }) =>
-            item ? (
-              <li className="mb-2" key={item.name || item.title}>
-                {item.name || item.title}
-              </li>
-            ) : null
-          )
+        {cardItems && cardItems?.length > 0 ? (
+          cardItems
         ) : (
           <p>{`You can like and save ${type}s by clicking the link below`}</p>
         )}
@@ -56,9 +78,7 @@ export default function UserSavedCard({ type }: { type: string }) {
         <Link
           isExternal
           showAnchorIcon
-
           href={`http://localhost:3000/${type}`}
-
           className="capitalize"
         >
           Visit {type} page

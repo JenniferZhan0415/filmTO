@@ -5,6 +5,13 @@ import { Link } from "@nextui-org/react";
 
 import { NewUserIcon } from "@/components/icons";
 import { FormValues, Field, Value } from "@/types/login";
+import { EmailIcon } from "@/components/icons";
+import { LockIcon } from "@/components/icons";
+
+const icons = {
+  email: <EmailIcon />,
+  password: <LockIcon />,
+};
 
 type LoginProps = {
   handleInputChange: (name: keyof FormValues, value: string) => void;
@@ -33,6 +40,7 @@ const LoginInput: React.FC<LoginProps> = ({ handleInputChange, values }) => {
             value={value.value}
             variant={value.style}
             onValueChange={(newVal) => handleInputChange(name, newVal)}
+            endContent={icons[name]}
           />
         </div>
       ))}
