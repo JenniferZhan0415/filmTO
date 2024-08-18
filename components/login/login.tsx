@@ -45,7 +45,7 @@ export default function Login() {
   const checkInput = useCallback(
     debounce((name: Field, value: string, newValues: FormValues) => {
       const invalid = [name === "email" && !validateEmail(value)].some(
-        identity,
+        identity
       );
 
       setValues({
@@ -53,7 +53,7 @@ export default function Login() {
         [name]: { ...newValues[name], isInvalid: invalid, value: value },
       });
     }, 700),
-    [],
+    []
   );
 
   if (status === "loading") {
