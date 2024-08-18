@@ -26,10 +26,10 @@ export default function LoginGoogleGithub() {
       </Button>
       <Button
         as={Link}
-        onClick={() => signIn("github")}
         className="w-full  h-14"
         color="primary"
         variant="ghost"
+        onClick={() => signIn("github")}
       >
         Login with Github
       </Button>
