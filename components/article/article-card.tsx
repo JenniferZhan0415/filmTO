@@ -1,5 +1,7 @@
 "use client";
 
+import type { Article } from "@/types/article";
+
 import React from "react";
 import {
   Card,
@@ -9,24 +11,24 @@ import {
   Button,
   Link,
 } from "@nextui-org/react";
-import LikeButton from "../../components/like-button";
-import type { Article } from "@/types/article";
 import useSWR from "swr";
+
+import LikeButton from "../../components/like-button";
+
 import fetcher from "@/utils/fetcher";
 
 export default function App() {
   const { data: articles } = useSWR<Article[]>("/api/articles", fetcher);
 
   const articleCards = articles?.filter(
-    (article) => article.type === "article"
+    (article) => article.type === "article",
   );
 
   const eventCards = articles?.filter((article) => article.type === "event");
 
   const screeningCards = articles?.filter(
-    (article) => article.type === "screening"
+    (article) => article.type === "screening",
   );
-  // console.log(screeningCards);
 
   const articleCardComponent = (articleCard: Article) => (
     <Card key={articleCard.id} className="col-span-12 sm:col-span-4  h-[300px]">
@@ -38,15 +40,15 @@ export default function App() {
             </p>
             <Link
               isExternal
-              href={articleCard.url!}
-              underline="hover"
               showAnchorIcon
               className="text-white font-medium text-large mt-1"
+              href={articleCard.url!}
+              underline="hover"
             >
               {articleCard.title}
             </Link>
           </div>
-          <LikeButton type="article" id={articleCard.id} />
+          <LikeButton id={articleCard.id} type="article" />
         </div>
       </CardHeader>
       <Image
@@ -73,15 +75,15 @@ export default function App() {
             </p>
             <Link
               isExternal
-              href={eventCard.url!}
-              underline="hover"
               showAnchorIcon
               className="text-white font-medium text-large mt-1"
+              href={eventCard.url!}
+              underline="hover"
             >
               {eventCard.title}
             </Link>
           </div>
-          <LikeButton type="article" id={eventCard.id} />
+          <LikeButton id={eventCard.id} type="article" />
         </div>
       </CardHeader>
       <Image
@@ -97,11 +99,11 @@ export default function App() {
           <p className="text-black text-tiny">Aug 9 - Aug 17, 2024</p>
         </div>
         <Button
-          onClick={() => window.open("https://mulanfestival.com", "_blank")}
           className="text-tiny"
           color="primary"
           radius="full"
           size="sm"
+          onClick={() => window.open("https://mulanfestival.com", "_blank")}
         >
           Visit Website
         </Button>
@@ -123,15 +125,15 @@ export default function App() {
             </p>
             <Link
               isExternal
-              href={screeningCard.url!}
-              underline="hover"
               showAnchorIcon
               className="text-white font-medium text-large mt-1"
+              href={screeningCard.url!}
+              underline="hover"
             >
               {screeningCard.title}
             </Link>
           </div>
-          <LikeButton type="article" id={screeningCard.id} />
+          <LikeButton id={screeningCard.id} type="article" />
         </div>
       </CardHeader>
       <Image
@@ -149,13 +151,13 @@ export default function App() {
           </div>
         </div>
         <Button
+          color="primary"
           radius="full"
           size="sm"
-          color="primary"
           onClick={() =>
             window.open(
               "https://revuecinema.ca/films/revue-event-july-rhapsody-2002-new-4k-restoration/",
-              "_blank"
+              "_blank",
             )
           }
         >
@@ -170,7 +172,7 @@ export default function App() {
       {articleCards?.map((articleCard) => articleCardComponent(articleCard))}
       {eventCards?.map((eventCard) => eventCardComponent(eventCard))}
       {screeningCards?.map((screeningCard) =>
-        screeningCardComponent(screeningCard)
+        screeningCardComponent(screeningCard),
       )}
     </div>
   );

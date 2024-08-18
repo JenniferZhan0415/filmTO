@@ -3,8 +3,9 @@ import { Card, CardBody } from "@nextui-org/react";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
-import { Spinner } from "@nextui-org/react";
 import { debounce, identity } from "lodash";
+
+import Loading from "../loading";
 
 import LoginGoogleGithub from "./login-google-github";
 import LoginButton from "./login-button";
@@ -56,9 +57,7 @@ export default function Login() {
   );
 
   if (status === "loading") {
-    return (
-      <Spinner color="primary" label="Authenticating..." labelColor="primary" />
-    );
+    return <Loading label="Authenticating..." />;
   }
 
   const signinHandler = async (e: React.FormEvent) => {
