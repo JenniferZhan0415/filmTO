@@ -4,7 +4,7 @@
         "type": "article",
         "title": "Tickets Guide",
         "subtitle": "TIFF 2024",
-        "url": "https://www.tiff.net/about-the-festival",
+        "url": "http://localhost:3000/article/tiff-ticket-guide",
         "image": "/article/tiff24.png"
     },
     {
@@ -12,7 +12,7 @@
         "type": "article",
         "title": "Must See",
         "subtitle": "TIFF 2024",
-        "url": "https://www.tiff.net",
+        "url": "http://localhost:3000/article/must-see",
         "image": "/article/top10.png"
     },
     {
@@ -20,7 +20,7 @@
         "type": "article",
         "title": "Asian Focus",
         "subtitle": "TIFF 2024",
-        "url": "https://www.tiff.net",
+        "url": "http://localhost:3000/article/asian-focus",
         "image": "/article/asianfocus.png"
     },
     {
