@@ -21,13 +21,13 @@ export default function App() {
   }
 
   const articleCards = articles?.filter(
-    (article) => article.type === "article",
+    (article) => article.type === "article"
   );
 
   const eventCards = articles?.filter((article) => article.type === "event");
 
   const screeningCards = articles?.filter(
-    (article) => article.type === "screening",
+    (article) => article.type === "screening"
   );
 
   return (

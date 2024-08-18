@@ -1,7 +1,6 @@
 import React from "react";
 import { Button, Link } from "@nextui-org/react";
 import { signIn } from "next-auth/react";
-
 import { GithubIcon } from "@/components/icons";
 import { GoogleIcon } from "@/components/icons";
 
