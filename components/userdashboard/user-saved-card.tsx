@@ -58,9 +58,9 @@ export default function UserSavedCard({ type }: { type: LikeType }) {
   });
 
   return (
-    <Card className="sm:w-1/3">
+    <Card className="sm:w-1/3 flex-wrap min-w-40">
       <CardHeader className="flex gap-3">
-        <div className="flex flex-row w-full  justify-between">
+        <div className="flex flex-row w-full justify-between">
           <p className="text-md text-primary capitalize">Saved {type}s</p>
           {icons[type]}
         </div>
