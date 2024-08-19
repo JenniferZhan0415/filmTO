@@ -1,22 +1,23 @@
 "use client";
 
-import { subtitle, title } from "@/components/primitives";
-import Films from "@/components/film/films";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
+
+import { title, Color } from "@/components/primitives";
+import Films from "@/components/film/films";
 
 export default function FilmRecommendation() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
+
   return (
     <>
-      <h1 className={`${title({ color: theme })}`}>Film Recommendations</h1>
-      <h2 className="text-default-500">
-        Pick your facorite films from this list of <br />
-        TIFF People&apos;s Choice Awards
-      </h2>
+      <h1 className={`${title({ color: theme as Color })}`}>
+        Film Recommendations
+      </h1>
       <Films />
     </>
   );
