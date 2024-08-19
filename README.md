@@ -97,18 +97,13 @@ The pandemic has further impacted independent cinemas, with many struggling to s
 
 #### Main Stack
 
-`filmTO` is a web app built in [Next.js](https://nextjs.org/docs):
+`filmTO` is a web app built in [Next.js](https://nextjs.org/docs)
 
-- Client:
-  - React with TypeScript (for functionalities)
-  - [NextUI](https://nextui.org/docs/guide/introduction) with [TailwindCSS](https://tailwindcss.com/docs/installation) (for styles)
-
----
-
-- Server:
-  - Node with TypeScript (for server-side code)
-  - MySQL with [Drizzle](https://orm.drizzle.team/docs/get-started-mysql) (for database and ORM)
-  - [LangChain](https://js.langchain.com/v0.1/docs/guides/deployment/nextjs/) (for fetching LLMs)
+- React with [TypeScript](https://www.typescriptlang.org/)
+- [NextUI](https://nextui.org/docs/guide/introduction) with [TailwindCSS](https://tailwindcss.com/docs/installation) (for styles)
+- PostgreSQL with [Drizzle](https://orm.drizzle.team/docs/get-started-mysql) (for database and ORM)
+- For AI capabilities, it's using [Vercel AI SDK](https://sdk.vercel.ai/) to interact with a unified API for various LLM providers, in this project, I'm using Google's [Gemini](https://gemini.google.com/).
+- [NextAuth](https://next-auth.js.org/) allowing users to log in with their social accounts like Google and GitHub.
 
 ### APIs
 
@@ -120,14 +115,15 @@ The pandemic has further impacted independent cinemas, with many struggling to s
 
 - Home page
   - Cinema map
-    - View + comment a Cinema + like(save)
+    - View + like(save)
   - Film festival calendar
-    - View + comment a Festival + like(save) + add to calendar
+    - View + like(save)
   - Film recommendations
-    - search with favorite movies
+    - View + like(save)
   - Film articles
+    - View + like(save)
 - Authentication
-  - Register page
+  - Sign up page
   - Login page
 - User
   - Account dashboard page
