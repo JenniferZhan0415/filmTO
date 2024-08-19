@@ -9,7 +9,7 @@ import LikeButton from "../../components/like-button";
 
 import FilmDetails from "./film-details";
 
-import { DFilm } from "@/types/film";
+import { TMDBFilm } from "@/types/film";
 import { getFilmByTitle } from "@/actions/film";
 
 /**
@@ -20,11 +20,12 @@ import { getFilmByTitle } from "@/actions/film";
  *  more details about the current film
  */
 interface IProps {
-  displayDescription: (film: DFilm) => void;
-  film: DFilm;
+  displayDescription: (film: TMDBFilm) => void;
+  film: TMDBFilm;
   hideDescription: () => void;
-  generateRecos: (film: DFilm) => void;
+  generateRecos: (film?: TMDBFilm) => void;
   loaded: boolean;
+  selected: TMDBFilm[];
 }
 
 /**
@@ -37,8 +38,9 @@ const Film: React.FC<IProps> = ({
   hideDescription,
   generateRecos,
   loaded,
+  selected,
 }): JSX.Element => {
-  const [details, setDetails] = useState<DFilm | null>(null);
+  const [details, setDetails] = useState<TMDBFilm | null>(null);
 
   useEffect(() => {
     details ||
@@ -67,7 +69,7 @@ const Film: React.FC<IProps> = ({
       })();
   }, []);
 
-  const handleSelect = (selected: IFilm | null) => {
+  const handleSelect = (selected: TMDBFilm | null) => {
     if (selected) {
       displayDescription({ ...selected, type: "description" });
     }
@@ -78,6 +80,7 @@ const Film: React.FC<IProps> = ({
       film={details}
       generate={generateRecos}
       hide={hideDescription}
+      selected={selected}
     />
   );
 
@@ -88,9 +91,11 @@ const Film: React.FC<IProps> = ({
         <Skeleton className="rounded-lg w-full" isLoaded={loaded}>
           <div className="flex items-center justify-between">
             <h4 className="font-bold line-clamp-2 text-primary">
-              {film?.title}
+              {film.title}
             </h4>
-            <LikeButton id={film?.tmdbId} type="film" />
+            {"tmdbId" in film && (
+              <LikeButton id={Number(film.tmdbId)} type="film" />
+            )}
           </div>
         </Skeleton>
         <Skeleton className="rounded-lg w-1/3" isLoaded={loaded}>
@@ -108,7 +113,10 @@ const Film: React.FC<IProps> = ({
         onPress={() => handleSelect(film)}
       >
         <CardBody className="overflow-hidden rounded-xl p-0">
-          <Skeleton className="rounded-xl" isLoaded={details?.poster && loaded}>
+          <Skeleton
+            className="rounded-xl"
+            isLoaded={!!details?.poster && loaded}
+          >
             <Image
               alt="Card background"
               className="object-cover rounded-xl"

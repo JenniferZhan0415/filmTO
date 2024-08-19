@@ -1,36 +1,38 @@
 import { readFile } from "fs/promises";
+
 import { SQL, getTableColumns, sql } from "drizzle-orm";
 import { PgTable } from "drizzle-orm/pg-core";
 import { SQLiteTable } from "drizzle-orm/sqlite-core";
 
-import { db } from "..";
+import { db, pool } from "..";
 import { cinemas } from "../schemas/cinema";
-import { Cinema } from "@/types/cinema";
-
-import Festival from "@/types/festival";
 import { festivals } from "../schemas/festival";
-
-import Article from "@/types/article";
 import { articles } from "../schemas/article";
-
-import { SavedFilm } from "@/types/film";
 import { films } from "../schemas/film";
+
+import { Cinema } from "@/types/cinema";
+import Festival from "@/types/festival";
+import Article from "@/types/article";
+import { SavedFilm } from "@/types/film";
 
 const buildConflictUpdateColumns = <
   T extends PgTable | SQLiteTable,
   Q extends keyof T["_"]["columns"],
 >(
   table: T,
-  columns: Q[]
+  columns: Q[],
 ) => {
   const cls = getTableColumns(table);
+
   return columns.reduce(
     (acc, column) => {
       const colName = cls[column].name;
+
       acc[column] = sql.raw(`excluded.${colName}`);
+
       return acc;
     },
-    {} as Record<Q, SQL>
+    {} as Record<Q, SQL>,
   );
 };
 
@@ -43,7 +45,7 @@ const buildConflictUpdateColumns = <
   try {
     // load cinemas
     const cinemaData: Cinema[] = JSON.parse(
-      await readFile("./db/seeds/cinema.json", "utf-8")
+      await readFile("./db/seeds/cinema.json", "utf-8"),
     );
 
     // insert cinemas
@@ -67,7 +69,7 @@ const buildConflictUpdateColumns = <
 
     // load festivals
     const festivalData: Festival[] = JSON.parse(
-      await readFile("./db/seeds/festival.json", "utf-8")
+      await readFile("./db/seeds/festival.json", "utf-8"),
     );
 
     // insert festivals
@@ -90,7 +92,7 @@ const buildConflictUpdateColumns = <
 
     // load articles
     const articleData: Article[] = JSON.parse(
-      await readFile("./db/seeds/article.json", "utf-8")
+      await readFile("./db/seeds/article.json", "utf-8"),
     );
 
     // insert articles
@@ -110,7 +112,7 @@ const buildConflictUpdateColumns = <
       });
     // load films
     const filmData: SavedFilm[] = JSON.parse(
-      await readFile("./db/seeds/film.json", "utf-8")
+      await readFile("./db/seeds/film.json", "utf-8"),
     );
 
     // insert films
@@ -130,5 +132,7 @@ const buildConflictUpdateColumns = <
     console.info("Database seeded successfully!");
   } catch (error) {
     console.error("Error seeding database:", error);
+  } finally {
+    await pool.end();
   }
 })(); // run the seed script
