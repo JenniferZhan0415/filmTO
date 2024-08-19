@@ -1,72 +1,72 @@
 [
     {
-        "id": "1",
+        "id": 1056360,
         "title": "American Fiction",
         "year": "2023",
         "director": "Cord Jefferson",
-        "tmdbId": "1056360"
+        "isPredefined": true
     },
     {
-        "id": "2",
+        "id": 804095,
         "title": "The Fabelmans",
         "year": "2022",
         "director": "Steven Spielberg",
-        "tmdbId": "804095"
+        "isPredefined": true
     },
     {
-        "id": "3",
+        "id": 777270,
         "title": "Belfast",
         "year": "2021",
         "director": "Kenneth Branagh",
-        "tmdbId": "777270"
+        "isPredefined": true
     },
     {
-        "id": "4",
+        "id": 581734,
         "title": "Nomadland",
         "year": "2020",
         "director": "Chloé Zhao",
-        "tmdbId": "581734"
+        "isPredefined": true
     },
     {
-        "id": "5",
+        "id": 515001,
         "title": "Jojo Rabbit",
         "year": "2019",
         "director": "Taika Waititi",
-        "tmdbId": "515001"
+        "isPredefined": true
     },
     {
-        "id": "6",
+        "id": 490132,
         "title": "Green Book",
         "year": "2018",
         "director": "Peter Farrelly",
-        "tmdbId": "490132"
+        "isPredefined": true
     },
     {
-        "id": "7",
+        "id": 359940,
         "title": "Three Billboards Outside Ebbing, Missouri",
         "year": "2017",
         "director": "Martin McDonagh",
-        "tmdbId": "359940"
+        "isPredefined": true
     },
     {
-        "id": "8",
+        "id": 313369,
         "title": "La La Land",
         "year": "2016",
         "director": "Damien Chazelle",
-        "tmdbId": "313369"
+        "isPredefined": true
     },
     {
-        "id": "9",
+        "id": 264644,
         "title": "Room",
         "year": "2015",
         "director": "Lenny Abrahamson",
-        "tmdbId": "264644"
+        "isPredefined": true
     },
     {
-        "id": "10",
+        "id": 205596,
         "title": "The Imitation Game",
         "year": "2014",
         "director": "Morten Tyldum",
-        "tmdbId": "205596"
+        "isPredefined": true
     }
 ]

@@ -44,7 +44,7 @@ export const like = async (userId: number, type: string, id: number) => {
         .insert(likes)
         .values({
           userId: userId,
-          filmId: id.toString(),
+          filmId: id,
         })
         .returning();
 
@@ -76,7 +76,7 @@ export const unlike = async (userId: number, type: string, id: number) => {
     case "film":
       return await db
         .delete(likes)
-        .where(and(eq(likes.userId, userId), eq(likes.filmId, id.toString())))
+        .where(and(eq(likes.userId, userId), eq(likes.filmId, id)))
         .returning();
 
     default:
@@ -123,7 +123,7 @@ export const hasLikedItem = async (
       liked = await db
         .select()
         .from(likes)
-        .where(and(eq(likes.userId, userId), eq(likes.filmId, id.toString())))
+        .where(and(eq(likes.userId, userId), eq(likes.filmId, id)))
         .limit(1);
 
       break;
@@ -169,7 +169,7 @@ export const likedItems = async (userId: number, type: LikeType) => {
         .select()
         .from(likes)
         .where(eq(likes.userId, userId))
-        .rightJoin(films, eq(likes.filmId, films.tmdbId));
+        .rightJoin(films, eq(likes.filmId, films.id));
 
       return likedFilms.map(({ film }) => film);
 

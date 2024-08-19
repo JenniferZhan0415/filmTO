@@ -1,4 +1,4 @@
-import { integer, pgTable, serial, varchar } from "drizzle-orm/pg-core";
+import { integer, pgTable, serial } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
 import { festivals } from "./festival";
@@ -17,7 +17,7 @@ export const likes = pgTable("like", {
 
   articleId: integer("article_id").references(() => articles.id),
 
-  filmId: varchar("film_id", { length: 256 }).references(() => films.tmdbId),
+  filmId: integer("film_id").references(() => films.id),
 
   userId: integer("user_id").references(() => users.id),
 });
@@ -27,14 +27,17 @@ export const likeRelations = relations(likes, ({ one }) => ({
     fields: [likes.userId],
     references: [users.id],
   }),
+
   festival: one(festivals, {
     fields: [likes.festivalId],
     references: [festivals.id],
   }),
+
   article: one(articles, {
     fields: [likes.articleId],
     references: [articles.id],
   }),
+
   cinema: one(cinemas, {
     fields: [likes.cinemaId],
     references: [cinemas.id],
@@ -42,6 +45,6 @@ export const likeRelations = relations(likes, ({ one }) => ({
 
   film: one(films, {
     fields: [likes.filmId],
-    references: [films.tmdbId],
+    references: [films.id],
   }),
 }));
