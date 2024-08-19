@@ -24,28 +24,29 @@ export default function UserDashboard() {
 
   useEffect(() => {
     // redirect for invalid session
-    if (status === "unauthenticated" || !session?.user?.email) {
+    if (status === "unauthenticated") {
       router.push("/login");
 
       return;
+    } else if (status === "authenticated") {
+      // fetch user theme from db
+      (async () => {
+        const user = await getUserByEmail(session.user?.email!);
+
+        if (!user) {
+          router.push("/login");
+
+          return;
+        }
+
+        // update theme
+        if (!user.theme) {
+          user.theme = "default";
+        }
+        setGlobalTheme(user.theme);
+        setTheme(user.theme);
+      })();
     }
-    // fetch user theme from db
-    (async () => {
-      const user = await getUserByEmail(session.user?.email!);
-
-      if (!user) {
-        router.push("/login");
-
-        return;
-      }
-
-      // update theme
-      if (!user.theme) {
-        user.theme = "default";
-      }
-      setGlobalTheme(user.theme);
-      setTheme(user.theme);
-    })();
   }, [status]);
 
   // user toggled the theme button
@@ -84,4 +85,6 @@ export default function UserDashboard() {
       </section>
     );
   }
+
+  return <div>Sorry, You are not authenticated.</div>;
 }

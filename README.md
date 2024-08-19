@@ -31,7 +31,7 @@ docker compose up -d
 docker compose down -v
 ```
 
-Run migrations and seedings:
+Run database migrations and seedings:
 
 ```bash
 npm run db:generate
@@ -42,6 +42,10 @@ npm run db:seed
 4. Start the project
 
 ```bash
+npm run build
+npm run start
+
+# to run in watch mode (which will impact the overall performance)
 npm run dev
 ```
 

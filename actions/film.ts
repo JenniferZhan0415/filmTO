@@ -1,6 +1,7 @@
 "use server";
 
 import { cache } from "react";
+
 import { SavedFilm } from "@/types/film";
 import { films } from "@/db/schemas/film";
 import { db } from "@/db";
@@ -45,6 +46,6 @@ export const getAllFilms = cache(async () => {
     (film: SavedFilm) => ({
       ...film,
       key: film.title,
-    })
+    }),
   );
 });

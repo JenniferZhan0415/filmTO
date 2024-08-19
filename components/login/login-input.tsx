@@ -2,6 +2,7 @@
 import React from "react";
 import { Input } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
+
 import { NewUserIcon } from "@/components/icons";
 import { FormValues, Field, Value } from "@/types/login";
 import { EmailIcon } from "@/components/icons";
@@ -33,13 +34,13 @@ const LoginInput: React.FC<LoginProps> = ({ handleInputChange, values }) => {
         <div key={name} className="flex w-full flex-wrap md:flex-nowrap mb-4">
           <Input
             isRequired
+            endContent={icons[name]}
             isInvalid={value.isInvalid}
             label={name}
             type={value.name}
             value={value.value}
             variant={value.style}
             onValueChange={(newVal) => handleInputChange(name, newVal)}
-            endContent={icons[name]}
           />
         </div>
       ))}

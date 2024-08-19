@@ -28,7 +28,6 @@ export const Navbar = () => {
 
   useEffect(() => {
     if (status === "authenticated") {
-      console.log("in authenticated");
       // fetch user avatar
       setAvatar(session?.user?.image!);
     }
@@ -62,7 +61,8 @@ export const Navbar = () => {
               avatarProps={{
                 src: avatar,
               }}
-              className="cursor-pointer"
+              className="cursor-pointer text-primary font-semibold"
+              name={session?.user?.name}
               onClick={() => router.push("/login")}
             />
           ) : (
@@ -82,7 +82,8 @@ export const Navbar = () => {
             avatarProps={{
               src: avatar,
             }}
-            className="cursor-pointer"
+            className="cursor-pointer text-primary font-semibold"
+            name={session?.user?.name}
             onClick={() => router.push("/login")}
           />
         ) : (

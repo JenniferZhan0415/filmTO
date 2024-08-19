@@ -2,6 +2,7 @@
 
 import { Button } from "@nextui-org/button";
 import React, { useState } from "react";
+
 import { TranlateIcon } from "@/components/icons";
 
 interface LanguageToggleProps {
@@ -14,6 +15,7 @@ const LanguageToggle: React.FC<LanguageToggleProps> = ({
   chinese,
 }) => {
   const [isEnglish, setIsEnglish] = useState(true);
+
   return (
     <div className="flex flex-row w-full items-start justify-center">
       <div className="prose prose-headings:text-default-900">
@@ -21,8 +23,8 @@ const LanguageToggle: React.FC<LanguageToggleProps> = ({
       </div>
       <Button
         isIconOnly
-        size="sm"
         color="primary"
+        size="sm"
         onClick={() => setIsEnglish(!isEnglish)}
       >
         <TranlateIcon />

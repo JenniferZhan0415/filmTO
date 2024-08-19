@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Input } from "@nextui-org/react";
+
 import { Value, FormValues, Field } from "@/types/signup";
 import { EmailIcon } from "@/components/icons";
 import { LockIcon } from "@/components/icons";
@@ -30,13 +31,13 @@ const SignUpInput: React.FC<SignUpProps> = ({ handleInputChange, values }) => {
         >
           <Input
             isRequired
+            endContent={icons[name]}
             isInvalid={value.isInvalid}
             label={value.name}
             type={value.type}
             value={value.value}
             variant={value.style}
             onValueChange={(newVal) => handleInputChange(name, newVal)}
-            endContent={icons[name]}
           />
         </div>
       ))}

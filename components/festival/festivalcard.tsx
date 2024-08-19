@@ -2,8 +2,11 @@
 
 import React from "react";
 import { Card, CardBody, CardFooter, Link } from "@nextui-org/react";
-import FestivalImage from "./festival-image";
+
 import LikeButton from "../../components/like-button";
+
+import FestivalImage from "./festival-image";
+
 import Festival from "@/types/festival";
 
 interface FestivalCardProps {
@@ -14,24 +17,20 @@ export default function FestivalCard({ festivals }: FestivalCardProps) {
   return (
     <div className="flex flex-wrap gap-10 justify-center w-full">
       {festivals?.map((item: Festival) => (
-        <Card
-          shadow="sm"
-          key={item.id}
-          onPress={() => console.log("item pressed")}
-        >
+        <Card key={item.id} shadow="sm">
           <CardBody className="overflow-visible p-0 max-w-60 min-h-64">
             <FestivalImage image={item.image!} />
           </CardBody>
           <CardFooter className="text-small justify-between ">
             <Link
               isExternal
+              className="max-w-36 text-medium font-medium"
               href={item.website!}
               underline="hover"
-              className="max-w-36 text-medium font-medium"
             >
               {item.name}
             </Link>
-            <LikeButton type="festival" id={item.id} />
+            <LikeButton id={item.id} type="festival" />
           </CardFooter>
         </Card>
       ))}

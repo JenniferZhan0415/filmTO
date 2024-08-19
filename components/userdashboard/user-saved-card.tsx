@@ -9,13 +9,13 @@ import {
   Divider,
   Link,
 } from "@nextui-org/react";
+import { useSession } from "next-auth/react";
 
 import { StarIcon } from "@/components/icons";
 import { ArticleIcon } from "@/components/icons";
 import { FilmIcon } from "@/components/icons";
 import { SavedIcon } from "@/components/icons";
 import { likedItems } from "@/actions/like";
-import { useSession } from "next-auth/react";
 import { LikeType } from "@/types/like";
 
 const icons = {
@@ -28,13 +28,14 @@ const icons = {
 export default function UserSavedCard({ type }: { type: LikeType }) {
   const { data: session, status } = useSession();
   const [items, setItems] = useState<Awaited<ReturnType<typeof likedItems>>>(
-    []
+    [],
   );
 
   useEffect(() => {
     if (status === "authenticated") {
       (async () => {
         const likes = await likedItems(session!.user!.userId, type);
+
         setItems(likes);
       })();
     }
@@ -44,13 +45,13 @@ export default function UserSavedCard({ type }: { type: LikeType }) {
   const cardItems = items?.map((item) => {
     if ("name" in item)
       return (
-        <li className="mb-2" key={item.name}>
+        <li key={item.name} className="mb-2">
           {item.name}
         </li>
       );
     else if ("title" in item)
       return (
-        <li className="mb-2" key={item.title}>
+        <li key={item.title} className="mb-2">
           {item.title}
         </li>
       );
@@ -77,8 +78,8 @@ export default function UserSavedCard({ type }: { type: LikeType }) {
         <Link
           isExternal
           showAnchorIcon
-          href={`http://localhost:3000/${type}`}
           className="capitalize"
+          href={`http://localhost:3000/${type}`}
         >
           Visit {type} page
         </Link>

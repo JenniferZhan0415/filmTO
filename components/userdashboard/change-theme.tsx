@@ -1,16 +1,18 @@
 "use client";
-import { updateUser } from "@/actions/user";
 import React from "react";
 import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Tooltip, Button } from "@nextui-org/react";
 import { useSession } from "next-auth/react";
+
+import { updateUser } from "@/actions/user";
 type Color = "default" | "warning" | "danger";
 
 export default function ChangeTheme() {
   const { setTheme } = useTheme();
   const { data: session } = useSession();
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
@@ -34,10 +36,14 @@ export default function ChangeTheme() {
 
   const handleChangeTheme = async (theme: string) => {
     try {
+      if (!session?.user) return;
       setTheme(theme);
-      await updateUser(session!.user, theme);
+      await updateUser(
+        { ...session.user, id: session.user.userId.toString() },
+        theme,
+      );
     } catch (error) {
-      console.error("Failed to update theme:", error);
+      return;
     }
   };
 
@@ -47,15 +53,15 @@ export default function ChangeTheme() {
         return (
           <Tooltip
             key={color.name}
+            className="capitalize"
             color={color.color}
             content={color.name}
-            className="capitalize"
           >
             <Button
-              onClick={() => handleChangeTheme(color.theme)}
-              variant="flat"
-              color={color.color}
               className="capitalize "
+              color={color.color}
+              variant="flat"
+              onClick={() => handleChangeTheme(color.theme)}
             >
               {color.name}
             </Button>

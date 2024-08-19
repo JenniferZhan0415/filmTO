@@ -30,11 +30,9 @@ export async function GET() {
 
     return NextResponse.json(sortedMonths, { status: 200 });
   } catch (error) {
-    console.error(error);
-
     return NextResponse.json(
       { error: "Cannot fetch months." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
