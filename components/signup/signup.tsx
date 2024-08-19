@@ -15,6 +15,9 @@ import { signup } from "@/actions/user";
 export default function SignUp() {
   const router = useRouter();
   const [values, setValues] = useState<FormValues>(defaultForm);
+  const disableSignUp = Object.values(values).some(
+    (value) => value.value === "" || value.isInvalid
+  );
 
   /**
    * Handler for changes on the form input.
@@ -44,7 +47,7 @@ export default function SignUp() {
         [name]: { ...newValues[name], isInvalid: invalid, value: value },
       });
     }, 700),
-    [],
+    []
   );
 
   const signupHandler = async (e: React.FormEvent) => {
@@ -73,7 +76,7 @@ export default function SignUp() {
               handleInputChange={handleInputChange}
               values={values}
             />
-            <SignUpButton />
+            <SignUpButton isDisabled={disableSignUp} />
           </form>
         </CardBody>
       </Card>

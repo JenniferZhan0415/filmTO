@@ -36,7 +36,10 @@ const LoginInput: React.FC<LoginProps> = ({ handleInputChange, values }) => {
             isRequired
             endContent={icons[name]}
             isInvalid={value.isInvalid}
-            label={name}
+            errorMessage={
+              value.errorMessage || `Please enter a valid ${value.type}`
+            }
+            label={value.name}
             type={value.name}
             value={value.value}
             variant={value.style}

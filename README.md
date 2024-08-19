@@ -6,13 +6,19 @@
 
 ## How to start
 
-1. Install dependencies
+1. cd into filmTO folder
+
+```bash
+cd filmTO
+```
+
+2. Install dependencies
 
 ```bash
 npm i
 ```
 
-2. Populate env variables
+3. Populate env variables
 
 ```bash
 cp .env.example .env.local
@@ -20,7 +26,7 @@ cp .env.example .env.local
 # update .env.local accordingly
 ```
 
-3. Initialize database
+4. Initialize database
 
 Run PostgreSQL server locally:
 
@@ -39,7 +45,7 @@ npm run db:migrate
 npm run db:seed
 ```
 
-4. Start the project
+5. Start the project
 
 ```bash
 npm run build
