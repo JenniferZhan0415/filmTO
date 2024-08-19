@@ -126,7 +126,7 @@ const buildConflictUpdateColumns = <
           "title",
           "year",
           "director",
-          "tmdbId",
+          "isPredefined",
         ]),
       });
     console.info("Database seeded successfully!");

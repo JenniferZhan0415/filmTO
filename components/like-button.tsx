@@ -1,5 +1,7 @@
 "use client";
 
+import type { TMDBFilm } from "@/types/film";
+
 import { Button } from "@nextui-org/react";
 import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
@@ -8,8 +10,19 @@ import { useRouter } from "next/navigation";
 import { HeartIcon } from "./icons";
 
 import { hasLikedItem, like, unlike } from "@/actions/like";
+import { saveFilm } from "@/actions/film";
 
-export default function LikeButton({ type, id }: { type: string; id: number }) {
+type Entity = TMDBFilm;
+
+export default function LikeButton({
+  type,
+  id,
+  entity,
+}: {
+  type: string;
+  id: number;
+  entity?: Entity;
+}) {
   const router = useRouter();
   const [liked, setLiked] = React.useState(false);
   const { data: session, status } = useSession();
@@ -24,12 +37,15 @@ export default function LikeButton({ type, id }: { type: string; id: number }) {
     }
   }, [status]);
 
-  const handleLike = () => {
+  const handleLike = async () => {
     if (status === "unauthenticated") {
       router.push("/login");
 
       return;
     } else if (status === "authenticated") {
+      if (type === "film" && entity) {
+        await saveFilm(entity as TMDBFilm);
+      }
       if (!liked) like(session?.user!.userId, type, id);
       else unlike(session?.user!.userId, type, id);
     }
