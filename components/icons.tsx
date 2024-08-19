@@ -215,9 +215,7 @@ export const ArrowLeft: React.FC<IconSvgProps> = (props) => {
   );
 };
 
-export const GoogleIcon: React.FC<IconSvgProps> = (props) => {
-  const { width, height } = props;
-
+export const GoogleIcon: React.FC<IconSvgProps> = () => {
   return (
     <svg
       fill="#000000"
@@ -231,9 +229,7 @@ export const GoogleIcon: React.FC<IconSvgProps> = (props) => {
   );
 };
 
-export const TranlateIcon: React.FC<IconSvgProps> = (props) => {
-  const { width, height } = props;
-
+export const TranlateIcon: React.FC<IconSvgProps> = () => {
   return (
     <svg
       className="size-5"
@@ -252,9 +248,7 @@ export const TranlateIcon: React.FC<IconSvgProps> = (props) => {
   );
 };
 
-export const EmailIcon: React.FC<IconSvgProps> = (props) => {
-  const { width, height } = props;
-
+export const EmailIcon: React.FC<IconSvgProps> = () => {
   return (
     <svg
       className="size-6 mb-1"
@@ -273,9 +267,7 @@ export const EmailIcon: React.FC<IconSvgProps> = (props) => {
   );
 };
 
-export const LockIcon: React.FC<IconSvgProps> = (props) => {
-  const { width, height } = props;
-
+export const LockIcon: React.FC<IconSvgProps> = () => {
   return (
     <svg
       className="size-6 mb-1"
@@ -294,9 +286,7 @@ export const LockIcon: React.FC<IconSvgProps> = (props) => {
   );
 };
 
-export const UserIcon: React.FC<IconSvgProps> = (props) => {
-  const { width, height } = props;
-
+export const UserIcon: React.FC<IconSvgProps> = () => {
   return (
     <svg
       className="size-6 mb-1"
@@ -315,9 +305,7 @@ export const UserIcon: React.FC<IconSvgProps> = (props) => {
   );
 };
 
-export const ArticleIcon: React.FC<IconSvgProps> = (props) => {
-  const { width, height } = props;
-
+export const ArticleIcon: React.FC<IconSvgProps> = () => {
   return (
     <svg
       className="size-6"
@@ -336,9 +324,7 @@ export const ArticleIcon: React.FC<IconSvgProps> = (props) => {
   );
 };
 
-export const FilmIcon: React.FC<IconSvgProps> = (props) => {
-  const { width, height } = props;
-
+export const FilmIcon: React.FC<IconSvgProps> = () => {
   return (
     <svg
       className="size-6"
@@ -357,9 +343,7 @@ export const FilmIcon: React.FC<IconSvgProps> = (props) => {
   );
 };
 
-export const SavedIcon: React.FC<IconSvgProps> = (props) => {
-  const { width, height } = props;
-
+export const SavedIcon: React.FC<IconSvgProps> = () => {
   return (
     <svg
       className="size-6"
