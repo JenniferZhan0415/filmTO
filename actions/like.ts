@@ -9,7 +9,7 @@ import { films } from "@/db/schemas/film";
 
 import { likes } from "@/db/schemas/like";
 import { LikeType } from "@/types/like";
-import { and, eq, isNotNull } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 
 export const like = async (userId: number, type: string, id: number) => {
   switch (type) {

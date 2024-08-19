@@ -5,11 +5,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Tooltip, Button } from "@nextui-org/react";
 import { useSession } from "next-auth/react";
-type Color =
-  //   | "success"
-  //   | "primary"
-  //   | "secondary"
-  "default" | "warning" | "danger";
+type Color = "default" | "warning" | "danger";
 
 export default function ChangeTheme() {
   const { setTheme } = useTheme();
@@ -46,7 +42,7 @@ export default function ChangeTheme() {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row justify-end gap-4">
+    <div className="flex flex-col sm:flex-row justify-end gap-4 min-w-40">
       {colors.map((color) => {
         return (
           <Tooltip

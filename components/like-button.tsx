@@ -1,7 +1,7 @@
 "use client";
 
 import { Button } from "@nextui-org/react";
-import { HeartIcon } from "./heart-icon";
+import { HeartIcon } from "./icons";
 import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
 import { hasLikedItem, like, unlike } from "@/actions/like";

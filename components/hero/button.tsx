@@ -17,14 +17,6 @@ export default function JoinUsButton() {
   };
   return (
     <section className="flex flex-row gap-4 w-full">
-      {/* <Button
-        radius="full"
-        className="bg-gradient-to-tr from-pink-500 to-yellow-500 text-white shadow-lg w-full"
-        as={Link}
-        href="/signup"
-      >
-        Sign up today!
-      </Button> */}
       <Button
         radius="full"
         color="primary"

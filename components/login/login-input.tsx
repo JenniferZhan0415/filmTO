@@ -2,7 +2,6 @@
 import React from "react";
 import { Input } from "@nextui-org/react";
 import { Link } from "@nextui-org/react";
-
 import { NewUserIcon } from "@/components/icons";
 import { FormValues, Field, Value } from "@/types/login";
 import { EmailIcon } from "@/components/icons";
