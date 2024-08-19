@@ -36,3 +36,4 @@ next-env.d.ts
 
 # drizzle
 ./db/migrations
+!./db/migrations/.gitkeep

@@ -24,17 +24,16 @@ const Recommendations = (): JSX.Element => {
       // get predefined films
       const defaults = await generatePredefined();
       const tmdbFilms = await Promise.all(
-        defaults.map((film: SavedFilm) => getFilmById(film.tmdbId)),
+        defaults.map((film: SavedFilm) => getFilmById(film.id)),
       );
       const defaultFilms = defaults.map(
         (savedFilm: SavedFilm, index: number): TMDBFilm =>
           ({
             ...savedFilm,
-            id: savedFilm.tmdbId,
             plot: tmdbFilms[index].overview,
             poster: tmdbFilms[index].poster_path,
             genres: tmdbFilms[index].genres.map((genre: any) => genre.name),
-            year: Number(savedFilm.year),
+            year: savedFilm.year,
             type: "cover",
           }) as TMDBFilm,
       );

@@ -1,15 +1,16 @@
 "use client";
 
+import type { TMDBFilm } from "@/types/film";
+
 import { Card, CardBody, CardHeader } from "@nextui-org/card";
 import { Image, Skeleton } from "@nextui-org/react";
 import { useEffect, useState } from "react";
 import { map } from "lodash";
 
-import LikeButton from "../../components/like-button";
+import LikeButton from "../like-button";
 
 import FilmDetails from "./film-details";
 
-import { TMDBFilm } from "@/types/film";
 import { getFilmByTitle } from "@/actions/film";
 
 /**
@@ -58,14 +59,16 @@ const Film: React.FC<IProps> = ({
           poster_path: poster,
         } = res.results[0];
 
-        setDetails({
+        const detail = {
           ...film,
           id,
           title,
           genres: map(genres, "name"),
           plot,
           poster,
-        });
+        } as TMDBFilm;
+
+        setDetails(detail);
       })();
   }, []);
 
@@ -84,6 +87,15 @@ const Film: React.FC<IProps> = ({
     />
   );
 
+  // render button according to the type of films (either film from local db or from tmdb)
+  const likeButton = () => {
+    if (film?.id) {
+      return <LikeButton entity={film} id={film.id} type="film" />;
+    } else if (details?.id) {
+      return <LikeButton entity={details} id={details.id} type="film" />;
+    }
+  };
+
   const cover = (
     <Card>
       {/*title*/}
@@ -93,9 +105,7 @@ const Film: React.FC<IProps> = ({
             <h4 className="font-bold line-clamp-2 text-primary">
               {film.title}
             </h4>
-            {"tmdbId" in film && (
-              <LikeButton id={Number(film.tmdbId)} type="film" />
-            )}
+            {likeButton()}
           </div>
         </Skeleton>
         <Skeleton className="rounded-lg w-1/3" isLoaded={loaded}>
