@@ -50,19 +50,6 @@ export default function Hero() {
             </h2>
           </div>
           <JoinUsButton />
-          {/* <div className="flex w-full items-center justify-center mt-1">
-            <Link
-              href="/"
-              className={buttonStyles({
-                color: "primary",
-                radius: "full",
-                variant: "ghost",
-                fullWidth: true,
-              })}
-            >
-              Join us today!
-            </Link>
-          </div> */}
         </CardBody>
       </Card>
     </section>

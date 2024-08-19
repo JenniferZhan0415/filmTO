@@ -30,8 +30,8 @@ export default function Cinema() {
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
-  const showMap = false;
-  // const showMap = true;
+  // const showMap = false;
+  const showMap = true;
 
   const handleOpenCinemaCard = (key: string) => {
     console.log(cinemas);

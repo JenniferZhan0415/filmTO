@@ -1,8 +1,6 @@
 import type { DFilm } from "@/types/film";
-
 import { Button } from "@nextui-org/button";
 import { Divider } from "@nextui-org/react";
-
 import { ArrowLeft } from "../icons";
 import { subtitle } from "../primitives";
 
@@ -38,10 +36,6 @@ const FilmDetails = ({
       <div className="text-left flex flex-col leading-4 text-sm">
         <DetailHeader title="Plot" />
         <p>{film?.plot || film?.plot}</p>
-        {/*
-            <DetailHeader title="Genres" />
-            <p>{details?.genres?.join(", ")}</p>
-          */}
         {film?.reason && (
           <>
             <DetailHeader title="Why is it recommended" />

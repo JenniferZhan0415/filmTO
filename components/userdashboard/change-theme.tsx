@@ -5,11 +5,7 @@ import { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import { Tooltip, Button } from "@nextui-org/react";
 import { useSession } from "next-auth/react";
-type Color =
-  //   | "success"
-  //   | "primary"
-  //   | "secondary"
-  "default" | "warning" | "danger";
+type Color = "default" | "warning" | "danger";
 
 export default function ChangeTheme() {
   const { setTheme } = useTheme();

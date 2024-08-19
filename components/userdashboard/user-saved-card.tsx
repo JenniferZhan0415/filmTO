@@ -16,7 +16,6 @@ import { FilmIcon } from "@/components/icons";
 import { SavedIcon } from "@/components/icons";
 import { likedItems } from "@/actions/like";
 import { useSession } from "next-auth/react";
-
 import { LikeType } from "@/types/like";
 
 const icons = {

@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { Card, CardBody, CardFooter, Image, Link } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Link } from "@nextui-org/react";
 import FestivalImage from "./festival-image";
 import LikeButton from "../../components/like-button";
 import Festival from "@/types/festival";

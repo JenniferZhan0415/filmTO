@@ -44,7 +44,4 @@ export const siteConfig = {
       href: "/logout",
     },
   ],
-  links: {
-    github: "https://github.com/JenniferZhan0415/filmTO/",
-  },
 };

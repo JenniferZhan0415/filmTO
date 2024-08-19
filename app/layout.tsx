@@ -7,6 +7,7 @@ import { Providers } from "./providers";
 import { siteConfig } from "@/config/site";
 import { fontSans } from "@/config/fonts";
 import { Navbar } from "@/components/header/navbar";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +49,9 @@ export default function RootLayout({
             </main>
             <footer className="w-full flex items-center justify-center py-3">
               <span className="text-default-600 mr-2">Powered by</span>
-              <small className="text-primary">TORONTO FILM LOVERS</small>
+              <Link href="https://github.com/JenniferZhan0415/filmTO">
+                <small className="text-primary">TORONTO FILM LOVERS</small>
+              </Link>
             </footer>
           </div>
         </Providers>
