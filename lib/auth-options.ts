@@ -16,6 +16,10 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET as string,
     }),
     CredentialsProvider({
+      credentials: {
+        email: { label: "Email", type: "text" },
+        password: { label: "Password", type: "password" },
+      },
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) {
           return null;
@@ -33,7 +37,7 @@ export const authOptions: NextAuthOptions = {
           (await verifyPassword(credentials?.password, user.password))
         ) {
           // Any object returned will be saved in `user` property of the JWT
-          return user;
+          return { ...user, id: user.id.toString() };
         } else {
           // If you return null then an error will be displayed advising the user to check their details.
           return null;

@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "@nextui-org/react";
 import useSWR from "swr";
+
 import fetcher from "@/utils/fetcher";
 
 export default function FestivalCalender({
@@ -19,14 +20,14 @@ export default function FestivalCalender({
       <div className="flex gap-2 flex-wrap hover:cursor-pointer items-center justify-center mb-4">
         {months?.map(({ month }: { month: string }) => (
           <Button
+            key={month}
+            color="primary"
+            radius="full"
+            variant={month === selectedMonth ? "flat" : "ghost"}
             onClick={() => {
               handleClick(month);
               setSelectedMonth(month);
             }}
-            radius="full"
-            variant={month === selectedMonth ? "flat" : "ghost"}
-            color="primary"
-            key={month}
           >
             {month}
           </Button>

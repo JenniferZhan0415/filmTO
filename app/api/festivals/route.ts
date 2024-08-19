@@ -1,6 +1,7 @@
 "use server";
 
 import { NextRequest, NextResponse } from "next/server";
+
 import { getFestivalsByMonth } from "@/actions/festival";
 
 /**
@@ -19,11 +20,9 @@ export async function GET(req: NextRequest) {
 
     return NextResponse.json(festivals, { status: 200 });
   } catch (error) {
-    console.error(error);
-
     return NextResponse.json(
       { error: "Cannot fetch festivals." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

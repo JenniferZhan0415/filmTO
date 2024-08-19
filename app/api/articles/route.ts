@@ -15,11 +15,9 @@ export async function GET() {
 
     return NextResponse.json(articles, { status: 200 });
   } catch (error) {
-    console.error(error);
-
     return NextResponse.json(
       { error: "Cannot fetch articles." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

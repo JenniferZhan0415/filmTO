@@ -1,20 +1,22 @@
 "use client";
-import { Card, CardBody } from "@nextui-org/react";
-import { title } from "@/components/primitives";
+import type { Cinema } from "@/types/cinema";
+
 import {
   APIProvider,
   Map,
   AdvancedMarker,
   InfoWindow,
 } from "@vis.gl/react-google-maps";
-import CinemaCard from "./cinema-card";
-import CinemaList from "./cinema-list";
-import FormattedCinema from "@/types/cinema";
-import type { Cinema } from "@/types/cinema";
+import { Card, CardBody } from "@nextui-org/react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-
 import useSWR from "swr";
+
+import CinemaList from "./cinema-list";
+import CinemaCard from "./cinema-card";
+
+import FormattedCinema from "@/types/cinema";
+import { title, Color } from "@/components/primitives";
 import fetcher from "@/utils/fetcher";
 
 export default function Cinema() {
@@ -27,6 +29,7 @@ export default function Cinema() {
   });
 
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => setMounted(true), []);
   if (!mounted) return null;
 
@@ -34,13 +37,11 @@ export default function Cinema() {
   const showMap = true;
 
   const handleOpenCinemaCard = (key: string) => {
-    console.log(cinemas);
     const cinema = cinemas?.find((c: FormattedCinema) => c.key === key);
-    console.log(cinema);
+
     if (!cinema) return;
     setPoint(cinema);
     setOpen(true);
-    console.log(cinema);
   };
 
   return (
@@ -51,7 +52,9 @@ export default function Cinema() {
         shadow="sm"
       >
         <CardBody className="flex items-center justify-center ">
-          <h1 className={`${title({ color: theme })} pb-4`}>Legacy Cinemas</h1>
+          <h1 className={`${title({ color: theme as Color })} pb-4`}>
+            Legacy Cinemas
+          </h1>
           <h4 className="text-default-500 mb-6">
             Click to explore and save the art house cinemas to your dashboard
           </h4>
@@ -68,9 +71,9 @@ export default function Cinema() {
                   >
                     <div style={{ height: "60vh", width: "100%" }}>
                       <Map
-                        zoom={12}
                         center={position}
                         mapId={process.env.NEXT_PUBLIC_GOOGLE_MAP_ID}
+                        zoom={12}
                       >
                         <Markers
                           points={cinemas}
@@ -110,8 +113,8 @@ const Markers = ({ points, setOpen, setPoint }: Props) => {
     <>
       {points?.map((point) => (
         <AdvancedMarker
-          position={point}
           key={point.key}
+          position={point}
           onClick={() => {
             setOpen();
             setPoint(point);

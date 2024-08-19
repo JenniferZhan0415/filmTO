@@ -15,7 +15,7 @@ export const getAllCinemas = cache(async () => {
     (cinema: Cinema) => ({
       ...cinema,
       key: cinema.name,
-    })
+    }),
   );
 });
 

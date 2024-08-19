@@ -3,5 +3,5 @@ import GuideEN from "@/markdown/ticket-guide-2024/tiff-asian-focus-en.mdx";
 import LanguageToggle from "@/components/article/language-toggle";
 
 export default function TiffTicketGuide() {
-  return <LanguageToggle english={<GuideEN />} chinese={<GuideZH />} />;
+  return <LanguageToggle chinese={<GuideZH />} english={<GuideEN />} />;
 }

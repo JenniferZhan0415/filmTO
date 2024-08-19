@@ -2,10 +2,11 @@
 
 import { eq } from "drizzle-orm";
 import bcrypt from "bcrypt";
+import { User as SessionUser } from "next-auth";
 
+import { NewUser, User as DBUser } from "@/types/user";
 import { db } from "@/db";
 import { users } from "@/db/schemas/user";
-import User from "@/types/user";
 
 export const getUserByEmail = async (email: string) => {
   const res = await db
@@ -17,23 +18,30 @@ export const getUserByEmail = async (email: string) => {
   return res?.[0];
 };
 
-export const addUser = async (user: User) => {
-  return await db
-    .insert(users)
-    .values({
-      name: user.name,
-      email: user.email,
-      ...(user.image && { image: user.image }),
-      ...(user.password && { password: user.password }),
-    })
-    .returning();
+export const addUser = async (user: SessionUser, password?: string) => {
+  if (!user.email) {
+    return null;
+  }
+
+  const newUser: NewUser = {
+    name: user.name || "Anonymous",
+    email: user.email,
+    ...(user.image && { image: user.image }),
+    ...(password && { password: password }),
+  };
+
+  return await db.insert(users).values(newUser).returning();
 };
 
-export const updateUser = async (user: User, theme: string | null) => {
+export const updateUser = async (user: SessionUser, theme: string | null) => {
+  if (!user.email) {
+    return null;
+  }
+
   await db
     .update(users)
     .set({
-      name: user.name,
+      name: user.name || "Anonymous",
       image: user.image,
       theme: theme || "default",
     })
@@ -46,7 +54,7 @@ export const signup = async (
   user: string,
   email: string,
   password: string,
-): Promise<User | null> => {
+): Promise<DBUser | null> => {
   // form validation
   if (!user || !email || !password) {
     return null;
@@ -61,14 +69,17 @@ export const signup = async (
 
   const hashedPassword = await hashPassword(password);
 
-  const res = await addUser({
-    name: user,
-    email,
-    password: hashedPassword,
-    theme: "default",
-  } as User);
+  const res = await addUser(
+    {
+      name: user,
+      email,
+    } as SessionUser,
+    hashedPassword,
+  );
 
-  return res[0];
+  if (res) return res[0];
+
+  return null;
 };
 
 export const hashPassword = async (password: string) =>

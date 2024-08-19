@@ -10,6 +10,7 @@ const handler = NextAuth({
     maxAge: 60 * 60 * 24,
   },
   callbacks: {
+    /** User signin */
     async signIn({ user }) {
       try {
         // check if user already exists
@@ -26,12 +27,11 @@ const handler = NextAuth({
 
         return true;
       } catch (error) {
-        console.error("Cannot save user to database.");
-
         return false;
       }
     },
 
+    /** Update JWT token */
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
@@ -41,11 +41,12 @@ const handler = NextAuth({
       return token;
     },
 
+    /** Update session details */
     async session({ session }) {
       const user = await getUserByEmail(session.user?.email!);
 
       if (session.user) {
-        session.user.theme = user.theme;
+        session.user.theme = user.theme || "default";
         session.user.userId = user.id;
       }
 

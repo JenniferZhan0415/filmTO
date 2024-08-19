@@ -1,6 +1,8 @@
 import React from "react";
 import { Card, CardHeader, CardBody, Image, Link } from "@nextui-org/react";
+
 import LikeButton from "../../components/like-button";
+
 import { Cinema } from "@/types/cinema";
 
 export default function CinemaCard({ cinema }: { cinema: Cinema }) {
@@ -10,13 +12,13 @@ export default function CinemaCard({ cinema }: { cinema: Cinema }) {
         <div className="flex flex-row justify-between items-center w-full">
           <Link
             isExternal
+            className="max-w-36 text-large font-medium"
             href={cinema.website!}
             underline="hover"
-            className="max-w-36 text-large font-medium"
           >
             {cinema.name}
           </Link>
-          <LikeButton type="cinema" id={cinema.id} />
+          <LikeButton id={cinema.id} type="cinema" />
         </div>
         <small className="text-default-500 max-w-32 font-medium pb-1">
           Established in: {cinema.established}

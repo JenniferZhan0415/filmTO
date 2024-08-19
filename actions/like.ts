@@ -1,15 +1,14 @@
 "use server";
 
+import { and, eq } from "drizzle-orm";
+
 import { db } from "@/db";
 import { articles } from "@/db/schemas/article";
 import { cinemas } from "@/db/schemas/cinema";
 import { festivals } from "@/db/schemas/festival";
-
 import { films } from "@/db/schemas/film";
-
 import { likes } from "@/db/schemas/like";
 import { LikeType } from "@/types/like";
-import { and, eq } from "drizzle-orm";
 
 export const like = async (userId: number, type: string, id: number) => {
   switch (type) {
@@ -45,7 +44,7 @@ export const like = async (userId: number, type: string, id: number) => {
         .insert(likes)
         .values({
           userId: userId,
-          filmId: id,
+          filmId: id.toString(),
         })
         .returning();
 
@@ -77,7 +76,7 @@ export const unlike = async (userId: number, type: string, id: number) => {
     case "film":
       return await db
         .delete(likes)
-        .where(and(eq(likes.userId, userId), eq(likes.filmId, id)))
+        .where(and(eq(likes.userId, userId), eq(likes.filmId, id.toString())))
         .returning();
 
     default:
@@ -88,9 +87,10 @@ export const unlike = async (userId: number, type: string, id: number) => {
 export const hasLikedItem = async (
   userId: number,
   type: string,
-  id: number
+  id: number,
 ) => {
   let liked = [];
+
   switch (type) {
     case "festival":
       liked = await db
@@ -123,7 +123,7 @@ export const hasLikedItem = async (
       liked = await db
         .select()
         .from(likes)
-        .where(and(eq(likes.userId, userId), eq(likes.filmId, id)))
+        .where(and(eq(likes.userId, userId), eq(likes.filmId, id.toString())))
         .limit(1);
 
       break;
@@ -131,6 +131,7 @@ export const hasLikedItem = async (
     default:
       break;
   }
+
   return liked.length > 0;
 };
 

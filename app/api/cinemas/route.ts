@@ -15,11 +15,9 @@ export async function GET() {
 
     return NextResponse.json(cinemas, { status: 200 });
   } catch (error) {
-    console.error(error);
-
     return NextResponse.json(
       { error: "Cannot fetch cinemas." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
