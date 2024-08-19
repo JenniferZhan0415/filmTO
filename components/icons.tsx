@@ -367,6 +367,7 @@ export const SavedIcon: React.FC<IconSvgProps> = (props) => {
   );
 };
 
+
 export const HeartIcon = ({
   size = 24,
   strokeWidth = 1.5,
@@ -392,3 +393,4 @@ export const HeartIcon = ({
     />
   </svg>
 );
+
