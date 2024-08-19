@@ -3,9 +3,9 @@
 import { Link } from "@nextui-org/link";
 import { NavbarMenuItem } from "@nextui-org/navbar";
 import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 import { NavItem } from "@/types";
-import { signOut } from "next-auth/react";
 
 const linkColor = (label: string) => {
   switch (label) {
@@ -27,11 +27,11 @@ const MenuItem = ({ item }: { item: NavItem }) => {
     return (
       <NavbarMenuItem isActive={pathName === href}>
         <Link
-          onClick={() => signOut({ callbackUrl: "/" })}
           color={linkColor(label)}
           href={href}
           size="lg"
           underline="hover"
+          onClick={() => signOut({ callbackUrl: "/" })}
         >
           Log out
         </Link>

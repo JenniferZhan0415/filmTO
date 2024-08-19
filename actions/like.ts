@@ -1,14 +1,14 @@
 "use server";
 
+import { and, eq } from "drizzle-orm";
+
 import { db } from "@/db";
 import { articles } from "@/db/schemas/article";
 import { cinemas } from "@/db/schemas/cinema";
 import { festivals } from "@/db/schemas/festival";
-
 import { films } from "@/db/schemas/film";
-
 import { likes } from "@/db/schemas/like";
-import { and, eq } from "drizzle-orm";
+import { LikeType } from "@/types/like";
 
 export const like = async (userId: number, type: string, id: number) => {
   switch (type) {
@@ -39,16 +39,14 @@ export const like = async (userId: number, type: string, id: number) => {
         })
         .returning();
 
-
     case "film":
       return await db
         .insert(likes)
         .values({
           userId: userId,
-          filmId: id,
+          filmId: id.toString(),
         })
         .returning();
-
 
     default:
       break;
@@ -75,13 +73,11 @@ export const unlike = async (userId: number, type: string, id: number) => {
         .where(and(eq(likes.userId, userId), eq(likes.articleId, id)))
         .returning();
 
-
     case "film":
       return await db
         .delete(likes)
-        .where(and(eq(likes.userId, userId), eq(likes.filmId, id)))
+        .where(and(eq(likes.userId, userId), eq(likes.filmId, id.toString())))
         .returning();
-
 
     default:
       break;
@@ -91,9 +87,10 @@ export const unlike = async (userId: number, type: string, id: number) => {
 export const hasLikedItem = async (
   userId: number,
   type: string,
-  id: number
+  id: number,
 ) => {
   let liked = [];
+
   switch (type) {
     case "festival":
       liked = await db
@@ -122,12 +119,11 @@ export const hasLikedItem = async (
 
       break;
 
-
     case "film":
       liked = await db
         .select()
         .from(likes)
-        .where(and(eq(likes.userId, userId), eq(likes.filmId, id)))
+        .where(and(eq(likes.userId, userId), eq(likes.filmId, id.toString())))
         .limit(1);
 
       break;
@@ -135,36 +131,47 @@ export const hasLikedItem = async (
     default:
       break;
   }
+
   return liked.length > 0;
 };
 
-export const likedItems = async (userId: number, type: string) => {
+export const likedItems = async (userId: number, type: LikeType) => {
   switch (type) {
     case "festival":
-      return await db
+      const likedFestivals = await db
         .select()
         .from(likes)
         .where(eq(likes.userId, userId))
-        .leftJoin(festivals, eq(likes.festivalId, festivals.id));
+        .rightJoin(festivals, eq(likes.festivalId, festivals.id));
+
+      return likedFestivals.map(({ festival }) => festival);
+
     case "cinema":
-      return await db
+      const likedCinemas = await db
         .select()
         .from(likes)
         .where(eq(likes.userId, userId))
-        .leftJoin(cinemas, eq(likes.cinemaId, cinemas.id));
+        .rightJoin(cinemas, eq(likes.cinemaId, cinemas.id));
+
+      return likedCinemas.map(({ cinema }) => cinema);
+
     case "article":
-      return await db
+      const likedArticles = await db
         .select()
         .from(likes)
         .where(eq(likes.userId, userId))
-        .leftJoin(articles, eq(likes.articleId, articles.id));
+        .rightJoin(articles, eq(likes.articleId, articles.id));
+
+      return likedArticles.map(({ article }) => article);
 
     case "film":
-      return await db
+      const likedFilms = await db
         .select()
         .from(likes)
         .where(eq(likes.userId, userId))
-        .leftJoin(films, eq(likes.filmId, films.tmdbId));
+        .rightJoin(films, eq(likes.filmId, films.tmdbId));
+
+      return likedFilms.map(({ film }) => film);
 
     default:
       break;

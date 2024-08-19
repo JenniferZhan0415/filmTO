@@ -1,11 +1,13 @@
 "use client";
 
 import { Button } from "@nextui-org/react";
-import { HeartIcon } from "./heart-icon";
 import React, { useEffect } from "react";
 import { useSession } from "next-auth/react";
-import { hasLikedItem, like, unlike } from "@/actions/like";
 import { useRouter } from "next/navigation";
+
+import { HeartIcon } from "./icons";
+
+import { hasLikedItem, like, unlike } from "@/actions/like";
 
 export default function LikeButton({ type, id }: { type: string; id: number }) {
   const router = useRouter();
@@ -16,6 +18,7 @@ export default function LikeButton({ type, id }: { type: string; id: number }) {
     if (status === "authenticated") {
       (async () => {
         const likes = await hasLikedItem(session!.user!.userId, type, id);
+
         setLiked(likes);
       })();
     }
@@ -24,6 +27,7 @@ export default function LikeButton({ type, id }: { type: string; id: number }) {
   const handleLike = () => {
     if (status === "unauthenticated") {
       router.push("/login");
+
       return;
     } else if (status === "authenticated") {
       if (!liked) like(session?.user!.userId, type, id);

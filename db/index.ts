@@ -6,7 +6,7 @@ import * as schemaCinema from "@/db/schemas/cinema";
 
 config({ path: ".env.local" });
 
-const pool = new Pool({
+export const pool = new Pool({
   host: process.env.DB_HOST,
   port: Number(process.env.DB_PORT),
   user: process.env.DB_USER,

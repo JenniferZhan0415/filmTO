@@ -2,14 +2,13 @@
 
 import { NavbarContent } from "@nextui-org/navbar";
 import { usePathname } from "next/navigation";
-import Link from "next/link";
 import { Tab, Tabs } from "@nextui-org/tabs";
 
 import { siteConfig } from "@/config/site";
 import { NavItem } from "@/types";
 
 const NavBar = () => {
-  const pathname = usePathname();
+  const pathname = usePathname().split("/").slice(0, 2).join("/");
 
   return (
     <NavbarContent
@@ -23,14 +22,7 @@ const NavBar = () => {
         selectedKey={pathname}
       >
         {siteConfig.navItems.map((item: NavItem) => (
-          <Tab
-            key={item.href}
-            title={
-              <Link key={item.href} href={item.href}>
-                {item.label}
-              </Link>
-            }
-          />
+          <Tab key={item.href} href={item.href} title={item.label} />
         ))}
       </Tabs>
     </NavbarContent>

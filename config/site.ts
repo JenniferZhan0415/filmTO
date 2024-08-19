@@ -36,11 +36,12 @@ export const siteConfig = {
       href: "/login",
     },
     {
+      label: "Sign up",
+      href: "/signup",
+    },
+    {
       label: "Logout",
       href: "/logout",
     },
   ],
-  links: {
-    github: "https://github.com/JenniferZhan0415/filmTO/",
-  },
 };

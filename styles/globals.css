@@ -1,18 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* reset */
-
-:root {
-  --theme-gradient-start: #5ea2ef;
-  --theme-gradient-end: #0072f5;
-}
-
-h1 {
-  color: linear-gradient(
-    to bottom,
-    var(--theme-gradient-start),
-    var(--theme-gradient-end)
-  );
-}

@@ -1,4 +1,4 @@
-import type { DFilm } from "@/types/film";
+import type { TMDBFilm } from "@/types/film";
 
 import { Button } from "@nextui-org/button";
 import { Divider } from "@nextui-org/react";
@@ -14,11 +14,37 @@ const FilmDetails = ({
   film,
   hide,
   generate,
+  selected,
 }: {
-  film: DFilm | null;
+  film: TMDBFilm | null;
+  selected: TMDBFilm[];
   hide: () => void;
-  generate: (film: DFilm) => void;
+  generate: (film?: TMDBFilm) => void;
 }): JSX.Element => {
+  // selection/restart button
+  const detailsButton = (): JSX.Element =>
+    selected.length < 2 ? (
+      <Button
+        className="w-1/2"
+        color="primary"
+        size="md"
+        variant="shadow"
+        onClick={() => film && generate(film)}
+      >
+        Select
+      </Button>
+    ) : (
+      <Button
+        className="w-1/2"
+        color="primary"
+        size="md"
+        variant="flat"
+        onClick={() => film && generate()}
+      >
+        Restart
+      </Button>
+    );
+
   return (
     <div className="relative flex flex-col">
       <Button
@@ -38,10 +64,6 @@ const FilmDetails = ({
       <div className="text-left flex flex-col leading-4 text-sm">
         <DetailHeader title="Plot" />
         <p>{film?.plot || film?.plot}</p>
-        {/*
-            <DetailHeader title="Genres" />
-            <p>{details?.genres?.join(", ")}</p>
-          */}
         {film?.reason && (
           <>
             <DetailHeader title="Why is it recommended" />
@@ -50,17 +72,7 @@ const FilmDetails = ({
         )}
       </div>
 
-      <div className="w-full flex justify-center mt-5">
-        <Button
-          className="w-1/2"
-          color="primary"
-          size="md"
-          variant="shadow"
-          onClick={() => film && generate(film)}
-        >
-          Select
-        </Button>
-      </div>
+      <div className="w-full flex justify-center mt-5">{detailsButton()}</div>
     </div>
   );
 };

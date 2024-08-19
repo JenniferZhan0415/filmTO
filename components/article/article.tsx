@@ -1,15 +1,20 @@
 "use client";
 import { Card, CardBody } from "@nextui-org/react";
-import { title } from "@/components/primitives";
-import ArticleCart from "./article-card";
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
+
+import ArticleCard from "./article-card";
+
+import { title, type Color } from "@/components/primitives";
 
 export default function Article() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
+
   useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
+
+  const titleStyles = mounted ? title({ color: theme as Color }) : title();
+
   return (
     <section className="w-full">
       <Card
@@ -18,13 +23,11 @@ export default function Article() {
         shadow="sm"
       >
         <CardBody className="flex items-center justify-center ">
-          <h1 className={`${title({ color: theme })} pb-4`}>
-            Film Events and Reviews
-          </h1>
+          <h1 className={`${titleStyles} pb-4`}>Film Events and Reviews</h1>
           <h4 className="text-default-500 mb-8">
             Click star to save the article to your dashboard
           </h4>
-          <ArticleCart />
+          <ArticleCard />
         </CardBody>
       </Card>
     </section>

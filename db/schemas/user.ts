@@ -6,6 +6,7 @@ import {
   uniqueIndex,
   varchar,
 } from "drizzle-orm/pg-core";
+
 import { likes } from "./like";
 
 // define the user table
@@ -18,16 +19,18 @@ export const users = pgTable(
 
     email: varchar("email", { length: 256 }).notNull(),
 
+    password: text("password"),
+
     theme: varchar("theme", { length: 256 }).default("default"),
 
-    image: text("image"),
+    image: text("image").default("/logo/icon.png"),
   },
   (users) => {
     return {
       // email must be unique
       emailIndex: uniqueIndex("email_index").on(users.email),
     };
-  }
+  },
 );
 
 export const userRelations = relations(users, ({ many }) => ({
