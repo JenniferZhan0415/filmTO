@@ -33,6 +33,9 @@ const SignUpInput: React.FC<SignUpProps> = ({ handleInputChange, values }) => {
             isRequired
             endContent={icons[name]}
             isInvalid={value.isInvalid}
+            errorMessage={
+              value.errorMessage || `Please enter a valid ${value.type}`
+            }
             label={value.name}
             type={value.type}
             value={value.value}

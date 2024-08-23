@@ -45,7 +45,7 @@ export default function Login() {
   const checkInput = useCallback(
     debounce((name: Field, value: string, newValues: FormValues) => {
       const invalid = [name === "email" && !validateEmail(value)].some(
-        identity,
+        identity
       );
 
       setValues({
@@ -53,7 +53,7 @@ export default function Login() {
         [name]: { ...newValues[name], isInvalid: invalid, value: value },
       });
     }, 700),
-    [],
+    []
   );
 
   if (status === "loading") {
@@ -62,12 +62,24 @@ export default function Login() {
 
   const signinHandler = async (e: React.FormEvent) => {
     e.preventDefault();
-    await signIn("credentials", {
+    const res = await signIn("credentials", {
       redirect: false,
       email: values.email.value,
       password: values.password.value,
     });
-    router.push("/dashboard");
+    if (res?.ok) {
+      router.push("/dashboard");
+      return;
+    }
+    // display error message
+    setValues({
+      ...values,
+      password: {
+        ...values.password,
+        isInvalid: true,
+        errorMessage: "Failed to login",
+      },
+    });
   };
 
   return (

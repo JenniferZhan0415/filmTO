@@ -4,6 +4,7 @@ export type Value = {
   type: string;
   value: string;
   isInvalid: boolean;
+  errorMessage?: string;
 };
 
 export interface FormValues {
