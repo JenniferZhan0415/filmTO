@@ -4,6 +4,11 @@
 
 `filmTO` is an _interactive_ online guide for film enthusiasts 🎦. This app _highlights_ Toronto's independent art cinemas with rich history, _recommends_ multicultural film festivals, and _suggests_ popular movies based on users' interests.
 
+<video controls>
+  <source src="./assets/demoVideo.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
+
 ## How to start
 
 1. cd into filmTO folder
