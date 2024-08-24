@@ -86,19 +86,13 @@ The pandemic has further impacted independent cinemas, with many struggling to s
 
 ### Features
 
-- As a user, I want to be able to **find the closest art house cinema** near my current or any given location.
-
-- As a user, I want to know which **film festivals** are currently happening.
-
-- As a user, I want to know which film festivals are happening each month.
-
-- As a user, I want to see the **latest news** about the cinemas and film festivals.
-
-- As a user, I want to be able to create an account and log in to manage my **liked** film festivals, cinemas and articles.
-
-- As a logged-in user, I want to be able to **like(save)** or unlike a visited cinemas, film festivals or articles.
-
-- As a logged-in user, I want to **get** film suggestions based on my interests.
+- Find the closest art house cinema near the current or any given location.
+- View currently happening film festivals.
+- Check which film festivals are happening each month.
+- Access the latest news about cinemas and film festivals.
+- Create an account and log in to manage liked film festivals, cinemas, and articles.
+- Like (save) or unlike visited cinemas, film festivals, or articles (for logged-in users).
+- Receive film suggestions based on personal interests (for logged-in users).
 
 ## Implementation
 
